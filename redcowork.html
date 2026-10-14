@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="把小红书里想尝试的事，安排进空闲时间。" />
+    <title>做一点 · 收藏夹落地器</title>
+    <style>:root{--ink:#272727;--muted:#999;--line:#eeeeef;--accent:#ff2442;--paper:#fff;--soft:#f7f7f7}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a,input,select,summary{-webkit-tap-highlight-color:transparent}button,summary{cursor:pointer}button{color:inherit}a{color:inherit;text-decoration:none}a:hover{color:var(--accent)}[hidden]{display:none!important}svg{display:block;width:20px;height:20px}button{border:0;background:none}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}input,select,textarea{outline:0}input:focus,select:focus,textarea:focus{border-color:#bbb!important}
+.page-shell{width:min(1600px,100%);margin:auto;padding:0 40px}.site-header{height:88px;display:flex;align-items:center;justify-content:space-between;gap:32px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:750;letter-spacing:-.8px}.brand:hover{color:var(--ink)}.brand-mark{width:34px;height:36px;display:grid;place-items:center;color:white;background:var(--accent);border-radius:11px;transform:rotate(-7deg)}.brand-mark svg{width:25px;height:25px;transform:rotate(7deg)}.search-box{width:350px;display:flex;align-items:center;gap:10px;background:var(--soft);padding:0 17px;height:42px;border-radius:25px;color:#999;margin-left:auto;margin-right:auto}.search-box input{background:none;border:0;min-width:0;width:100%;font-size:14px;color:var(--ink)}.search-box input::placeholder{color:#999}.search-box svg{flex:none;width:19px;height:19px}.button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 20px;border-radius:24px;font-size:14px;font-weight:600;transition:background .18s}.button-dark{background:var(--soft)}.button-dark:hover{background:#eee}.button-coral{background:var(--accent);color:#fff}.button-coral:hover{background:#eb1537}.button-quiet{background:#f4f4f4}.text-button{font-size:13px;color:var(--accent);padding:0}.icon-button{width:30px;height:30px;border-radius:50%;font-size:24px;color:#777;display:grid;place-items:center}.icon-button:hover{background:#f3f3f3}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 304px;gap:32px;align-items:start;padding:32px 0 64px}.collection-column{min-width:0}.section-heading,.plan-heading{height:40px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.section-heading h1,.plan-heading h2{font-size:24px;font-weight:650;letter-spacing:-.7px;margin:0;line-height:32px}.count-pill{font-size:16px;font-weight:400;color:#aaa;vertical-align:middle;letter-spacing:0;margin-left:8px}.view-filters{display:flex;align-items:center;gap:22px}.filter{padding:5px 0;font-size:13px;color:#999;white-space:nowrap}.filter.active{color:#333;font-weight:600}.filter span{font-size:11px;margin-left:2px}.filter-bar{display:flex;align-items:center;gap:8px;height:36px;margin-bottom:24px;overflow-x:auto}.category-filter{white-space:nowrap;padding:8px 17px;border-radius:20px;font-size:14px;color:#777;line-height:20px}.category-filter.active{background:#f4f4f4;color:#222;font-weight:600}.category-filter:hover{background:#f7f7f7}.collection-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 20px;align-items:start}.save-card{min-width:0}.cover-wrap{position:relative;aspect-ratio:3/4;border-radius:16px;isolation:isolate;background:#f6f6f6;overflow:hidden}.cover-link{display:block;width:100%;height:100%}.note-cover{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}.cover-link:hover .note-cover{transform:scale(1.025)}.cover-select{position:absolute;top:12px;left:12px;width:28px;height:28px;border:1.5px solid #fff;box-shadow:0 1px 4px #0002;border-radius:50%;display:grid;place-items:center;background:#0003;backdrop-filter:blur(8px);color:#fff;transition:background .15s}.cover-select svg{width:17px;height:17px;stroke-width:2.2}.selected .cover-select{background:var(--accent);border-color:var(--accent)}.cover-select:hover{background:#ff2442cc}.video-badge{position:absolute;right:12px;top:12px;background:#0005;color:#fff;border-radius:50%;width:25px;height:25px;display:grid;place-items:center;pointer-events:none}.video-badge svg{width:18px;height:18px}.duration-badge{position:absolute;bottom:11px;right:11px;background:#0005;color:white;padding:4px 8px;border-radius:6px;font-size:11px;line-height:16px;backdrop-filter:blur(8px);pointer-events:none}.card-caption{padding:10px 4px 0}.save-card h3{font-size:14px;font-weight:550;line-height:1.55;margin:0 0 9px;min-height:44px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.author-row{display:flex;align-items:center;justify-content:space-between;gap:8px;height:25px}.author{display:flex;align-items:center;gap:7px;min-width:0;font-size:12px;color:#888}.author img,.avatar-placeholder{width:23px;height:23px;border-radius:50%;object-fit:cover;flex:none}.author>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.avatar-placeholder{display:grid;place-items:center;background:#eee;font-size:11px}.card-menu{position:relative;flex:none}.card-menu>summary{list-style:none;color:#aaa;padding:3px;border-radius:50%}.card-menu>summary::-webkit-details-marker{display:none}.card-menu>summary:hover{background:#f4f4f4;color:#444}.menu-popover{position:absolute;right:0;top:31px;padding:5px;background:white;box-shadow:0 4px 24px #0002;border:1px solid #eee;border-radius:10px;width:110px;z-index:5}.menu-popover button{display:block;width:100%;padding:10px;text-align:left;font-size:12px;border-radius:5px}.menu-popover button:hover{background:#f6f6f6}.menu-popover button:last-child{color:#d94758}.unready-tag{font-size:11px;color:#b2784f;margin-top:8px;padding:0}.cover-placeholder{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#f2f1ed;color:#b4aea4}.cover-placeholder svg{width:40px;height:40px;stroke-width:1}.cover-placeholder span{font-size:14px}.empty-list{grid-column:1/-1;padding:100px 0;text-align:center;color:#aaa;font-size:14px}
+.plan-column{border-left:1px solid var(--line);padding-left:28px;min-width:0;position:sticky;top:24px}.plan-heading{margin-bottom:24px}.plan-heading h2{font-size:22px}.export-link{font-size:12px;color:#888;padding:4px 0;display:flex;align-items:center;gap:5px}.export-link:hover{color:var(--accent)}.field{display:flex;flex-direction:column;gap:8px;min-width:0}.field>span{font-size:12px;color:#777}.field b{color:var(--accent);font-weight:400}.field input,.field select,.paste-box textarea{width:100%;height:40px;padding:0 11px;background:#fafafa;border:1px solid #eaeaea;border-radius:8px;font-size:13px;color:#333}.date-field{position:relative}.date-field>span{position:absolute;left:13px;top:13px;line-height:16px;pointer-events:none}.date-field input{padding-left:59px;height:43px;background:white;font-size:13px}.time-range{display:flex;gap:10px;align-items:center;margin-top:10px;height:42px;border:1px solid #eaeaea;border-radius:8px;padding:0 12px;color:#aaa}.time-range input{min-width:0;width:100%;background:none;border:0;font-size:14px;color:#444;font-variant-numeric:tabular-nums}.plan-settings{font-size:12px;color:#999;margin:12px 0 17px}.plan-settings>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;line-height:24px}.plan-settings>summary:after{content:'⌄';font-size:16px;color:#999}.plan-settings[open]>summary:after{content:'⌃'}.plan-settings>summary::-webkit-details-marker{display:none}.plan-settings[open]{padding-bottom:10px}.compact-field{font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#777;margin:10px 0}.compact-field select{border:0;background:#f5f5f5;padding:5px 8px;border-radius:5px;color:#444;font-size:12px}.options-row{display:block}.switch-field{display:flex;align-items:center;gap:7px;font-size:12px;margin-top:12px}.switch-field input{accent-color:var(--accent)}.switch-track{display:none}.plan-button{width:100%;height:42px;margin-bottom:26px}.plan-summary{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:22px;margin-bottom:5px;gap:10px}.plan-summary strong{font-size:13px;font-weight:600}.plan-summary small{font-size:11px;color:#aaa}.timeline-item{display:grid;grid-template-columns:43px minmax(0,1fr);gap:12px;padding-top:23px}.timeline-time{font-size:12px;line-height:20px;color:#555;font-variant-numeric:tabular-nums;font-weight:600}.timeline-time span{display:block;font-size:10px;line-height:16px;color:#bbb;font-weight:400}.timeline-body{position:relative;border-left:1px solid #e9e9e9;padding:0 0 20px 13px;margin-bottom:-23px}.timeline-body:before{content:'';position:absolute;left:-3px;top:7px;width:5px;height:5px;border-radius:50%;background:#ccc}.timeline-item:last-child .timeline-body{border-left-color:transparent}.task-title{display:flex;justify-content:space-between;align-items:start;gap:8px}.task-title h3{margin:0;font-size:13px;line-height:20px;font-weight:550}.timeline-body>p{margin:6px 0 0;font-size:11px;line-height:18px;color:#aaa}.done-btn{display:flex;align-items:center;justify-content:center;flex:none;width:16px;height:16px;border:1px solid #ddd;border-radius:50%;padding:1px;margin-top:2px;color:white}.done-btn svg{width:13px;height:13px;stroke-width:2}.done-btn:hover{border-color:var(--accent)}.done-btn.checked{background:var(--accent);border-color:var(--accent)}.done h3{color:#aaa;text-decoration:line-through}.task-prep{font-size:11px;color:#aaa;margin-top:5px}.task-prep summary{list-style:none;display:inline-block}.task-prep summary:after{content:' ›';color:#bbb}.task-prep summary::-webkit-details-marker{display:none}.task-prep[open] summary:after{content:' ⌄'}.task-prep p{line-height:1.7;color:#888;margin:5px 0 0}.plan-notes{margin-top:36px;font-size:12px;color:#888}.plan-notes:empty{display:none}.plan-notes summary{cursor:pointer}.note-line{font-size:11px;color:#999;line-height:1.8}.plan-empty{padding:40px 6px;text-align:center;color:#999;font-size:13px}.plan-empty strong{font-weight:500}.plan-empty p{font-size:12px;color:#aaa;line-height:1.6}
+.add-dialog{border:0;border-radius:18px;width:min(580px,calc(100vw - 32px));max-height:88vh;padding:0;background:#fff;color:var(--ink);box-shadow:0 20px 80px #0002}.add-dialog::backdrop{background:#0006;backdrop-filter:blur(3px)}.add-dialog form{padding:28px 32px}.dialog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:23px}.dialog-head h2{font-size:21px;margin:0;font-weight:600}.paste-box{padding:16px;background:#f7f7f7;border-radius:12px;margin-bottom:22px}.paste-box label{display:block;font-size:12px;color:#777;margin-bottom:10px}.paste-box textarea{height:70px;padding:10px;background:#fff;resize:vertical;line-height:1.6}.paste-box .text-button{margin-top:8px;font-size:12px}.dialog-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.dialog-grid .wide{grid-column:1/-1}.inline-check{display:flex;align-items:center;gap:7px;font-size:12px;color:#777}.inline-check input,.dialog-checks input{accent-color:var(--accent)}.location-fields{margin-top:18px}.dialog-checks{display:flex;gap:20px;font-size:12px;color:#777;margin:16px 0}.advanced-fields{border-top:1px solid var(--line);margin-top:22px;padding:16px 0 0;font-size:12px;color:#888}.advanced-fields[open] summary{margin-bottom:18px}.advanced-fields .inline-check{margin-top:18px}.priority-check{margin-top:16px}.form-error{min-height:16px;font-size:12px;color:var(--accent);margin:14px 0}.dialog-actions{display:flex;justify-content:flex-end;gap:10px}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,10px);background:#292929;color:white;padding:12px 20px;border-radius:30px;font-size:13px;opacity:0;visibility:hidden;z-index:100;transition:.2s;max-width:calc(100vw - 32px)}.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}.toast button{color:#ffb3be;margin-left:12px;text-decoration:underline;font-size:13px}
+@media(min-width:1450px){.workspace{grid-template-columns:minmax(0,1fr) 330px;gap:40px}.collection-list{gap:32px 24px}.plan-column{padding-left:32px}}
+@media(max-width:1120px){.page-shell{padding:0 28px}.workspace{grid-template-columns:minmax(0,1fr) 290px;gap:24px}.collection-list{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-column{padding-left:24px}.view-filters{gap:13px}.search-box{width:280px}.save-card h3{font-size:15px}}
+@media(max-width:760px){.page-shell{padding:0 20px}.site-header{height:76px;gap:16px}.brand{font-size:21px}.brand-mark{width:30px;height:32px}.search-box{width:auto;flex:1;margin:0;height:38px}.header-actions .button{font-size:12px;padding:0 13px}.workspace{grid-template-columns:1fr;padding-top:24px;gap:40px}.plan-column{border-left:0;border-top:1px solid var(--line);padding:28px 0 0;position:static}.collection-list{gap:24px 16px}.section-heading{margin-bottom:16px}.filter-bar{margin-bottom:20px}.plan-panel{max-width:460px;margin:auto}.cover-wrap{border-radius:13px}.save-card h3{font-size:14px}}
+@media(max-width:480px){.page-shell{padding:0 16px}.site-header{flex-wrap:wrap;height:auto;padding:18px 0 16px;gap:16px}.search-box{order:3;flex-basis:100%;height:38px}.header-actions{margin-left:auto}.section-heading h1{font-size:23px}.view-filters{gap:16px}.category-filter{padding:7px 14px}.collection-list{gap:24px 14px}.cover-select{left:9px;top:9px;width:25px;height:25px}.video-badge{right:9px;top:9px}.card-caption{padding:9px 1px 0}.author{font-size:11px}.save-card h3{font-size:13px;min-height:40px}.duration-badge{font-size:10px;bottom:9px;right:9px}.add-dialog form{padding:24px 20px}.dialog-grid{gap:13px}}
+.section-heading h1{display:flex;align-items:center;gap:8px;height:32px}.count-pill{line-height:20px;margin-left:0}.plan-heading h2{font-size:24px}
+/* Equal-width browsing and planning surfaces. */
+.workspace{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0}.collection-column{padding-right:28px}.plan-column{padding-left:28px}.collection-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 14px}.filter-bar{height:auto;min-height:36px;flex-wrap:wrap;gap:5px;margin-bottom:20px;overflow:visible}.category-filter{padding:6px 12px;font-size:12px}.save-card h3{font-size:12px;min-height:38px;line-height:19px}.save-card h3 button{font:inherit;line-height:inherit;padding:0;text-align:left}.save-card h3 button:hover{color:var(--accent)}.cover-link{padding:0;text-align:left}.cover-wrap{border-radius:12px}.cover-select{width:24px;height:24px;left:9px;top:9px}.video-badge{width:22px;height:22px;right:9px;top:9px}.duration-badge{font-size:10px;padding:3px 6px;bottom:9px;right:9px}.author{font-size:11px}.author img,.avatar-placeholder{width:20px;height:20px}.plan-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}.time-range{margin:0;height:43px}.plan-heading{margin-bottom:24px}.timeline-item{grid-template-columns:60px minmax(0,1fr);gap:16px;padding-top:26px}.timeline-time{font-size:15px;line-height:22px}.timeline-time span{font-size:11px;line-height:20px}.timeline-body{padding-left:22px;padding-bottom:26px;margin-bottom:-26px}.task-title h3{font-size:15px;line-height:24px}.plan-note-link{padding:0;text-align:left;font:inherit}.plan-note-link:hover{color:var(--accent)}.timeline-body>p{font-size:12px;color:#888}.task-prep{font-size:12px;color:#888;margin-top:7px}.done-btn{width:20px;height:20px}.plan-summary strong{font-size:14px}.plan-summary small{font-size:12px;color:#888}.preview-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;font-size:12px;color:#888}.preview-toolbar button{padding:0;color:#555}.preview-media{height:min(49vh,440px);min-height:260px;display:grid;place-items:center;background:#f5f5f5;border-radius:12px;overflow:hidden}.preview-media video{width:100%;height:100%;max-height:min(49vh,440px);background:#161616;object-fit:contain}.preview-media img{width:100%;height:100%;max-height:min(49vh,440px);object-fit:contain}.note-preview h2{font-size:17px;line-height:1.6;margin:18px 0 12px;font-weight:600}.preview-author{display:flex;align-items:center;justify-content:space-between;gap:12px}.preview-author .author{font-size:12px;gap:8px}.preview-author .author img{width:25px;height:25px}.preview-category{display:flex;align-items:center;gap:7px;font-size:11px;color:#999}.preview-category select{font-size:12px;background:#f7f7f7;border:0;border-radius:6px;padding:6px 8px;color:#555;max-width:100px}.preview-action-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;border-top:1px solid var(--line);padding-top:18px}.preview-action-row strong{display:block;font-size:14px;font-weight:550}.preview-action-row span{display:block;font-size:12px;color:#888;margin-top:7px}.preview-action-row .text-button{font-size:12px;color:#777}.preview-materials{font-size:12px;color:#999;line-height:1.7;margin:13px 0 0}.preview-choose{margin-top:19px;min-width:150px}.video-error{font-size:12px;color:#999;margin:10px 0 0}.field small{font-size:11px;color:#999;line-height:1.5}.preview-media .cover-placeholder{width:100%}
+@media(max-width:1120px) and (min-width:761px){.collection-column{padding-right:22px}.plan-column{padding-left:22px}.collection-list{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-controls{grid-template-columns:1fr}.time-range{margin-top:0}.view-filters{gap:10px}.filter{font-size:12px}}
+@media(max-width:760px){.workspace{grid-template-columns:1fr;gap:36px}.collection-column{padding-right:0}.plan-column{padding-left:0}.collection-list{grid-template-columns:repeat(3,minmax(0,1fr))}.plan-panel{max-width:none}.preview-media{height:430px}.preview-media video,.preview-media img{max-height:430px}.plan-controls{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.collection-list{grid-template-columns:repeat(2,minmax(0,1fr))}.plan-controls{grid-template-columns:1fr}.save-card h3{font-size:13px;min-height:40px}.preview-media{height:360px}.preview-media video,.preview-media img{max-height:360px}.timeline-item{grid-template-columns:48px minmax(0,1fr);gap:12px}.timeline-body{padding-left:16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+.preview-media{position:relative}.photo-label{position:absolute;top:14px;right:14px;background:#0007;color:white;border-radius:20px;padding:5px 10px;font-size:11px;pointer-events:none}.photo-prev,.photo-next{position:absolute;top:45%;width:32px;height:40px;border-radius:20px;background:#fffe;box-shadow:0 2px 12px #0001;font-size:25px;color:#555}.photo-prev{left:12px}.photo-next{right:12px}
+.workspace-tabs{display:flex;gap:30px;border-bottom:1px solid var(--line);padding-top:16px}.workspace-tabs button{padding:12px 0 16px;color:#999;font-size:14px;position:relative}.workspace-tabs button.active{color:#222;font-weight:600}.workspace-tabs button.active:after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--accent)}.travel-workspace .section-heading h1{font-size:22px;letter-spacing:-.6px}.album-meta{font-size:12px;color:#999;margin:-10px 0 24px}.trip-library-toolbar{display:flex;align-items:start;justify-content:space-between;gap:10px}.trip-library-toolbar .text-button{font-size:11px;color:#888;white-space:nowrap;padding-top:9px}.trip-library-toolbar .filter-bar{gap:3px}.trip-library-toolbar .category-filter{padding:7px 12px}.category-filter span{font-size:10px;margin-left:3px;color:#999}.trip-controls{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:12px}.trip-controls input,.trip-controls select{background:white;height:42px}.trip-arrange-row{display:flex;align-items:center;justify-content:space-between;margin:24px 0 0}.trip-arrange-row>span{font-size:12px;color:#999}.trip-status{font-size:11px;color:#888;min-height:18px;margin:10px 0 14px;line-height:1.6}.trip-status button{color:var(--accent);font-size:11px}.trip-day{border-top:1px solid var(--line);padding:22px 0 20px}.trip-day header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.trip-day header>div{display:flex;align-items:center;gap:16px}.day-number{font-size:10px;letter-spacing:1px;color:#999;font-weight:600}.trip-day h3{font-size:17px;margin:0;font-weight:550}.trip-day header>span{font-size:12px;color:#999}.trip-stop{display:grid;grid-template-columns:24px 1fr auto;gap:12px;padding:10px 0;align-items:start}.trip-stop strong,.place-row strong{font-size:14px;font-weight:550;line-height:24px}.stop-index{font-size:11px;color:#aaa;padding-top:6px}.place-sources{margin-top:5px;color:#999;font-size:11px}.place-sources summary{list-style:none;cursor:pointer}.place-sources summary:after{content:' ›'}.place-sources[open] summary:after{content:' ⌄'}.place-sources button{display:block;text-align:left;padding:7px 0;color:#777;font-size:11px;line-height:1.6}.place-sources button:hover{color:var(--accent)}.stop-controls{display:flex;gap:5px;align-items:center;padding-top:2px}.stop-controls select,.pending-place select{font-size:11px;border:0;background:#f7f7f7;border-radius:6px;padding:6px;max-width:100px;color:#777}.stop-controls button{color:#999;padding:3px;font-size:16px}.stop-controls button:disabled{opacity:.2;cursor:default}.transfer-note{font-size:11px;color:#a08459;background:#faf8f3;padding:10px 12px;border-radius:6px;line-height:1.7}.free-day{font-size:12px;color:#aaa;line-height:1.7;padding:10px 0;margin:0}.trip-data-note{font-size:11px;color:#aaa;line-height:1.8;margin:28px 0 0}.trip-empty{grid-column:1/-1;text-align:center;padding:60px 20px}.trip-empty h3{font-size:17px;font-weight:500;margin:18px 0 12px}.trip-empty p{font-size:12px;color:#999;line-height:1.8}.trip-empty small{display:block;margin-top:18px;font-size:11px;color:#aaa}.trip-empty .button{margin-top:12px;font-size:12px}.empty-bookmark{font-size:40px;color:#ccc}.trip-plan-empty{border-top:1px solid var(--line);padding:42px 0}.trip-plan-empty span{display:block;font-size:13px;color:#aaa;margin:0 0 24px}.place-row{display:flex;gap:14px;border-bottom:1px solid var(--line);padding:19px 0}.place-row input{accent-color:var(--accent);width:16px;height:16px;margin:5px 0 0}.place-row small{display:block;font-size:11px;color:#999;margin:4px 0 8px}.pending-place{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:12px 0}.pending-place small{color:#999;margin-left:8px}#tripPending{font-size:12px;color:#777;margin-top:12px}#tripPending summary{padding:10px 0}.add-day{border:1px dashed #ddd;width:100%;border-radius:8px;color:#999;font-size:12px;padding:12px;margin-top:10px}.export-link:disabled{opacity:.4;cursor:default}.field textarea{font:inherit;font-size:13px;padding:10px 12px;line-height:1.7;border:1px solid #eaeaea;background:#fafafa;border-radius:8px;resize:vertical}.trip-note-dialog{width:min(900px,90vw);max-height:85vh;border:0;border-radius:16px;padding:36px;box-shadow:0 20px 80px #0002}.trip-note-dialog::backdrop{background:#0006;backdrop-filter:blur(3px)}.dialog-close{position:absolute;right:12px;top:8px;font-size:24px;color:#999}#tripNoteBody{display:grid;grid-template-columns:1fr 1fr;gap:30px}#tripNoteBody>img{width:100%;max-height:65vh;object-fit:contain;border-radius:10px;background:#f7f7f7}#tripNoteBody>div:only-child{grid-column:1/-1}#tripNoteBody h2{font-size:20px;line-height:1.6;font-weight:600;margin:12px 0}#tripNoteBody h3{font-size:13px;margin-top:24px;font-weight:500}.trip-note-kind,.trip-note-author{font-size:12px;color:#999}.trip-note-summary{font-size:13px;line-height:1.9;color:#777}.note-place{font-size:12px;color:#999;border-bottom:1px solid var(--line);padding:9px 0}.note-place strong{color:#555;font-weight:500;margin-left:12px}.source-link{display:inline-block;font-size:12px;margin:20px 0 0 16px;color:#888}
+@media(max-width:1120px){.trip-controls{grid-template-columns:1fr 1fr}.trip-controls .field:first-child{grid-column:1/-1}.travel-workspace .section-heading h1{font-size:19px}.trip-stop{grid-template-columns:16px 1fr;gap:8px}.stop-controls{grid-column:2;justify-self:end}.trip-library-toolbar{flex-wrap:wrap}.trip-library-toolbar .filter-bar{margin-bottom:8px}.trip-library-toolbar{margin-bottom:16px}}
+@media(max-width:760px){.trip-controls{grid-template-columns:1.4fr 1fr 1fr}.trip-controls .field:first-child{grid-column:auto}.trip-stop{grid-template-columns:20px 1fr auto}.stop-controls{grid-column:auto}#tripNoteBody{grid-template-columns:1fr}#tripNoteBody>img{max-height:40vh}.trip-note-dialog{padding:30px 22px}.trip-empty{padding:28px 0}.travel-workspace .section-heading h1{font-size:20px}}
+@media(max-width:480px){.trip-controls{grid-template-columns:1fr 1fr}.trip-controls .field:first-child{grid-column:1/-1}.trip-stop{grid-template-columns:16px 1fr}.stop-controls{grid-column:2}.workspace-tabs{gap:24px}}
+.cover-photo-badge{position:absolute;right:9px;top:9px;background:#0005;color:white;font-size:10px;padding:4px 6px;border-radius:6px;pointer-events:none}
+#tripNotePanel #tripNoteBody{display:block}#tripNotePanel #tripNoteBody>img{max-height:350px;display:block;margin-bottom:20px}#tripNotePanel h2{font-size:18px}.trip-note-panel .source-link{margin-top:12px}
+.full-day-label{display:inline-block;color:#999;background:#f6f6f6;padding:2px 6px;font-size:10px;border-radius:4px;margin-left:8px;vertical-align:middle}.travel-workspace .author>img{width:20px;height:20px}
+/* Calendar controls and shared planning rhythm. */
+.plan-column{padding-left:32px}.collection-column{padding-right:32px}.plan-heading,.section-heading{margin-bottom:20px;height:36px}.travel-workspace .section-heading h1,.plan-heading h2{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.6px}
+.date-navigation{display:flex;align-items:center;gap:6px;min-height:40px;min-width:0}.date-arrow{display:grid;place-items:center;width:28px;height:30px;flex:none;border-radius:6px;font-size:22px;font-weight:300;color:#888;padding:0;line-height:1}.date-arrow:hover{background:#f3f3f3;color:#222}.date-navigation>input[type=date]{border:0;background:none;color:#333;font-size:14px;font-weight:500;font-variant-numeric:tabular-nums;min-width:0;width:145px;padding:5px 4px;height:36px}.date-navigation input::-webkit-calendar-picker-indicator{width:13px;opacity:.45;cursor:pointer}.today-button{padding:5px 9px;background:#f6f6f6;border-radius:5px;color:#777;font-size:11px;white-space:nowrap;margin-left:6px}.view-span{display:flex;align-items:center;gap:5px;margin-left:auto;font-size:11px;color:#999;white-space:nowrap}.view-span select{background:none;border:0;padding:5px 14px 5px 5px;color:#666;font-size:12px}.schedule-tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}.availability{display:flex;align-items:center;gap:12px;min-width:0}.availability>span{font-size:11px;color:#999;white-space:nowrap}.time-picker{display:flex;align-items:center;gap:6px;background:#f6f6f6;border-radius:8px;padding:5px 7px}.time-picker>span{color:#b2b2b2;font-size:11px}.time-picker select{width:71px;border:0;background-color:transparent;font-size:13px;font-weight:500;line-height:24px;padding:3px 17px 3px 7px;font-variant-numeric:tabular-nums;color:#444;cursor:pointer}.time-picker select,.view-span select,.inline-trip-field select,.stop-controls select,.pending-place select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='m1 1 4 4 4-4' stroke='%23999' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 5px center;background-size:8px 5px}.schedule-tools>.button,.trip-arrange-row .button{height:36px;min-height:36px;padding:0 16px;font-size:12px;white-space:nowrap}.plan-settings{margin:13px 0 20px}.plan-settings>summary{font-size:11px;line-height:22px;justify-content:flex-start;gap:8px;color:#999}.plan-settings>summary:after{font-size:13px}.agenda-summary{display:flex;justify-content:space-between;gap:10px;padding:17px 0;border-top:1px solid var(--line);font-size:11px;color:#999}.agenda-summary span:first-child{color:#666}.agenda-day{border-top:1px solid var(--line);padding:20px 0 22px}.agenda-day>header{display:flex;align-items:center;justify-content:space-between;gap:12px}.agenda-day>header>div{display:flex;align-items:center;gap:16px}.agenda-date{width:50px;font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:.4px;color:#888}.agenda-day h3{font-size:15px;font-weight:550;margin:0;line-height:22px}.agenda-day>header small{font-size:11px;color:#aaa}.agenda-day .timeline-item{grid-template-columns:50px minmax(0,1fr);gap:16px;padding-top:20px}.agenda-day .timeline-time{font-size:13px;font-weight:500}.agenda-day .timeline-time span{font-size:10px}.agenda-day .timeline-body{margin-bottom:-20px;padding:0 0 22px 16px}.agenda-day .task-title h3{font-size:14px}.agenda-day .timeline-body>p{font-size:11px;margin-top:4px}.agenda-day .task-prep{font-size:11px;margin-top:4px}.agenda-day .done-btn{width:18px;height:18px}.agenda-day .timeline{padding-bottom:10px}.preview-location{font-size:12px;color:#666;line-height:1.7;margin:12px 0 0}.album-meta{margin:-6px 0 20px}.trip-library-toolbar .filter-bar{margin-bottom:20px}.trip-config-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:16px;margin-top:-6px}.control-caption{display:none}.trip-date-navigation{grid-column:1/-1}.trip-date-navigation:before{content:'出发';font-size:11px;color:#999;margin-right:6px}.date-optional{font-size:11px;color:#aaa;margin-left:auto;white-space:nowrap}.trip-controls{display:flex;gap:18px;align-items:center}.inline-trip-field{display:flex;align-items:center;gap:8px;white-space:nowrap;color:#999;font-size:11px;min-width:0}.inline-trip-field input{width:37px;min-width:0;height:30px;padding:4px 3px;border:0;border-bottom:1px solid #ddd;border-radius:0;text-align:center;background:none;color:#333;font-size:13px;font-variant-numeric:tabular-nums;appearance:textfield}.inline-trip-field input::-webkit-inner-spin-button{appearance:none}.inline-trip-field select{border:0;background-color:transparent;font-size:12px;color:#444;min-width:78px;height:32px;padding:3px 17px 3px 4px}.trip-arrange-row{margin:0;justify-content:flex-end}.trip-arrange-row>span{display:none}.trip-status{margin:12px 0 0;min-height:0}.trip-status:empty{display:none}.trip-route{display:flex;gap:18px;align-items:center;padding:20px 0 18px;font-size:11px;color:#888;margin-top:18px;border-top:1px solid var(--line)}.trip-route>span{width:46px;flex:none;font-variant-numeric:tabular-nums}.trip-route>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.6}.trip-route i{font-style:normal;color:#bbb}.trip-day{padding:20px 0 22px}.trip-day header{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:0;align-items:center;margin-bottom:12px}.trip-day header>div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:0;align-items:center}.trip-day h3{font-size:16px;font-weight:550;line-height:24px}.day-number{font-size:12px;letter-spacing:.6px;font-variant-numeric:tabular-nums;color:#888}.trip-day header>span{font-size:11px;text-align:right;color:#999}.trip-stop{display:grid;grid-template-columns:64px minmax(0,1fr) 112px;gap:0;align-items:start;padding:10px 0}.trip-stop>div:nth-child(2){min-width:0;padding-right:16px}.trip-stop strong{font-size:13px;line-height:22px}.stop-index{padding-top:5px;padding-left:4px;font-size:10px;color:#b7b7b7}.stop-controls{grid-column:auto;justify-self:stretch;display:grid;grid-template-columns:88px 24px;gap:0;padding-top:1px}.stop-controls select{width:88px;max-width:none;font-size:11px;background-color:transparent;padding:5px 16px 5px 7px;height:28px;border:1px solid #eee;border-radius:5px}.stop-controls button{height:28px;font-size:14px;padding:0;text-align:right}.place-sources{font-size:11px;margin-top:4px}.trip-day .transfer-note{margin:0 0 10px 64px;font-size:10px;background:#faf9f5;padding:8px 10px}.trip-day>.free-day{margin-left:64px;padding:0;font-size:11px}.full-day-label{font-size:9px;padding:1px 5px;margin-left:7px}.trip-data-note{margin-top:22px;font-size:10px}.plan-notes{margin-top:20px}.header-actions{min-width:112px}.search-box{margin-left:auto;margin-right:auto}
+@media(max-width:1120px) and (min-width:761px){.collection-column{padding-right:24px}.plan-column{padding-left:24px}.schedule-tools{flex-wrap:wrap;gap:12px}.availability{gap:8px}.trip-config-panel{grid-template-columns:1fr}.trip-controls{grid-column:1/-1;justify-content:space-between}.trip-arrange-row{grid-column:1/-1}.trip-arrange-row>span{display:block;margin-right:auto}.trip-day header{grid-template-columns:1fr 90px}.trip-stop{grid-template-columns:44px 1fr 90px}.trip-day header>div{grid-template-columns:44px 1fr}.stop-controls{grid-template-columns:72px 18px}.stop-controls select{width:72px}.trip-day .transfer-note,.trip-day>.free-day{margin-left:44px}.date-navigation{gap:3px}.date-navigation>input[type=date]{width:130px}.view-span{font-size:0}.view-span select{font-size:11px}.date-optional{display:none}}
+@media(max-width:760px){.collection-column{padding-right:0}.plan-column{padding-left:0}.trip-config-panel{grid-template-columns:minmax(0,1fr) auto}.trip-controls{grid-column:auto;justify-content:flex-start}.trip-arrange-row{grid-column:auto}.trip-arrange-row>span{display:none}.trip-day header{grid-template-columns:1fr 112px}.trip-day header>div,.trip-stop{grid-template-columns:64px 1fr}.trip-stop{grid-template-columns:64px 1fr 112px}.stop-controls{grid-column:auto;grid-template-columns:88px 24px}.stop-controls select{width:88px}.trip-day .transfer-note,.trip-day>.free-day{margin-left:64px}.date-optional{display:inline}}
+@media(max-width:480px){.date-navigation{gap:2px}.date-navigation>input[type=date]{width:128px;font-size:12px}.view-span{font-size:0}.view-span select{font-size:11px}.today-button{margin-left:2px;padding:5px 7px}.schedule-tools{gap:12px;flex-wrap:wrap}.availability{gap:8px}.trip-config-panel{grid-template-columns:1fr}.trip-controls{justify-content:space-between}.trip-arrange-row{justify-content:space-between}.trip-arrange-row>span{display:block}.date-optional{font-size:10px}.trip-stop{grid-template-columns:36px minmax(0,1fr) 94px}.trip-day header{grid-template-columns:1fr 94px}.trip-day header>div{grid-template-columns:36px 1fr}.stop-controls{grid-template-columns:76px 18px}.stop-controls select{width:76px;font-size:10px}.trip-stop>div:nth-child(2){padding-right:8px}.trip-day .transfer-note,.trip-day>.free-day{margin-left:36px}.trip-route>span{width:24px}.trip-route{gap:12px}.trip-day h3{font-size:15px}}
+.agenda-day>header>div{gap:32px}
+
+/* Day controls and city chapters. */
+.daily-date-control{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:4px 0 16px}.daily-date-control>label{font-size:12px;color:#888}.daily-date-control .date-navigation{gap:8px}.daily-date-control input[type=date]{width:151px;font-size:15px}.daily-time-control{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}.daily-time-control .time-picker{height:44px;justify-content:space-between;border:1px solid #e9e9e9;background:#fff;border-radius:8px;padding:4px 12px;gap:10px}.daily-time-control .time-picker select{font-size:15px;width:92px;font-weight:450;padding-right:24px}.daily-time-control>.button{height:44px;padding:0 24px;font-size:13px}.plan-settings{margin:12px 0 20px}.agenda-day{padding:22px 0}.agenda-day>header small{color:#999}.agenda-day .timeline{padding-bottom:6px}.agenda-day .timeline-body>p{color:#888}.trip-config-panel{row-gap:12px}.trip-route{padding:0;margin-top:24px;margin-bottom:6px;border-top:0;border-bottom:1px solid var(--line);gap:22px;overflow-x:auto;align-items:stretch}.trip-route button{position:relative;white-space:nowrap;padding:14px 0;font-size:13px;color:#999;flex:none}.trip-route button.active{color:#333;font-weight:600}.trip-route button.active:after{content:'';height:2px;background:#ff2442;position:absolute;bottom:0;left:0;right:0}.trip-route small{font-size:10px;font-weight:400;color:#aaa;margin-left:5px}.journey-day{padding:24px 0 22px;border-bottom:1px solid var(--line)}.journey-day header{display:flex;justify-content:space-between;align-items:center;margin-bottom:19px}.journey-day header strong{font-size:16px;font-weight:600;line-height:24px}.journey-day time{font-size:12px;color:#999}.journey-body{display:grid;gap:12px}.journey-row{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:start}.journey-label{font-size:11px;color:#999;line-height:24px}.journey-name{font-size:15px;line-height:24px;font-weight:450;text-align:left;padding:0}.journey-name:hover{color:var(--accent)}.journey-description{display:block;color:#777;font-size:12px;line-height:20px;margin-top:3px}.meal-area{display:block;font-size:11px;color:#aaa;line-height:18px;margin-top:2px}.meal-row{margin-top:3px}.meal-row .journey-label{color:#af8b5b}.journey-day footer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:16px;margin:17px 0 0 64px;color:#999;font-size:11px}.journey-day details>summary{list-style:none;cursor:pointer;width:max-content;line-height:22px}.journey-day details>summary:after{content:' ⌄';margin-left:4px;color:#bbb}.journey-day details[open]>summary{margin-bottom:9px;color:#555}.journey-sources>button{display:block;padding:6px 0;line-height:1.6;text-align:left;color:#777;font-size:11px}.journey-sources>button:hover{color:var(--accent)}.journey-adjust>summary{margin-left:auto}.journey-adjust[open]{grid-column:1/-1;width:100%;padding-top:6px}.journey-edit-row{display:grid;grid-template-columns:minmax(0,1fr) 94px 24px;align-items:center;gap:8px;padding:7px 0;font-size:12px;color:#666}.journey-edit-row select,.journey-edit-meal select{font-size:12px;border:1px solid #e9e9e9;padding:7px;border-radius:5px;background:#fff;color:#666;min-width:0}.journey-edit-row button{font-size:15px;color:#888}.journey-edit-row button:disabled{opacity:.3}.journey-edit-meal{display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;gap:8px;padding:10px 0;color:#777;font-size:12px}.journey-alert{font-size:11px;line-height:1.7;color:#a38458;background:#faf8f3;padding:8px 12px;margin:0 0 18px}.journey-body>.free-day{padding:8px 0}.journey-sources:has(>summary:only-child){display:none}.trip-config-panel .date-optional{display:none}
+@media(max-width:1120px) and (min-width:761px){.daily-time-control{gap:10px;grid-template-columns:1fr}.daily-time-control>.button{justify-self:end;height:36px}.trip-route{gap:14px}.trip-route button{font-size:12px}.journey-name{font-size:14px}.daily-date-control{gap:4px}.daily-date-control .date-navigation{gap:2px}}
+@media(max-width:480px){.daily-date-control{gap:4px}.daily-date-control .date-navigation{gap:3px}.daily-time-control{gap:10px}.daily-time-control .time-picker{padding:4px 6px;gap:4px}.daily-time-control .time-picker select{width:76px;font-size:13px;padding-right:17px}.daily-time-control>.button{padding:0 15px;font-size:12px}.trip-route{gap:17px}.trip-route button{font-size:12px}.journey-row{grid-template-columns:40px 1fr;gap:10px}.journey-day footer{margin-left:50px}}
+.journey-day{padding:20px 0}.journey-day header{margin-bottom:16px}.journey-day footer{margin-top:14px}.journey-full-day{font-size:10px;color:#999;background:#f6f6f6;border-radius:4px;padding:2px 5px;margin-left:9px;vertical-align:middle}.journey-description{line-height:19px}
+
+/* Single-row controls and traceable synthesis. */
+.daily-controls-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;margin:4px 0 12px}.daily-controls-row .date-navigation{gap:2px}.daily-controls-row input[type=date]{width:137px;font-size:13px}.daily-controls-row .date-arrow{width:22px;font-size:20px}.daily-controls-row .today-button{margin-left:2px;padding:5px 7px}.daily-controls-row .time-picker{height:36px;padding:3px 5px;gap:3px;border:1px solid #ececec;background:white;border-radius:7px}.daily-controls-row .time-picker select{width:64px;font-size:12px;padding-left:4px;padding-right:15px}.daily-controls-row>.button{height:36px;min-height:36px;padding:0 16px;font-size:12px}.cover-select{padding:0;display:flex;align-items:center;justify-content:center;line-height:0}.cover-select svg{flex:none;margin:0;display:block;width:16px;height:16px}.trip-library-toolbar{gap:10px;flex-wrap:wrap}.trip-library-toolbar .filter-bar{flex:1;gap:3px;margin:0}.trip-library-toolbar .category-filter{padding:6px 9px}.trip-library-toolbar .text-button{white-space:nowrap;font-size:11px;color:#888}.trip-library-toolbar .category-filter span{font-size:10px;font-weight:400;color:#aaa;margin-left:2px}.synthesis{border-top:1px solid var(--line);margin-top:22px;padding:15px 0 0;color:#555;font-size:12px}.synthesis>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;line-height:24px}.synthesis>summary>span{font-size:11px;color:#aaa}.synthesis>p{font-size:11px;line-height:1.8;color:#999;margin:8px 0 0}.trip-route{margin-top:12px}.evidence-link{display:inline-block;font-size:10px;color:#9a825f;background:#faf7f0;border-radius:4px;line-height:18px;padding:1px 5px;margin-left:8px;vertical-align:middle;white-space:nowrap}.evidence-link:hover{background:#f2eadb;color:#6d5334}.day-rationale{font-size:11px;color:#999;line-height:1.8;max-width:450px;margin:8px 0}.evidence-rate{display:flex;align-items:center;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}.evidence-rate>strong{font-size:42px;letter-spacing:-2px;font-weight:550}.evidence-rate>span{font-size:12px;color:#999;line-height:1.8}.evidence-source{display:block;width:100%;text-align:left;padding:18px 0;border-bottom:1px solid var(--line)}.evidence-source strong{display:block;font-size:14px;line-height:1.7;font-weight:500}.evidence-source span{display:block;font-size:11px;color:#999;margin-top:7px}.evidence-source:hover strong{color:var(--accent)}.meal-pending{font-size:12px;color:#aaa;line-height:24px}.transfer-day{padding:4px 0 8px}.transfer-day strong{display:block;font-size:14px;font-weight:450;line-height:24px}.transfer-day span{display:block;font-size:11px;color:#999;line-height:20px;margin-top:6px}
+@media(max-width:1120px) and (min-width:761px){.daily-controls-row{grid-template-columns:minmax(0,1fr) auto;gap:10px}.daily-controls-row>.button{grid-column:2;justify-self:end}.daily-controls-row .today-button{display:none}.daily-controls-row input[type=date]{width:123px}.trip-library-toolbar .filter-bar{flex-basis:100%}}
+@media(max-width:480px){.daily-controls-row{grid-template-columns:minmax(0,1fr) auto;gap:9px}.daily-controls-row>.button{grid-column:2;justify-self:end}.daily-controls-row .today-button{display:none}.daily-controls-row input[type=date]{width:116px;font-size:12px}.daily-controls-row .date-arrow{width:18px}.daily-controls-row .time-picker select{width:60px}.daily-controls-row .time-picker{gap:1px;padding:2px}.evidence-link{font-size:9px;margin-left:6px}.trip-library-toolbar .filter-bar{flex-basis:100%}}
+/* Sharing and classification use a single reading surface rather than stacked cards. */
+.plan-actions{display:flex;align-items:center;gap:20px}.library-meta-row{display:flex;align-items:center;justify-content:space-between;margin:-10px 0 24px}.library-meta-row .album-meta{margin:0}.auto-classify{padding:0;color:#98938b;font-size:11px;white-space:nowrap}.auto-classify:hover{color:var(--accent)}.daily-classify-row{display:flex;justify-content:flex-end;margin:-13px 0 10px}.share-dialog,.category-dialog{border:0;border-radius:18px;box-shadow:0 24px 100px #0002;padding:30px;width:min(600px,calc(100vw - 64px));color:#333}.category-dialog{width:min(780px,calc(100vw - 64px))}dialog::backdrop{background:#19191955;backdrop-filter:blur(3px)}.dialog-heading{display:flex;justify-content:space-between;align-items:center}.dialog-heading h2{font-size:22px;margin:0}.share-intro{font-size:13px;color:#999;line-height:1.8;margin:13px 0 24px}.share-plan-summary{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:8px}.share-plan-summary strong{font-size:20px;font-weight:500}.share-plan-summary span{grid-row:2;font-size:12px;color:#999}.share-plan-summary small{grid-column:2;grid-row:1/3;align-self:center;color:#999}.share-options{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}.share-feedback{font-size:12px;color:#999;line-height:1.8;margin:20px 0 0}.classification-list{max-height:60vh;overflow:auto}.classification-row{display:grid;grid-template-columns:minmax(0,1fr) 105px 62px;gap:18px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}.classification-row strong{font-size:13px;font-weight:450;line-height:1.7;display:block}.classification-row small{display:block;color:#aaa;font-size:11px;margin-top:5px}.classification-row select{width:100%;padding:8px;border:1px solid #eee;border-radius:6px;background:#fafafa;font-size:12px;color:#555}.classification-row .text-button,.auto-label{font-size:11px;color:#999;text-align:center}.auto-label{color:#a58a64}.pending-resolution{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;color:#999;font-size:12px}.pending-resolution button{color:var(--accent);font-size:12px}.journey-day header time{font-size:11px}.trip-route{flex-wrap:wrap}@media(max-width:760px){.plan-actions{gap:12px}.classification-row{grid-template-columns:minmax(0,1fr) 82px;gap:12px}.classification-row .auto-label,.classification-row>[data-auto]{grid-column:2}.share-dialog,.category-dialog{padding:22px}.share-plan-summary strong{font-size:18px}}
+
+.shared-album-dialog{border:0;border-radius:18px;padding:28px;width:min(440px,calc(100vw - 60px));box-shadow:0 24px 100px #0002}.shared-title-field{display:flex;align-items:center;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);font-size:12px;color:#999}.shared-title-field input{border:0;flex:1;min-width:0;font-size:15px;color:#333;padding:8px;background:#fafafa;border-radius:6px}.shared-member{display:flex;align-items:center;gap:13px;padding:17px 0;border-bottom:1px solid var(--line);cursor:pointer;font-size:14px}.shared-member small{display:block;font-size:11px;color:#aaa;margin-top:4px}.shared-member input{margin-left:auto;accent-color:var(--accent);width:17px;height:17px}.shared-avatar,.shared-people>span{display:grid;place-items:center;border-radius:50%;background:var(--person-color);color:#fff;width:36px;height:36px;font-size:12px;flex:none}.shared-viewer{display:flex;align-items:center;justify-content:space-between;margin-top:20px;color:#999;font-size:12px}.shared-viewer select{border:1px solid #eee;border-radius:6px;padding:7px 10px;background:#fafafa;color:#555}.shared-dialog-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px}.shared-dialog-footer small{font-size:10px;color:#aaa}.shared-feedback{font-size:12px;color:var(--accent);margin-bottom:0}.shared-album-bar{display:flex;align-items:center;gap:12px;padding:14px 0;margin:-8px 0 14px;border-bottom:1px solid var(--line)}.shared-album-bar[hidden]{display:none}.shared-people{display:flex;padding-left:4px}.shared-people>span{width:28px;height:28px;font-size:10px;border:2px solid #fff;margin-left:-4px}.shared-album-label{flex:1;min-width:0}.shared-album-label strong{font-size:12px;font-weight:500;display:block}.shared-album-label small{font-size:10px;color:#aaa;display:block;margin-top:4px}.shared-album-bar .text-button{font-size:11px;color:#999}
+</style>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="做一点首页">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 9 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>做一点</span>
+        </a>
+        <label class="search-box"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="searchInput" type="search" placeholder="搜索收藏" aria-label="搜索收藏" /></label>
+        <div class="header-actions">
+          <button id="addBtn" class="button button-dark" type="button"><span aria-hidden="true">＋</span> 添加收藏</button>
+        </div>
+      </header>
+
+      <main id="top">
+        <nav class="workspace-tabs" aria-label="工作台"><button data-workspace="daily" class="active" aria-pressed="true">日常想做</button><button data-workspace="travel" aria-pressed="false">旅行专辑</button></nav>
+        <section id="dailyWorkspace" class="workspace" aria-label="收藏与计划工作台">
+          <div class="collection-column">
+            <div class="section-heading">
+              <div>
+                <h1>收藏 <span id="collectionCount" class="count-pill">0</span></h1>
+              </div>
+              <div class="view-filters" role="group" aria-label="收藏状态"><button class="filter active" data-filter="all" type="button">全部</button><button class="filter" data-filter="selected" type="button">已选 <span id="selectedCount">0</span></button><button class="filter" data-filter="unready" type="button">待准备 <span id="unreadyCount">0</span></button></div>
+            </div>
+            <div id="collectionBrowse"><div class="daily-classify-row"><button id="classifyDaily" class="auto-classify">自动分类 ↗</button></div><div id="categoryFilters" class="filter-bar" role="group" aria-label="收藏分类"></div>
+            <div id="collectionList" class="collection-list" aria-live="polite"></div></div>
+            <section id="notePreview" class="note-preview" aria-label="笔记详情" hidden></section>
+          </div>
+
+          <aside class="plan-column" aria-labelledby="planTitle">
+            <div class="plan-panel">
+              <div class="plan-heading"><h2 id="planTitle">计划</h2><div class="plan-actions"><button id="shareDaily" class="export-link">共同专辑</button><button id="exportBtn" class="export-link" aria-label="导出 Excel">导出 Excel ↗</button></div></div>
+              <div class="daily-controls-row"><div class="date-navigation"><button id="prevDate" class="date-arrow" aria-label="前一天">‹</button><input id="planDate" type="date" aria-label="计划日期"/><button id="nextDate" class="date-arrow" aria-label="后一天">›</button></div><div class="time-picker"><select id="startTime" aria-label="开始时间"></select><span>—</span><select id="endTime" aria-label="结束时间"></select></div><button id="planBtn" class="button button-coral">安排一下</button></div>
+              <div id="planResult" aria-live="polite"></div>
+              <div id="planNotes" class="plan-notes"></div>
+            </div>
+          </aside>
+        </section>
+        <section id="travelWorkspace" class="workspace travel-workspace" aria-label="旅行专辑工作台" hidden>
+          <div class="collection-column">
+            <div class="section-heading"><h1 id="albumName">旅行专辑</h1><button class="text-button" data-trip-add>＋ 添加攻略</button></div>
+            <div class="library-meta-row"><p id="albumMeta" class="album-meta"></p><button id="classifyTrip" class="auto-classify">自动分类 ↗</button></div>
+            <div class="trip-library-toolbar"><div id="tripViews" class="filter-bar"></div></div>
+            <div id="tripLibrary"></div><section id="tripNotePanel" class="trip-note-panel" aria-label="攻略详情" hidden><div class="preview-toolbar"><button data-trip-close type="button">← 返回专辑</button></div><div id="tripNoteBody"></div></section>
+
+          </div>
+          <aside class="plan-column">
+            <div class="plan-heading"><h2>旅行计划</h2><div class="plan-actions"><button id="shareTrip" class="export-link">共同专辑</button><button id="tripExport" class="export-link" disabled>导出 Excel ↗</button></div></div>
+            <div class="trip-config-panel"><label class="control-caption" for="tripStart">出发日期</label><div class="date-navigation trip-date-navigation"><button id="tripPrevDate" class="date-arrow" aria-label="出发日期前一天" title="前一天">‹</button><input id="tripStart" type="date" aria-label="旅行出发日期"/><button id="tripNextDate" class="date-arrow" aria-label="出发日期后一天" title="后一天">›</button><span class="date-optional">可暂不填</span></div>
+              <div class="trip-controls"><label class="inline-trip-field"><span>玩几天</span><input id="tripDayCount" type="number" min="1" max="30" step="1" value="10"/><span>天</span></label></div>
+              <div class="trip-arrange-row"><span id="tripSelection"></span><button id="tripArrange" class="button button-coral">安排一下</button></div>
+            </div><p id="tripStatus" class="trip-status" role="status"></p>
+            <div id="tripSynthesis"></div><div id="tripRoute" class="trip-route" aria-label="行程城市"></div>
+            <div id="tripItinerary"></div><div id="tripPending"></div>
+            <button id="tripAddDay" class="add-day" hidden>＋ 加一天</button>
+
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="addDialog" class="add-dialog" aria-labelledby="dialogTitle">
+      <form id="addForm" novalidate>
+        <div class="dialog-head"><h2 id="dialogTitle">添加收藏</h2><button id="closeDialogBtn" class="icon-button" type="button" aria-label="关闭">×</button></div>
+        <div class="paste-box"><label for="shareText">小红书分享文案</label><textarea id="shareText" rows="2" placeholder="粘贴链接或分享文案"></textarea><button id="parseShareBtn" class="text-button" type="button">提取标题与链接</button></div>
+        <div class="dialog-grid">
+          <label class="field wide"><span>想做什么 <b>*</b></span><input name="title" maxlength="60" placeholder="例如：跟着教程试一次低盘发" required /></label>
+          <label class="field"><span>分类</span><select name="category" aria-describedby="categoryHint"></select><small id="categoryHint">根据标题建议，可修改</small></label>
+          <label class="field"><span>大约需要（分钟）</span><input name="duration" type="number" min="5" max="720" step="5" value="30" required /></label>
+          <label class="field wide"><span>在哪里做</span><select id="activityMode" name="mode"><option value="home">在家</option><option value="out">出门</option><option value="any">不限地点</option></select></label>
+          <label class="field wide"><span>需要准备（可选）</span><input name="materials" maxlength="120" placeholder="例如：发圈、发夹、镜子" /></label>
+          <label class="inline-check wide"><input name="prepared" type="checkbox" checked /> 已经准备好，可以开始</label>
+          <label class="field wide"><span>小红书笔记链接</span><input name="url" type="url" placeholder="https://xhslink.com/..." /></label>
+          <input name="sourceTitle" type="hidden" /><input name="author" type="hidden" />
+        </div>
+        <div id="locationFields" class="location-fields" hidden>
+          <div class="dialog-grid"><label class="field"><span>区域（可选）</span><input name="area" maxlength="20" placeholder="例如：静安" /></label><label class="field"><span>具体地点（可选）</span><input name="address" maxlength="100" placeholder="出门前确认" /></label></div>
+          <div class="dialog-checks"><label><input name="outdoor" type="checkbox" /> 户外活动</label><label><input name="reservation" type="checkbox" /> 需要预约</label></div>
+        </div>
+        <details id="advancedFields" class="advanced-fields"><summary>时间与先后顺序（可选）</summary><div class="dialog-grid"><label class="field"><span>最早开始</span><input name="open" type="time" /></label><label class="field"><span>最晚结束</span><input name="close" type="time" /></label><label class="field wide"><span>先做完这件事</span><select name="afterId"><option value="">没有先后要求</option></select></label></div><label class="inline-check"><input name="weekendsOnly" type="checkbox" /> 只能周末做</label></details>
+        <label class="inline-check priority-check"><input name="priority" type="checkbox" /> 这次特别想做</label>
+        <p id="formError" class="form-error" role="alert"></p>
+        <div class="dialog-actions"><button id="cancelDialogBtn" class="button button-quiet" type="button">取消</button><button id="dialogSubmitBtn" class="button button-coral" type="submit">存进想做清单 →</button></div>
+      </form>
+    </dialog>
+    <dialog id="tripEditDialog" class="add-dialog" aria-labelledby="tripEditTitle"><form id="tripNoteForm"><div class="dialog-head"><h2 id="tripEditTitle">整理攻略</h2><button type="button" data-trip-close class="icon-button" aria-label="关闭整理">×</button></div><div class="dialog-grid">
+      <label class="field wide"><span>原帖标题</span><input name="title" required maxlength="160"/></label>
+      <label class="field wide"><span>小红书链接</span><input name="url" type="url"/></label>
+      <label class="field"><span>作者</span><input name="author" maxlength="60"/></label><label class="field"><span>分类</span><select name="kind"><option>景点</option><option>路线</option><option>交通</option><option>住宿</option><option>美食</option><option>行前准备</option></select><small id="tripCategoryHint">按标题自动分类</small></label>
+      <label class="field wide"><span>想去的地点 · 每行一个</span><textarea name="places" rows="4" placeholder="城市 / 地点"></textarea><small>同城同名自动合并；需单独一天的地点可加“ / 整天”。</small></label>
+      <label class="field wide"><span>记住什么 · 可选</span><textarea name="summary" rows="2" maxlength="500" placeholder="例如：需要提前预约"></textarea></label>
+      </div><p id="tripFormError" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" data-trip-close class="button button-quiet">取消</button><button class="button button-coral" type="submit">保存整理</button></div></form></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>globalThis.DEMO_NOTES = [
+  {
+    "id": "note-hotpot",
+    "title": "去下山虎吃潮汕火锅",
+    "category": "餐厅",
+    "duration": 75,
+    "area": "上海 · 巨鹿路",
+    "address": "巨鹿路 · 下山虎（原帖未列门牌）",
+    "open": "11:30",
+    "close": "14:30",
+    "materials": "确认门店位置，预留饭点排队时间",
+    "sourceTitle": "本人在上海招待外地朋友已有SOP（CityWalk版",
+    "author": "乐乐玩上海",
+    "url": "https://www.xiaohongshu.com/explore/6a867f00000000003400c983?xsec_token=ABlbRjdhQEIo1jazyFsHsJ8ZetWahOUXZYsBdrtaypTIw=&xsec_source=pc_feed",
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-hotpot-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-hotpot-avatar.webp",
+    "mode": "out",
+    "prepared": true,
+    "afterId": "",
+    "priority": false,
+    "outdoor": false,
+    "weekendsOnly": false,
+    "reservation": false,
+    "categorySource": "manual",
+    "catalogVersion": 3,
+    "video": false
+  },
+  {
+    "id": "note-store",
+    "title": "逛 11:11 Store，喝杯咖啡",
+    "category": "探店",
+    "duration": 60,
+    "area": "上海 · 徐汇",
+    "address": "上海市徐汇区太原路148号",
+    "open": "10:00",
+    "close": "18:00",
+    "materials": "出门前确认营业时间；本安排仅含逛店与咖啡",
+    "sourceTitle": "🔮🧙‍♀️上海神秘店铺｜11:11 Store",
+    "author": "嘟blue",
+    "url": "https://www.xiaohongshu.com/search_result/69f45181000000003802300d?xsec_token=AB04hWMvZwsiQ70nW4YKlQURjCOoD7MeOrJ9CmnyW0Oks=&xsec_source=",
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-store-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-store-avatar.webp",
+    "mode": "out",
+    "prepared": true,
+    "afterId": "",
+    "priority": false,
+    "outdoor": false,
+    "weekendsOnly": false,
+    "reservation": false,
+    "categorySource": "manual",
+    "catalogVersion": 3,
+    "video": false
+  },
+  {
+    "id": "note-yunnan",
+    "title": "去一坐一忘吃云南菜",
+    "category": "餐厅",
+    "duration": 75,
+    "area": "上海 · 门店待选",
+    "address": "",
+    "open": "11:30",
+    "close": "14:30",
+    "materials": "先选具体门店，再确认营业时间",
+    "sourceTitle": "天呢，卡戴珊去了我在上海的云南菜食堂！",
+    "author": "丹丹朱的青年厨房",
+    "url": "https://www.xiaohongshu.com/explore/6ab8c6bb0000000018015867?xsec_token=ABD1MQf_jOBdZ-yk4neOXCMVGIc1KQM1GXHOfLPvx4spU=&xsec_source=pc_feed",
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-yunnan-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-yunnan-avatar.webp",
+    "mode": "out",
+    "prepared": true,
+    "afterId": "",
+    "priority": false,
+    "outdoor": false,
+    "weekendsOnly": false,
+    "reservation": false,
+    "categorySource": "manual",
+    "catalogVersion": 3,
+    "video": false
+  },
+  {
+    "id": "note-makeup",
+    "title": "跟练一次日常淡妆",
+    "sourceTitle": "7min学会！新手日常万能淡妆！全妆跟练教程！",
+    "author": "laaalyn",
+    "url": "https://www.xiaohongshu.com/explore/6aa3c8ba000000002902d04b?xsec_token=ABsOtL69wZ2O_6pKkOVw6ACPThif4VuxUmXf5OF3l4VVQ=&xsec_source=pc_search",
+    "category": "美妆",
+    "duration": 45,
+    "mode": "home",
+    "materials": "常用彩妆、化妆工具、镜子",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "note-hair",
+    "priority": true,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-makeup-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-makeup-avatar.webp",
+    "video": true,
+    "videoSrc": "https://raw.githubusercontent.com/zty1307/zuoyidian-xhs-planner/79c090c/assets/note-makeup.mp4"
+  },
+  {
+    "id": "note-hair",
+    "title": "试一次低盘发",
+    "sourceTitle": "30秒学会优雅端庄低盘发 超显温柔 简单好学",
+    "author": "柳诗锐",
+    "url": "https://www.xiaohongshu.com/explore/6a8d76380000000025039776?xsec_token=ABMxJr-YMazx_c3o2rk3S1cFF66kI471Se5yvwlLEPSdk=&xsec_source=pc_search",
+    "category": "发型",
+    "duration": 20,
+    "mode": "home",
+    "materials": "发圈、发夹、镜子",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-hair-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-hair-avatar.webp",
+    "video": true,
+    "videoSrc": "https://raw.githubusercontent.com/zty1307/zuoyidian-xhs-planner/79c090c/assets/note-hair.mp4"
+  },
+  {
+    "id": "note-food",
+    "images": [
+      "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-food-page-1.webp",
+      "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-food-page-2.webp",
+      "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-food-page-3.webp"
+    ],
+    "title": "做一碗番茄浓汤面",
+    "sourceTitle": "番茄浓汤面（附教程）",
+    "author": "橙子cc",
+    "url": "https://www.xiaohongshu.com/explore/6a68309900000000010021c9?xsec_token=ABtPf62e4PV7GTUYVYXkOegeWeAB3FZQtLWgDKALhgVYA=&xsec_source=pc_search",
+    "category": "美食",
+    "duration": 45,
+    "mode": "home",
+    "materials": "番茄、鸡蛋、面条、调味料",
+    "prepared": true,
+    "open": "12:00",
+    "close": "14:00",
+    "afterId": "",
+    "priority": false,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-food-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-food-avatar.webp",
+    "video": false
+  },
+  {
+    "id": "note-craft",
+    "title": "折一个桌面收纳盒",
+    "sourceTitle": "教你用A4纸，折个超大容量的长方形收纳盒",
+    "author": "到车请故意",
+    "url": "https://www.xiaohongshu.com/explore/6abcdce9000000000b004ef1?xsec_token=AB3DoZ6JpGkRK1prwwmgG_cyhwyn0axjU2PSWSgh9RPFE=&xsec_source=pc_search",
+    "category": "手作",
+    "duration": 30,
+    "mode": "home",
+    "materials": "A4 纸",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-craft-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-craft-avatar.webp",
+    "video": true,
+    "videoSrc": "https://raw.githubusercontent.com/zty1307/zuoyidian-xhs-planner/79c090c/assets/note-craft.mp4"
+  },
+  {
+    "id": "note-pilates",
+    "title": "看一节普拉提动作讲解",
+    "sourceTitle": "普拉提动作讲解",
+    "author": "皓东运动控制学",
+    "url": "https://www.xiaohongshu.com/explore/64ba744b0000000017019453?xsec_token=ABG5Dg_neUowlgrVo4nF8HC4B6M6wRQSJPqQ3LYeclGh8=&xsec_source=",
+    "category": "运动",
+    "categorySource": "manual",
+    "duration": 15,
+    "mode": "any",
+    "materials": "",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "catalogVersion": 2,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-pilates-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-pilates-avatar.webp",
+    "video": true,
+    "videoSrc": "https://raw.githubusercontent.com/zty1307/zuoyidian-xhs-planner/79c090c/assets/note-pilates.mp4"
+  },
+  {
+    "id": "note-outfit",
+    "title": "搭配一套明天穿的衣服",
+    "sourceTitle": "𓂂 ˳ 🎧📨一周ootd合集",
+    "author": "P1nKynKy",
+    "url": "https://www.xiaohongshu.com/explore/64828ea70000000007039c26?xsec_token=ABWfhpEx6J3lWsWRnYc6GIXfA7EX5IduXMgpUm5eWSvMo=&xsec_source=",
+    "category": "穿搭",
+    "categorySource": "manual",
+    "duration": 25,
+    "mode": "home",
+    "materials": "衣柜里的衣服、全身镜",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "catalogVersion": 2,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-outfit-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-outfit-avatar.webp",
+    "video": false
+  },
+  {
+    "id": "note-organize",
+    "title": "整理桌面常用小物",
+    "sourceTitle": "附🧾｜ins风高颜值收纳分享ദ്ദി˶ｰ̀֊ｰ́ )✧",
+    "author": "小譚綺麗",
+    "url": "https://www.xiaohongshu.com/explore/64b526ea000000002b03c5cf?xsec_token=ABR5r2y08Q3XfXKiC3GalJrZW_p0aUynvFhsYybQBLxZ4=&xsec_source=",
+    "category": "家居",
+    "categorySource": "manual",
+    "duration": 30,
+    "mode": "home",
+    "materials": "收纳盒、擦拭布",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "catalogVersion": 2,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-organize-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-organize-avatar.webp",
+    "video": false
+  },
+  {
+    "id": "note-plants",
+    "title": "给家里的盆栽换盆",
+    "sourceTitle": "移栽后的绣球都长得很好呀",
+    "author": "夏木有诗",
+    "url": "https://www.xiaohongshu.com/explore/649fc11600000000110128be?xsec_token=ABM1VyxgxiutD2tUbH6ZlbzQInF4yCF_SK6zWw-vnTvA4=&xsec_source=",
+    "category": "园艺",
+    "categorySource": "manual",
+    "duration": 30,
+    "mode": "home",
+    "materials": "盆栽、花盆、适合的土",
+    "prepared": true,
+    "open": "",
+    "close": "",
+    "afterId": "",
+    "priority": false,
+    "catalogVersion": 2,
+    "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-plants-cover.webp",
+    "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/note-plants-avatar.webp",
+    "video": false
+  }
+];
+</script>
+<script>(function (root) {
+  'use strict';
+  const minutes = (text) => { const match = /^(\d{2}):(\d{2})$/.exec(String(text || '')); if (!match) return NaN; const hour = Number(match[1]), minute = Number(match[2]); return hour <= 23 && minute <= 59 ? hour * 60 + minute : NaN; };
+  const modeOf = (item) => ['home', 'out', 'any'].includes(item.mode) ? item.mode : 'home';
+  function blockReason(item, config) {
+    if (item.prepared === false) return item.materials ? `${item.materials} 尚未备齐` : '准备工作还没完成';
+    if (config.rain && modeOf(item) === 'out' && item.outdoor) return '下雨，暂缓户外活动';
+    const day = new Date(`${config.date}T12:00:00`).getDay();
+    if (item.weekendsOnly && day !== 0 && day !== 6) return '只能周末做';
+    if ((item.open && !Number.isFinite(minutes(item.open))) || (item.close && !Number.isFinite(minutes(item.close)))) return '时间限制需要重新确认';
+    if (!Number.isInteger(Number(item.duration)) || Number(item.duration) < 5) return '请补充预计耗时';
+    return '';
+  }
+  function nextContext(item, previous) {
+    if (modeOf(item) === 'any') return previous;
+    return { mode: modeOf(item), area: item.area || '', address: item.address || '' };
+  }
+  function transferTime(item, previous, config) {
+    if (!previous || modeOf(item) === 'any') return 0;
+    if (previous.mode === 'home' && modeOf(item) === 'home') return 0;
+    if (previous.mode === 'out' && modeOf(item) === 'out') {
+      if (item.address && previous.address === item.address) return 0;
+      if (item.area && previous.area === item.area) return Math.max(10, Math.round(Number(config.travel || 25) * .55));
+    }
+    return Number(config.travel || 25);
+  }
+  function buildPlan(items, selectedIds, config, done = {}) {
+    const selected = items.filter((item) => selectedIds.includes(item.id));
+    const byId = new Map(items.map((item) => [item.id, item]));
+    const dayStart = minutes(config.start), dayEnd = minutes(config.end);
+    if (!Number.isFinite(dayStart) || !Number.isFinite(dayEnd) || dayStart >= dayEnd) return { entries: [], excluded: [] };
+    const available = selected.filter((item) => !blockReason(item, config));
+    const completed = (id) => Boolean(done[`${config.date}:${id}`]);
+    let frontier = [{ time: dayStart, entries: [], used: [], score: 0, context: {mode:'home'}, categories: [] }];
+    let best = frontier[0];
+    const limit = Math.min(Number(config.maxTasks || 4), available.length);
+    for (let depth = 0; depth < limit; depth++) {
+      const next = [];
+      for (const node of frontier) {
+        for (const item of available) {
+          if (node.used.includes(item.id)) continue;
+          if (item.afterId && !node.used.includes(item.afterId) && !completed(item.afterId)) continue;
+          const transfer = transferTime(item, node.context, config);
+          const rest = node.entries.length ? Number(config.rest || 0) : 0;
+          const arrival = node.time + transfer + rest;
+          const begins = Math.max(arrival, item.open ? minutes(item.open) : dayStart);
+          const finishes = begins + Number(item.duration);
+          if (finishes > dayEnd || (item.close && finishes > minutes(item.close))) continue;
+          const wait = begins - arrival;
+          const score = node.score + 100 + (item.priority ? 50 : 0) + (node.categories.includes(item.category) ? 0 : 5) - wait * .12 - transfer * .12;
+          const candidate = { time: finishes, entries: [...node.entries, { id: item.id, start: begins, end: finishes, transfer, rest, wait }], used: [...node.used, item.id], score, context: nextContext(item, node.context), categories: [...node.categories, item.category] };
+          next.push(candidate);
+          if (score > best.score || (score === best.score && finishes < best.time)) best = candidate;
+        }
+      }
+      frontier = next.sort((a, b) => b.score - a.score || a.time - b.time).slice(0, 180);
+      if (!frontier.length) break;
+    }
+    const excluded = selected.filter((item) => !best.used.includes(item.id)).map((item) => {
+      let reason = blockReason(item, config);
+      if (!reason && item.afterId && !best.used.includes(item.afterId) && !completed(item.afterId)) reason = `需要先完成“${byId.get(item.afterId)?.title || '前置事项'}”`;
+      if (!reason && best.entries.length >= limit) reason = '本次件数已满，可以调高上限或换一件';
+      if (!reason) reason = '这段时间放不下，或不符合时间限制';
+      return { item, reason };
+    });
+    return { entries: best.entries, excluded };
+  }
+  function addDays(value, amount) {
+    const date = new Date(`${value}T12:00:00`); if(Number.isNaN(date.getTime()))return '';
+    date.setDate(date.getDate()+amount);
+    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+  }
+  function buildAgenda(items,selectedIds,config,done={},count=7){
+    const days=[],scheduled=new Set(),carry=new Set();let excluded=[];
+    // Prior completed prerequisites carry forward; planning never writes completion state.
+    for(let offset=0;offset<count;offset++){
+      const date=addDays(config.date,offset),effective={...done};
+      for(const [key,value] of Object.entries(done))if(value&&key.slice(0,10)<date)effective[`${date}:${key.slice(11)}`]=true;
+      for(const id of carry)effective[`${date}:${id}`]=true;
+      const eligible=selectedIds.filter(id=>!scheduled.has(id)&&(!config.preferredDates?.[id]||config.preferredDates[id]<=date));
+      const plan=buildPlan(items,eligible,{...config,...config.dailyWindows?.[date],date},effective);
+      days.push({date,entries:plan.entries});excluded=plan.excluded.map(({item,reason})=>({id:item.id,reason}));
+      for(const entry of plan.entries){scheduled.add(entry.id);carry.add(entry.id);}
+    }
+    return {startDate:config.date,days,excluded};
+  }
+  const api = Object.freeze({ buildPlan, buildAgenda, addDays, blockReason, minutes, modeOf });
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.ActivityPlanner = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+</script>
+<script>(function(root){
+  'use strict';
+  function create(start,items,addDays){
+    const weekdays=[['note-food'],['note-organize'],['note-outfit'],['note-pilates'],['note-craft']];
+    const weekend={6:['note-hair','note-makeup','note-hotpot'],0:['note-plants','note-store']};
+    const dailyWindows={},preferredDates={},selected=[];let weekday=0;
+    for(let offset=0;offset<7;offset++){
+      const date=addDays(start,offset),day=new Date(date+'T12:00:00').getDay(),isWeekend=day===0||day===6;
+      dailyWindows[date]={start:isWeekend?'10:00':'19:00',end:isWeekend?'16:00':'21:00',maxTasks:isWeekend?4:2};
+      const ids=isWeekend?weekend[day]:weekdays[weekday++];
+      for(const id of ids)if(items.some(n=>n.id===id)){selected.push(id);preferredDates[id]=date;}
+    }
+    return {selected,config:{date:start,viewDays:7,start:'19:00',end:'21:00',maxTasks:2,rest:10,travel:25,rain:false,dailyWindows,preferredDates}};
+  }
+  const api={create};root.DemoWeek=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script>
+<script>(function(root){
+  const rules = [
+    ['餐厅', /餐厅|餐馆|火锅|云南菜|下山虎|一坐一忘|吃饭探店/],
+    ['探店', /探店|逛店|咖啡店|store/],
+    ['发型', /盘发|编发|扎发|扎头发|发型|卷发|刘海|丸子头/],
+    ['美妆', /化妆|妆容|淡妆|彩妆|底妆|眼影|眼线|口红|护肤|美甲/],
+    ['美食', /食谱|做饭|早餐|午餐|晚餐|烘焙|蛋糕|面包|汤面|番茄|咖啡|料理|饼干/],
+    ['手作', /手工|手作|折纸|a4纸|a4 纸|钩织|编织|黏土|粘土|刺绣|diy/],
+    ['运动', /运动|健身|拉伸|瑜伽|普拉提|跑步|晨练|游泳|跳绳|训练/],
+    ['穿搭', /穿搭|搭配|衣服|ootd|衣橱|衬衫|毛衣|裙子|配色/],
+    ['园艺', /园艺|盆栽|绿植|养花|多肉|绣球|浇水|换盆|移栽/],
+    ['家居', /收纳|整理|打扫|清洁|桌面|书架|家居|房间/],
+    ['摄影', /摄影|拍照|拍摄|相机|构图|修图|滤镜/],
+    ['阅读', /阅读|读书|书单|小说|读完|书摘/],
+    ['学习', /学习|教程|英语|单词|excel|ppt|编程|笔记方法|简历|面试/],
+    ['出门', /旅行|旅游|散步|公园|探店|展览|逛展|骑行|徒步|citywalk/]
+  ];
+  const categories=[...rules.map(([name])=>name),'其他'];
+  function suggest(text){const value=String(text||'').toLowerCase();return rules.find(([,rule])=>rule.test(value))?.[0]||'其他';}
+  const travelRules=[['美食',/美食|吃什么|吃饭|餐厅|餐食|食物|restaurant|海鲜|烤鸡/i],['交通',/gobus|交通|车票|乘车|航班|机场接送/i],['住宿',/住宿|酒店推荐|住哪里|民宿/i],['行前准备',/必备|物品清单|穿衣|穿搭|签证|换汇|电话卡/i],['景点',/景点|金字塔|神庙|博物馆/i],['路线',/攻略|自由行|路线|行程|旅行|旅游|出海/i]];
+  function explain(text,travel=false){
+    const value=String(text||''),hit=(travel?travelRules:rules).map(([category,rule])=>({category,match:value.match(new RegExp(rule.source,'i'))})).find(x=>x.match);
+    return hit?{category:hit.category,keyword:hit.match[0],method:'keyword'}:{category:travel?'行前准备':'其他',keyword:'',method:'fallback'};
+  }
+  function review(items,{travel=false,onChange}){
+    const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    let d=document.querySelector('#categoryReview');if(!d){d=document.createElement('dialog');d.id='categoryReview';d.className='category-dialog';document.body.append(d);}
+    const options=travel?['景点','路线','美食','交通','住宿','行前准备']:categories;
+    const draw=()=>{d.innerHTML='<div class="dialog-heading"><h2>自动分类</h2><button class="icon-button" data-close aria-label="关闭分类">×</button></div><p class="share-intro">识别标题关键词，自动归类；手动修改后会保留你的选择。</p><div class="classification-list">'+items.map((n,i)=>{const result=explain(n.title,travel);return '<div class="classification-row"><div><strong>'+esc(n.title)+'</strong><small>'+(n.manual?'已手动分类':result.keyword?'识别到「'+esc(result.keyword)+'」':'未识别关键词，使用默认分类')+'</small></div><select data-classify="'+i+'" aria-label="'+esc(n.title)+'的分类">'+options.map(c=>'<option '+(c===n.category?'selected':'')+'>'+esc(c)+'</option>').join('')+'</select>'+(n.manual?'<button class="text-button" data-auto="'+i+'">恢复自动</button>':'<span class="auto-label">自动</span>')+'</div>';}).join('')+'</div>';d.querySelector('[data-close]').onclick=()=>d.close();};
+    d.onchange=e=>{if(!e.target.hasAttribute('data-classify'))return;const i=Number(e.target.dataset.classify);items[i].category=e.target.value;items[i].manual=true;onChange(items[i]);draw();};
+    d.onclick=e=>{const b=e.target.closest('[data-auto]');if(!b)return;const n=items[Number(b.dataset.auto)];n.category=explain(n.title,travel).category;n.manual=false;onChange(n);draw();};draw();d.showModal();
+  }
+  const api={categories,suggest,explain,review};
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;
+  else root.NoteCategories=api;
+})(globalThis);
+</script>
+<script>(function(root){
+  'use strict';
+  const enc=new TextEncoder(),xml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c])).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,'');
+  const safeUrl=s=>{try{const u=new URL(s);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}};
+  const crcTable=Array.from({length:256},(_,n)=>{for(let k=0;k<8;k++)n=n&1?0xedb88320^(n>>>1):n>>>1;return n>>>0;});
+  function crc(bytes){let c=0xffffffff;for(const b of bytes)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0;}
+  function zip(files){
+    const chunks=[],central=[];let offset=0,centralSize=0;
+    for(const [name,text] of Object.entries(files)){
+      const n=enc.encode(name),b=enc.encode(text),sum=crc(b),h=new Uint8Array(30+n.length),v=new DataView(h.buffer);
+      v.setUint32(0,0x04034b50,true);v.setUint16(4,20,true);v.setUint16(6,0x800,true);v.setUint32(14,sum,true);v.setUint32(18,b.length,true);v.setUint32(22,b.length,true);v.setUint16(26,n.length,true);h.set(n,30);chunks.push(h,b);
+      const ch=new Uint8Array(46+n.length),cv=new DataView(ch.buffer);cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0x800,true);cv.setUint32(16,sum,true);cv.setUint32(20,b.length,true);cv.setUint32(24,b.length,true);cv.setUint16(28,n.length,true);cv.setUint32(42,offset,true);ch.set(n,46);central.push(ch);centralSize+=ch.length;offset+=h.length+b.length;
+    }
+    const end=new Uint8Array(22),ev=new DataView(end.buffer);ev.setUint32(0,0x06054b50,true);ev.setUint16(8,central.length,true);ev.setUint16(10,central.length,true);ev.setUint32(12,centralSize,true);ev.setUint32(16,offset,true);
+    const result=new Uint8Array(offset+centralSize+22);let pos=0;for(const b of [...chunks,...central,end]){result.set(b,pos);pos+=b.length;}return result;
+  }
+  const col=i=>{let s='';for(i++;i;i=Math.floor((i-1)/26))s=String.fromCharCode(65+(i-1)%26)+s;return s;};
+  function workbook(plan){
+    const rows=[['日期','天数','城市 / 地点','安排','内容','备注','来源笔记','原帖链接']];
+    const merges=[];
+    const merge=(column,start,end)=>{if(end<=start||!rows[start][column])return;merges.push(`${col(column)}${start+1}:${col(column)}${end+1}`);for(let r=start+1;r<=end;r++)rows[r][column]='';};
+    for(const day of plan.days){
+      const first=rows.length;
+      for(const item of day.items)rows.push([day.date,day.label,day.city||item.area||'',item.slot||'',item.title,item.detail||'',(item.sources||[]).map(n=>n.title).join('\n'),(item.sources||[]).map(n=>safeUrl(n.url)).filter(Boolean).join('\n')]);
+      const last=rows.length-1;if(last<first)continue;merge(0,first,last);merge(1,first,last);
+      let from=first;for(let r=first+1;r<=last+1;r++)if(r>last||rows[r][2]!==rows[from][2]){merge(2,from,r-1);from=r;}
+    }
+    const refs=[['笔记','作者','分类','原帖链接']];for(const n of plan.sources||[])refs.push([n.title,n.author||'',n.kind||'',safeUrl(n.url)]);
+    const sheet=(r,widths,mergeRanges=[])=>`<?xml version="1.0" encoding="UTF-8"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${widths.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>${r.map((row,i)=>`<row r="${i+1}" ht="${i?46:28}" customHeight="1">${row.map((v,j)=>`<c r="${col(j)}${i+1}" t="inlineStr" s="${i?(mergeRanges.length&&j<3?3:1):2}"><is><t xml:space="preserve">${xml(v)}</t></is></c>`).join('')}</row>`).join('')}</sheetData><autoFilter ref="A1:${col(r[0].length-1)}${r.length}"/>${mergeRanges.length?`<mergeCells count="${mergeRanges.length}">${mergeRanges.map(ref=>`<mergeCell ref="${ref}"/>`).join('')}</mergeCells>`:''}<pageSetup orientation="landscape" paperSize="9"/></worksheet>`;
+    return zip({
+      '[Content_Types].xml':'<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>',
+      '_rels/.rels':'<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>',
+      'xl/workbook.xml':'<?xml version="1.0"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="行程安排" sheetId="1" r:id="rId1"/><sheet name="收藏来源" sheetId="2" r:id="rId2"/></sheets></workbook>',
+      'xl/_rels/workbook.xml.rels':'<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
+      'xl/styles.xml':'<?xml version="1.0"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Microsoft YaHei"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Microsoft YaHei"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE83C50"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyAlignment="1"><alignment vertical="center" horizontal="center" wrapText="1"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>',
+      'xl/worksheets/sheet1.xml':sheet(rows,[15,18,20,16,32,42,48,65],merges),'xl/worksheets/sheet2.xml':sheet(refs,[55,24,16,80])
+    });
+  }
+  function planHtml(plan){
+    return `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${xml(plan.title)}</title><style>body{margin:0;background:#faf9f7;color:#292929;font:15px/1.7 system-ui,"Microsoft YaHei",sans-serif}main{max-width:840px;margin:auto;padding:45px 28px}header{border-bottom:2px solid #e83c50;padding-bottom:28px}header small{color:#e83c50}h1{font-size:34px;margin:12px 0 4px}p{color:#888;margin:0}section{padding:26px 0;border-bottom:1px solid #ddd}h2{font-size:19px;margin:0 0 18px}h2 span{font-size:13px;color:#999;font-weight:400;margin-left:18px}.item{display:grid;grid-template-columns:90px 1fr;gap:20px;margin:18px 0}.slot{color:#999;font-size:13px}.detail{color:#888;font-size:13px}a{color:#a87c57;text-decoration:none}details{font-size:12px;color:#999;margin-top:4px}a{display:block;margin-top:4px}footer{font-size:12px;color:#999;margin-top:24px}@media(max-width:500px){main{padding:24px 18px}.item{grid-template-columns:65px 1fr;gap:10px}}</style><main><header><small>做一点 · 好友共享</small><h1>${xml(plan.title)}</h1><p>${xml(plan.days[0]?.date||'')} — ${xml(plan.days.at(-1)?.date||'')}</p></header>${plan.days.map(d=>`<section><h2>${xml(d.label)}<span>${xml(d.date)} ${xml(d.city||'')}</span></h2>${d.items.map(i=>`<div class="item"><div class="slot">${xml(i.slot||'')}</div><div><strong>${xml(i.title)}</strong>${i.detail?`<div class="detail">${xml(i.detail)}</div>`:''}${i.sources?.length?`<details><summary>来自 ${i.sources.length} 篇收藏</summary>${i.sources.map(n=>safeUrl(n.url)?`<a href="${xml(safeUrl(n.url))}" target="_blank" rel="noopener noreferrer">${xml(n.title)} ↗</a>`:`<span>${xml(n.title)}</span>`).join('')}</details>`:''}</div></div>`).join('')}</section>`).join('')}<footer>这是一份分享时的计划快照。</footer></main></html>`;
+  }
+  function download(data,name,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([data],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);}
+  const api={workbook,planHtml,exportExcel:plan=>download(workbook(plan),plan.title+'.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')};
+  root.PlanOutput=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script>
+<script>(function(root){
+  'use strict';
+  const storageKey='zuoyidian-shared-albums-v1',adapters={},viewers={},applying=new Set();
+  const people=[{id:'me',name:'我',color:'#ea4356'},{id:'xiaoman',name:'小满',color:'#b79b76'},{id:'ayao',name:'阿遥',color:'#7e9c91'}];
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const read=()=>{try{return JSON.parse(localStorage.getItem(storageKey))||{};}catch{return {};}};
+  function persist(value){localStorage.setItem(storageKey,JSON.stringify(value));}
+  const person=id=>people.find(p=>p.id===id)||people[0];
+  function viewer(kind){let id=viewers[kind];if(!id){try{id=sessionStorage.getItem(storageKey+':viewer:'+kind);}catch{}}return read()[kind]?.members.includes(id)?id:'me';}
+  function draw(kind){
+    const a=adapters[kind],album=read()[kind];if(!a)return;let bar=document.querySelector('#shared-'+kind);
+    if(!bar){bar=document.createElement('div');bar.id='shared-'+kind;bar.className='shared-album-bar';document.querySelector(a.anchor).after(bar);}
+    bar.hidden=!album;if(!album)return;
+    bar.innerHTML='<div class="shared-people">'+album.members.map(id=>{const p=person(id);return '<span style="--person-color:'+p.color+'" title="'+p.name+'">'+p.name.slice(-1)+'</span>';}).join('')+'</div><div class="shared-album-label"><strong>'+esc(album.title)+'</strong><small>'+esc(album.lastEditor?person(album.lastEditor).name+'更新了专辑':'一起安排这份计划')+'</small></div><button class="text-button" data-manage-shared>管理</button>';
+    bar.querySelector('[data-manage-shared]').onclick=()=>open(kind);
+  }
+  function publish(kind,snapshot){
+    if(applying.has(kind))return;const all=read(),album=all[kind];if(!album||JSON.stringify(album.snapshot)===JSON.stringify(snapshot))return;
+    album.snapshot=JSON.parse(JSON.stringify(snapshot));album.lastEditor=viewer(kind);album.revision=(album.revision||0)+1;persist(all);draw(kind);
+  }
+  function register(kind,adapter){
+    adapters[kind]=adapter;const album=read()[kind];if(album?.snapshot){applying.add(kind);try{adapter.receive(album.snapshot);}finally{applying.delete(kind);}}draw(kind);
+  }
+  function open(kind){
+    const a=adapters[kind];if(!a)return;const album=read()[kind];let d=document.querySelector('#sharedAlbumDialog');
+    if(!d){d=document.createElement('dialog');d.id='sharedAlbumDialog';d.className='shared-album-dialog';document.body.append(d);}
+    d.innerHTML='<form><div class="dialog-heading"><h2>共同专辑</h2><button class="icon-button" type="button" data-shared-close aria-label="关闭共同专辑">×</button></div><label class="shared-title-field"><span>专辑名称</span><input name="title" maxlength="32" required value="'+esc(album?.title||(kind==='travel'?'一起去埃及':'一起做一点'))+'"/></label><div class="shared-members">'+people.map(p=>'<label class="shared-member"><span class="shared-avatar" style="--person-color:'+p.color+'">'+p.name.slice(-1)+'</span><span>'+p.name+(p.id==='me'?'<small>创建者</small>':'<small>可共同安排</small>')+'</span><input type="checkbox" name="member" value="'+p.id+'" '+(p.id==='me'?'checked disabled':(album?.members||['xiaoman']).includes(p.id)?'checked':'')+'/></label>').join('')+'</div>'+(album?'<label class="shared-viewer"><span>体验好友视角</span><select name="viewer" aria-label="协作演示身份">'+album.members.map(id=>'<option value="'+id+'" '+(viewer(kind)===id?'selected':'')+'>'+person(id).name+'</option>').join('')+'</select></label>':'')+'<div class="shared-dialog-footer"><small>演示好友 · 未连接小红书账号</small><button class="button button-coral" type="submit">'+(album?'完成':'创建共同专辑')+'</button></div><p class="shared-feedback" role="status"></p></form>';
+    d.querySelector('[data-shared-close]').onclick=()=>d.close();
+    d.querySelector('form').onsubmit=e=>{e.preventDefault();const f=e.currentTarget,members=['me',...Array.from(f.querySelectorAll('[name=member]:checked')).map(x=>x.value).filter(id=>id!=='me')];if(members.length<2){d.querySelector('[role=status]').textContent='选择一位一起安排的好友';return;}const all=read();all[kind]={id:album?.id||crypto.randomUUID(),title:f.elements.title.value.trim()||(kind==='travel'?'一起去埃及':'一起做一点'),members,snapshot:JSON.parse(JSON.stringify(a.snapshot())),revision:album?.revision||0,lastEditor:album?.lastEditor||''};const selected=f.elements.viewer?.value||'me';viewers[kind]=members.includes(selected)?selected:'me';try{sessionStorage.setItem(storageKey+':viewer:'+kind,viewers[kind]);persist(all);draw(kind);d.close();}catch{d.querySelector('[role=status]').textContent='保存失败，请检查浏览器存储空间';}};
+    d.showModal();
+  }
+  addEventListener('storage',e=>{if(e.key!==storageKey)return;const all=read();for(const [kind,a] of Object.entries(adapters)){if(all[kind]?.snapshot){applying.add(kind);try{a.receive(all[kind].snapshot);}finally{applying.delete(kind);}}draw(kind);}});
+  root.SharedAlbum={register,publish,open};
+})(globalThis);
+</script>
+<script>(() => {
+  'use strict';
+  const STORAGE_KEY = 'zuoyidian-collection-v3';
+  const planner = globalThis.ActivityPlanner;
+  const $ = (selector) => document.querySelector(selector);
+  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+  const clock = (value) => `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(value % 60).padStart(2, '0')}`;
+  const safeUrl = (value) => { try { const url = new URL(value); const host = url.hostname.toLowerCase(); const xhs = host === 'xiaohongshu.com' || host.endsWith('.xiaohongshu.com') || ['xhslink.com', 'www.xhslink.com', 'xhslink.cn', 'www.xhslink.cn'].includes(host); return ['http:', 'https:'].includes(url.protocol) && xhs ? url.href : ''; } catch { return ''; } };
+  const newId = () => crypto.randomUUID ? crypto.randomUUID() : `save-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const modeLabel = (item) => planner.modeOf(item) === 'home' ? '在家' : planner.modeOf(item) === 'any' ? '不限地点' : item.area || '出门';
+  function today() { const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());const part=t=>parts.find(p=>p.type===t).value;return `${part('year')}-${part('month')}-${part('day')}`; }
+  function initialState() {
+    const items = (globalThis.DEMO_NOTES || []).map(({cover,avatar,video,videoSrc,images,...item}) => ({ mode: 'home', open: '', close: '', area: '', address: '', prepared: true, afterId: '', ...item }));
+    return { catalogVersion:3, items, selected: items.filter(item=>!item.catalogVersion).map((item) => item.id), filter: 'all', hasPlan: true, done: {}, config: { date: today(), viewDays:3, start: '10:00', end: '13:00', maxTasks: 4, rest: 10, rain: false, travel: 25 } };
+  }
+  function loadState() {
+    const fallback = initialState();
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && Array.isArray(saved.items) && Array.isArray(saved.selected)) {
+        const items = saved.items.filter((item) => item && typeof item.id === 'string' && typeof item.title === 'string');
+        const pilates=items.find(item=>item.id==='note-pilates'&&item.title==='学一组普拉提动作'&&item.materials==='瑜伽垫');
+        if(pilates)Object.assign(pilates,{title:'看一节普拉提动作讲解',mode:'any',duration:15,materials:''});
+        if ((saved.catalogVersion || 1)<3) items.unshift(...fallback.items.filter(item=>(item.catalogVersion||1)>(saved.catalogVersion||1)&&!items.some(existing=>existing.id===item.id)));
+        return { ...fallback, ...saved, catalogVersion:3, items, selected: saved.selected.filter((id) => items.some((item) => item.id === id)), filter: ['all', 'selected', 'unready'].includes(saved.filter) ? saved.filter : 'all', done: saved.done && typeof saved.done === 'object' ? saved.done : {}, config: { ...fallback.config, ...saved.config } };
+      }
+      const old = JSON.parse(localStorage.getItem('quyitang-collection-v2'));
+      if (old && Array.isArray(old.items)) {
+        const custom = old.items.filter((item) => item && !item.sample).map((item) => ({ ...item, mode: 'out', category: '出门', prepared: true, materials: '', afterId: '' }));
+        fallback.items.push(...custom);
+        fallback.selected.push(...custom.filter((item) => old.selected?.includes(item.id)).map((item) => item.id));
+      }
+    } catch {}
+    return fallback;
+  }
+  let state = loadState(), editingId = null, toastTimer;
+  // Seed a complete week for the presentation, retaining the previous local version.
+  if(state.demoVersion!==9||state.demoWeekStart!==today()){
+    try{localStorage.setItem('zuoyidian-before-demo-v9',JSON.stringify(state));}catch{}
+    if(state.demoVersion!==9){
+      for(const n of globalThis.DEMO_NOTES||[])if(!state.items.some(i=>i.id===n.id)){const {cover,avatar,video,videoSrc,images,...item}=n;state.items.push(item);}
+      const dinner=state.items.find(n=>n.id==='note-food');if(dinner){dinner.open='19:00';dinner.close='21:00';}
+    }
+    const week=DemoWeek.create(today(),state.items,planner.addDays);
+    state.config={...state.config,...week.config};state.selected=week.selected;
+    state.agenda=planner.buildAgenda(state.items,state.selected,state.config,state.done,7);
+    state.demoVersion=9;state.demoWeekStart=today();
+  }
+  state.config.date=today();state.config.viewDays=7;
+  for(const item of state.items)if(item.categorySource!=='manual'){item.category=NoteCategories.suggest(item.sourceTitle||item.title);item.categorySource='title-rule';}
+  let activeCategory = '全部', searchQuery = '', previewId=null, categoryTouched=false, browseScroll=0;
+  const categoryOptions = (selected) => globalThis.NoteCategories.categories.map(category=>`<option ${category===selected?'selected':''}>${esc(category)}</option>`).join('');
+  const mediaFor = (item) => (globalThis.DEMO_NOTES || []).find((note) => note.id === item.id) || {};
+  const icon = (name) => { const paths = {check:'<path d="m5 12 4 4L19 6"/>',plus:'<path d="M12 5v14M5 12h14"/>',play:'<path d="m9 6 9 6-9 6Z" fill="currentColor" stroke="none"/>',edit:'<path d="m16 3 5 5-12 12-6 1 1-6Z"/><path d="m14 5 5 5"/>',star:'<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9Z"/>',more:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',bookmark:'<path d="M6 4h12v17l-6-4-6 4Z"/>' }; return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.bookmark}</svg>`; };
+  function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); SharedAlbum.publish('daily',state); } catch { showToast('本机保存失败，建议导出计划'); } }
+  function showToast(message, action) {
+    const toast = $('#toast'); toast.replaceChildren(document.createTextNode(message));
+    if (action) { const button = document.createElement('button'); button.type = 'button'; button.textContent = '撤销'; button.addEventListener('click', () => { action(); toast.classList.remove('show'); }, { once: true }); toast.appendChild(button); }
+    toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), action ? 7000 : 3200);
+  }
+  function readiness(item) {
+    const gaps = [];
+    if (item.prepared === false) gaps.push('材料待备齐');
+    if (planner.modeOf(item) === 'out' && !item.address) gaps.push('地点待确认');
+    return gaps;
+  }
+  function renderCollection() {
+    $('#collectionCount').textContent = state.items.length;
+    $('#selectedCount').textContent = state.selected.length;
+    $('#unreadyCount').textContent = state.items.filter((item) => readiness(item).length).length;
+    document.querySelectorAll('[data-filter]').forEach((button) => button.classList.toggle('active', button.dataset.filter === state.filter));
+    const categories = ['全部', ...new Set(state.items.map((item)=>item.category || '其他'))];
+    if (!categories.includes(activeCategory)) activeCategory='全部';
+    $('#categoryFilters').innerHTML = categories.map(category=>`<button type="button" class="category-filter ${category===activeCategory?'active':''}" data-category="${esc(category)}" aria-pressed="${category===activeCategory}">${esc(category)}</button>`).join('');
+    const items = state.items.filter((item) => (state.filter === 'all' || (state.filter === 'selected' ? state.selected.includes(item.id) : readiness(item).length)) && (activeCategory==='全部'||item.category===activeCategory) && (!searchQuery||[item.title,item.sourceTitle,item.author,item.category].some(value=>String(value||'').toLowerCase().includes(searchQuery))));
+    $('#collectionList').innerHTML = items.length ? items.map((item) => {
+      const chosen = state.selected.includes(item.id), link = safeUrl(item.url), gaps = readiness(item);
+      const media = mediaFor(item), title = item.sourceTitle || item.title;
+      return `<article class="save-card ${chosen ? 'selected' : ''}" data-id="${esc(item.id)}">
+        <div class="cover-wrap"><button class="cover-link" data-action="preview" type="button" aria-label="${media.video?'播放':'查看'}：${esc(title)}">${media.cover?`<img class="note-cover" src="${esc(media.cover)}" alt="${esc(title)}" loading="lazy" />`:`<div class="cover-placeholder">${icon('bookmark')}<span>${esc(item.category)}</span></div>`}</button>${media.video?`<span class="video-badge">${icon('play')}</span>`:`<span class="cover-photo-badge">图文${media.images?.length?' · '+media.images.length:''}</span>`}<button class="cover-select" data-action="choose" type="button" aria-label="${chosen?'取消选择':'选择'}${esc(item.title)}" aria-pressed="${chosen}">${icon(chosen?'check':'plus')}</button><span class="duration-badge">${esc(item.duration)} 分钟</span></div>
+        <div class="card-caption"><h3><button data-action="preview" type="button">${esc(title)}</button></h3><div class="author-row"><span class="author">${media.avatar?`<img src="${esc(media.avatar)}" alt="" />`:'<span class="avatar-placeholder">我</span>'}<span>${esc(item.author || '我的收藏')}</span></span><details class="card-menu"><summary aria-label="管理${esc(item.title)}">${icon('more')}</summary><div class="menu-popover"><button data-action="edit" type="button">编辑安排</button><button data-action="priority" type="button">${item.priority?'取消优先':'优先安排'}</button><button data-action="delete" type="button">删除收藏</button></div></details></div>${gaps.length?`<button class="unready-tag" data-action="${item.prepared===false?'prepared':'edit'}" type="button">${item.prepared===false?'材料待准备 · 标为备齐':'地点待确认'}</button>`:''}</div>
+      </article>`;
+    }).join('') : '<div class="empty-list">没有找到收藏</div>';
+  }
+  function closePreview() {
+    $('#notePreview video')?.pause(); $('#notePreview').replaceChildren(); $('#notePreview').hidden=true; $('#collectionBrowse').hidden=false;
+    const previous=previewId; previewId=null;
+    [...document.querySelectorAll('.save-card')].find(card=>card.dataset.id===previous)?.querySelector('.cover-link')?.focus({preventScroll:true});
+    window.scrollTo({top:browseScroll,behavior:'instant'});
+  }
+  function openPreview(id) {
+    const item=state.items.find(note=>note.id===id); if(!item)return;
+    if(!previewId)browseScroll=window.scrollY;
+    $('#notePreview video')?.pause();previewId=id;
+    const media=mediaFor(item),chosen=state.selected.includes(id),link=safeUrl(item.url);
+    $('#collectionBrowse').hidden=true;$('#notePreview').hidden=false;
+    $('#notePreview').innerHTML=`<div class="preview-toolbar"><button data-preview-action="close" type="button">← 返回收藏</button>${link?`<a href="${esc(link)}" target="_blank" rel="noopener noreferrer">原笔记 ↗</a>`:''}</div><div class="preview-media">${media.videoSrc?`<video controls playsinline preload="metadata" poster="${esc(media.cover||'')}" src="${esc(media.videoSrc)}" aria-label="${esc(item.sourceTitle||item.title)}"></video>`:media.cover?`<img src="${esc(media.cover)}" alt="${esc(item.sourceTitle||item.title)}"/>`:`<div class="cover-placeholder">${icon('bookmark')}</div>`}</div><p id="videoError" class="video-error" ${media.video&&!media.videoSrc?'':'hidden'}>这条笔记暂时需要到小红书播放。</p><h2>${esc(item.sourceTitle||item.title)}</h2><div class="preview-author"><span class="author">${media.avatar?`<img src="${esc(media.avatar)}" alt=""/>`:''}${esc(item.author||'我的收藏')}</span><label class="preview-category"><span>分类</span><select id="previewCategory" aria-label="笔记分类">${categoryOptions(item.category)}</select></label></div><div class="preview-action-row"><div><strong>${esc(item.title)}</strong><span>${esc(modeLabel(item))} · 预计 ${esc(item.duration)} 分钟</span></div><button class="text-button" data-preview-action="edit" type="button">编辑</button></div>${item.mode==='out'?`<p class="preview-location">${esc(item.address||'具体门店待确认')}</p>`:''}${item.materials?`<p class="preview-materials">准备：${esc(item.materials)}</p>`:''}<button class="button ${chosen?'button-quiet':'button-coral'} preview-choose" data-preview-action="choose" type="button" aria-pressed="${chosen}">${chosen?'✓ 已加入计划':'加入计划'}</button>`;
+    const video=$('#notePreview video'); if(video){video.addEventListener('error',()=>{$('#videoError').hidden=false;});video.play().catch(()=>{});}
+    if(!media.videoSrc && media.cover){
+      const images=media.images?.length?media.images:[media.cover];let page=0;
+      const frame=$('#notePreview .preview-media');
+      frame.insertAdjacentHTML('beforeend',`<span class="photo-label">图文 · <span id="photoCount">1 / ${images.length}</span></span>${images.length>1?'<button class="photo-prev" aria-label="上一张图片" type="button">‹</button><button class="photo-next" aria-label="下一张图片" type="button">›</button>':''}`);
+      function turn(delta){page=(page+delta+images.length)%images.length;frame.querySelector('img').src=images[page];frame.querySelector('img').alt=`${item.sourceTitle||item.title} · 第 ${page+1} 张`;$('#photoCount').textContent=`${page+1} / ${images.length}`;}
+      frame.querySelector('.photo-prev')?.addEventListener('click',()=>turn(-1));frame.querySelector('.photo-next')?.addEventListener('click',()=>turn(1));
+      frame.tabIndex=0;frame.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();turn(event.key==='ArrowRight'?1:-1);}});
+    }
+    $('#notePreview [data-preview-action="close"]').focus({preventScroll:true});
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  function suggestCategory() {
+    if(categoryTouched)return;
+    const form=$('#addForm'),text=form.elements.title.value+' '+form.elements.sourceTitle.value;
+    const category=globalThis.NoteCategories.suggest(text);form.elements.category.value=category;
+    const match=NoteCategories.explain(text);$('#categoryHint').textContent=match.keyword?'自动归入 '+category+' · 识别到「'+match.keyword+'」':'未识别分类，可手动选择';
+  }
+  function readConfig() {
+    const date=$('#planDate').value;
+    state.config={...state.config,date,viewDays:7};
+    state.config.dailyWindows={...state.config.dailyWindows,[date]:{...state.config.dailyWindows?.[date],start:$('#startTime').value,end:$('#endTime').value}};saveState();
+  }
+  function syncDayTime(){const window=state.config.dailyWindows?.[state.config.date]||state.config;$('#startTime').value=window.start;$('#endTime').value=window.end;}
+  function planError() {
+    if (!state.config.date) return '先选一个日期';
+    const window=state.config.dailyWindows?.[state.config.date]||state.config;
+    if (!Number.isFinite(planner.minutes(window.start)) || !Number.isFinite(planner.minutes(window.end)) || planner.minutes(window.start) >= planner.minutes(window.end)) return '结束时间需要晚于开始时间';
+    if (!state.selected.length) return '先选一件这次想做的事';
+    return '';
+  }
+  function rebuildAgenda(startDate=state.agenda?.startDate||state.config.date){
+    if(!startDate)return;
+    state.agenda=planner.buildAgenda(state.items,state.selected,{...state.config,date:startDate},state.done,7);
+  }
+  function arrangeCurrentDay(){
+    const date=state.config.date,days=state.agenda?.days||[],effective={...state.done};
+    for(const day of days)if(day.date<date)for(const entry of day.entries)effective[`${date}:${entry.id}`]=true;
+    const elsewhere=new Set(days.filter(day=>day.date!==date).flatMap(day=>day.entries.map(e=>e.id)));
+    const selected=state.selected.filter(id=>!elsewhere.has(id));
+    const plan=planner.buildPlan(state.items,selected,{...state.config,...state.config.dailyWindows?.[date]},effective);
+    const otherDays=days.filter(day=>day.date!==date);
+    state.agenda={startDate:state.agenda?.startDate||date,days:[...otherDays,{date,entries:plan.entries}].sort((a,b)=>a.date.localeCompare(b.date)),excluded:plan.excluded.map(({item,reason})=>({id:item.id,reason}))};
+  }
+  const visibleDays=()=>Array.from({length:7},(_,offset)=>{const date=planner.addDays(state.config.date,offset);return state.agenda?.days?.find(day=>day.date===date)||{date,entries:[]};});
+  function dateLabel(text) { const date = new Date(`${text}T12:00:00`); return Number.isNaN(date.getTime()) ? text : new Intl.DateTimeFormat('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' }).format(date); }
+  function renderPlan() {
+    const resultEl=$('#planResult'),notesEl=$('#planNotes');
+    const error=planError();if(error){resultEl.innerHTML=`<div class="plan-empty"><strong>${esc(error)}</strong></div>`;notesEl.innerHTML='';return;}
+    const days=visibleDays(),total=days.reduce((n,d)=>n+d.entries.length,0);
+    resultEl.innerHTML=days.map((day,index)=>{
+      const complete=day.entries.filter(e=>state.done[day.date+':'+e.id]).length;
+      const d=new Date(day.date+'T12:00:00'),label=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',weekday:'short'}).format(d);
+      return `<section class="agenda-day" data-date="${day.date}"><header><div><h3>${label}</h3></div><small>${day.entries.length?complete+' / '+day.entries.length+' 完成':'暂无安排'}</small></header>${day.entries.length?'<div class="timeline">'+day.entries.map(entry=>{
+        const item=state.items.find(n=>n.id===entry.id);if(!item)return '';
+        const done=Boolean(state.done[day.date+':'+item.id]);
+        return `<div class="timeline-item"><div class="timeline-time">${clock(entry.start)}<span>${clock(entry.end)}</span></div><div class="timeline-body ${done?'done':''}"><div class="task-title"><h3><button class="plan-note-link" data-preview-id="${esc(item.id)}">${esc(item.title)}</button></h3><button class="done-btn ${done?'checked':''}" data-done="${esc(item.id)}" data-date="${day.date}" aria-label="${done?'取消完成':'完成'}${esc(item.title)}（${day.date}）" aria-pressed="${done}">${done?icon('check'):''}</button></div><p>${esc(modeLabel(item))} · ${item.duration} 分钟${entry.transfer?' · 通勤预留 '+entry.transfer+' 分钟':''}</p>${item.materials?`<details class="task-prep"><summary>准备</summary><p>${esc(item.materials)}</p></details>`:''}</div></div>`;
+      }).join('')+'</div>':''}</section>`;
+    }).join('');
+    const excluded=(state.agenda?.excluded||[]).map(e=>({item:state.items.find(n=>n.id===e.id),reason:e.reason})).filter(e=>e.item);
+    const notes=excluded.map(e=>e.item.title+'：'+e.reason);
+    notesEl.innerHTML=notes.length?`<details><summary>${excluded.length} 件未安排</summary>${[...new Set(notes)].map(note=>`<p class="note-line">${esc(note)}</p>`).join('')}</details>`:'';
+  }
+  function renderAll(replan=true) {renderCollection();if(replan||!state.agenda)rebuildAgenda();renderPlan();saveState();}
+  function syncMode() { $('#locationFields').hidden = $('#activityMode').value !== 'out'; }
+  function openDialog(id = null) {
+    const form = $('#addForm'); form.reset(); $('#shareText').value = ''; $('#formError').textContent = ''; $('#advancedFields').open = false;
+    form.elements.category.innerHTML=categoryOptions('其他');categoryTouched=false;$('#categoryHint').textContent='根据标题建议，可修改';
+    editingId = typeof id === 'string' ? id : null;
+    const item = state.items.find((candidate) => candidate.id === editingId);
+    form.elements.afterId.innerHTML = '<option value="">没有先后要求</option>' + state.items.filter((candidate) => candidate.id !== editingId).map((candidate) => `<option value="${esc(candidate.id)}">${esc(candidate.title)}</option>`).join('');
+    $('#dialogTitle').textContent = item ? '编辑安排' : '添加收藏';
+    $('#dialogSubmitBtn').textContent = item ? '保存' : '添加';
+    if (item) {
+      categoryTouched=true;$('#categoryHint').textContent='可手动修改';
+      ['title', 'category', 'duration', 'mode', 'materials', 'area', 'address', 'open', 'close', 'url', 'sourceTitle', 'author', 'afterId'].forEach((name) => { form.elements[name].value = item[name] ?? ''; });
+      ['outdoor', 'weekendsOnly', 'reservation', 'priority'].forEach((name) => { form.elements[name].checked = Boolean(item[name]); });
+      form.elements.prepared.checked = item.prepared !== false;
+      $('#advancedFields').open = Boolean(item.open || item.close || item.afterId || item.weekendsOnly);
+    }
+    syncMode(); $('#addDialog').showModal(); form.elements.title.focus();
+  }
+  function closeDialog() { $('#addDialog').close(); editingId = null; }
+  function extractShare() {
+    const text = $('#shareText').value.trim(); if (!text) return showToast('先粘贴小红书分享文案或链接');
+    const links = text.match(/https?:\/\/[^\s<>"'，。]+/gi) || [];
+    const link = links.map((value) => safeUrl(value.replace(/[),.;!?]+$/, ''))).find(Boolean) || '';
+    const bracketTitle = [...text.matchAll(/【([^】]+)】/g)].map((match) => match[1].replace(/\s*-\s*小红书.*$/, '').trim()).find((value) => value && value !== '小红书');
+    const firstLine = text.split(/\r?\n/).map((line) => line.trim()).find((line) => line && !/https?:\/\//i.test(line) && !/(发布了一篇小红书笔记|复制本条信息|打开小红书|快来看吧)/.test(line));
+    const title = bracketTitle || firstLine;
+    if (link) $('#addForm').elements.url.value = link;
+    if (title) { $('#addForm').elements.sourceTitle.value = title.slice(0, 120); if (!$('#addForm').elements.title.value.trim()) $('#addForm').elements.title.value = title.slice(0, 60); suggestCategory(); }
+    showToast(link ? title ? '已识别标题和链接，补个实践耗时就好' : '已识别链接，请填写想做什么' : title ? '已识别标题，请补充笔记链接' : '未识别出标题或链接，请手动填写');
+  }
+  function dailyOutput(){
+    const days=visibleDays().map(day=>({date:day.date,label:dateLabel(day.date),items:day.entries.map(e=>{const n=state.items.find(n=>n.id===e.id);return n?{slot:clock(e.start)+'—'+clock(e.end),title:n.title,area:modeLabel(n),detail:[modeLabel(n),n.address,n.materials].filter(Boolean).join(' · '),sources:n.url?[{title:n.sourceTitle||n.title,url:n.url,author:n.author}]:[]}:null;}).filter(Boolean)}));
+    return {title:'做一点 · 日常计划',days,sources:state.items.filter(n=>days.some(d=>d.items.some(i=>i.sources.some(s=>s.url===n.url)))).map(n=>({title:n.sourceTitle||n.title,url:n.url,author:n.author,kind:n.category}))};
+  }
+  function exportPlan(){if(planError())return showToast('先生成一份计划');PlanOutput.exportExcel(dailyOutput());}
+  $('#shareDaily').onclick=()=>SharedAlbum.open('daily');
+  $('#classifyDaily').onclick=()=>NoteCategories.review(state.items.map(n=>({id:n.id,title:n.sourceTitle||n.title,category:n.category,manual:n.categorySource==='manual'})),{onChange:n=>{const item=state.items.find(i=>i.id===n.id);item.category=n.category;item.categorySource=n.manual?'manual':'title-rule';saveState();renderCollection();}});
+  function chooseWithPrerequisites(id, visited = new Set()) {
+    if (visited.has(id)) return; visited.add(id);
+    const item = state.items.find((candidate) => candidate.id === id); if (!item) return;
+    if (!state.selected.includes(id)) state.selected.push(id);
+    if (item.afterId) chooseWithPrerequisites(item.afterId, visited);
+  }
+  function createsCycle(id, afterId) {
+    const visited = new Set([id]); let next = afterId;
+    while (next) { if (visited.has(next)) return true; visited.add(next); next = state.items.find((item) => item.id === next)?.afterId; }
+    return false;
+  }
+  $('#addBtn').addEventListener('click', () => openDialog());
+  $('#addForm').elements.title.addEventListener('input',suggestCategory);
+  $('#addForm').elements.category.addEventListener('change',()=>{categoryTouched=true;$('#categoryHint').textContent='已手动选择';});
+  $('#notePreview').addEventListener('click',event=>{
+    const action=event.target.closest('[data-preview-action]')?.dataset.previewAction;if(!action)return;
+    if(action==='close')return closePreview();
+    if(action==='edit')return openDialog(previewId);
+    if(action==='choose'){
+      if(state.selected.includes(previewId))state.selected=state.selected.filter(id=>id!==previewId);else chooseWithPrerequisites(previewId);
+      saveState();renderAll();const chosen=state.selected.includes(previewId),button=$('#notePreview .preview-choose');button.textContent=chosen?'✓ 已加入计划':'加入计划';button.setAttribute('aria-pressed',String(chosen));button.classList.toggle('button-quiet',chosen);button.classList.toggle('button-coral',!chosen);
+    }
+  });
+  $('#notePreview').addEventListener('change',event=>{if(event.target.id==='previewCategory'){const item=state.items.find(item=>item.id===previewId);item.category=event.target.value;item.categorySource='manual';saveState();renderCollection();}});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&previewId&&!$('#addDialog').open)closePreview();});
+  $('#searchInput').addEventListener('input', event => { searchQuery=event.target.value.trim().toLowerCase(); renderCollection(); });
+  $('#categoryFilters').addEventListener('click', event=>{const button=event.target.closest('[data-category]');if(button){activeCategory=button.dataset.category;renderCollection();}});
+  $('#activityMode').addEventListener('change', syncMode);
+  $('#closeDialogBtn').addEventListener('click', closeDialog);
+  $('#cancelDialogBtn').addEventListener('click', closeDialog);
+  $('#addDialog').addEventListener('click', (event) => { if (event.target === $('#addDialog')) closeDialog(); });
+  $('#parseShareBtn').addEventListener('click', extractShare);
+  $('#exportBtn').addEventListener('click', exportPlan);
+  $('#planBtn').addEventListener('click', () => { readConfig(); const error = planError(); if (error) return showToast(error); state.hasPlan = true; arrangeCurrentDay();saveState(); renderPlan(); });
+  ['startTime','endTime'].forEach(id=>$('#'+id).addEventListener('change',()=>{readConfig();if(!planError())arrangeCurrentDay();saveState();renderPlan();}));
+  function viewDate(date){state.config.date=date;$('#planDate').value=date;syncDayTime();saveState();renderPlan();}
+  $('#planDate').addEventListener('change',()=>viewDate($('#planDate').value));
+  $('#prevDate').onclick=()=>viewDate(planner.addDays(state.config.date||today(),-1));
+  $('#nextDate').onclick=()=>viewDate(planner.addDays(state.config.date||today(),1));
+
+  document.querySelectorAll('[data-filter]').forEach((button) => button.addEventListener('click', () => { state.filter = button.dataset.filter; saveState(); renderCollection(); }));
+  $('#collectionList').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-action]'); if (!button) return;
+    const id = button.closest('[data-id]')?.dataset.id, item = state.items.find((candidate) => candidate.id === id); if (!item) return;
+    const action = button.dataset.action;
+    if (action === 'preview') return openPreview(id);
+    if (action === 'edit') return openDialog(id);
+    if (action === 'choose') { if (state.selected.includes(id)) state.selected = state.selected.filter((value) => value !== id); else chooseWithPrerequisites(id); }
+    if (action === 'priority') item.priority = !item.priority;
+    if (action === 'prepared') item.prepared = true;
+    if (action === 'delete') {
+      const index = state.items.indexOf(item), wasSelected = state.selected.includes(id), dependents = state.items.filter((candidate) => candidate.afterId === id).map((candidate) => candidate.id);
+      state.items = state.items.filter((candidate) => candidate.id !== id); state.selected = state.selected.filter((value) => value !== id);
+      state.items.forEach((candidate) => { if (candidate.afterId === id) candidate.afterId = ''; });
+      showToast('已删除这件事', () => { state.items.splice(Math.min(index, state.items.length), 0, item); if (wasSelected) chooseWithPrerequisites(id); state.items.forEach((candidate) => { if (dependents.includes(candidate.id) && !candidate.afterId) candidate.afterId = id; }); saveState(); renderAll(); });
+    }
+    saveState(); renderAll();
+  });
+  $('#planResult').addEventListener('click', (event) => { const preview=event.target.closest('[data-preview-id]');if(preview)return openPreview(preview.dataset.previewId);const button = event.target.closest('[data-done]'); if (!button) return; const key = `${button.dataset.date}:${button.dataset.done}`; state.done[key] = !state.done[key]; saveState(); renderPlan(); });
+  $('#addForm').addEventListener('submit', (event) => {
+    event.preventDefault(); const data = new FormData(event.currentTarget), title = String(data.get('title') || '').trim(), rawUrl = String(data.get('url') || '').trim(), open = String(data.get('open') || ''), close = String(data.get('close') || ''), duration = Number(data.get('duration')), id = editingId || newId(), afterId = String(data.get('afterId') || '');
+    if (!title) return $('#formError').textContent = '请填写想做什么';
+    if (!Number.isInteger(duration) || duration < 5 || duration > 720) return $('#formError').textContent = '实践耗时请填 5—720 的整数分钟';
+    if (rawUrl && !safeUrl(rawUrl)) return $('#formError').textContent = '请填写小红书笔记或 xhslink 分享链接';
+    if (open && close && planner.minutes(open) >= planner.minutes(close)) return $('#formError').textContent = '最晚结束需要晚于最早开始';
+    if (createsCycle(id, afterId)) return $('#formError').textContent = '先后顺序形成了循环，请换一个前置事项';
+    const mode = String(data.get('mode') || 'home');
+    const item = { id, title, category: String(data.get('category') || '其他'), duration, mode, materials: String(data.get('materials') || '').trim(), prepared: data.has('prepared'), area: mode === 'out' ? String(data.get('area') || '').trim() : '', address: mode === 'out' ? String(data.get('address') || '').trim() : '', open, close, afterId, url: safeUrl(rawUrl), sourceTitle: String(data.get('sourceTitle') || ''), author: String(data.get('author') || ''), outdoor: mode === 'out' && data.has('outdoor'), weekendsOnly: data.has('weekendsOnly'), reservation: mode === 'out' && data.has('reservation'), priority: data.has('priority') };
+    item.categorySource=categoryTouched?'manual':'title-rule';
+    const edited = Boolean(editingId);
+    if (edited) state.items = state.items.map((candidate) => candidate.id === id ? item : candidate);
+    else { state.items.unshift(item); chooseWithPrerequisites(id); }
+    state.filter = 'all'; activeCategory='全部'; searchQuery=''; $('#searchInput').value=''; saveState(); renderAll(); closeDialog(); if(previewId===item.id)openPreview(item.id);showToast(edited ? '已保存' : '已添加收藏');
+  });
+  for(const id of ['startTime','endTime']){const values=Array.from({length:96},(_,i)=>clock(i*15));values.push('23:59');if(state.config[id==='startTime'?'start':'end']&&!values.includes(state.config[id==='startTime'?'start':'end']))values.push(state.config[id==='startTime'?'start':'end']);$('#'+id).innerHTML=values.sort().map(value=>'<option value="'+value+'">'+value+'</option>').join('');}
+
+  $('#planDate').value = state.config.date; $('#startTime').value = state.config.start; $('#endTime').value = state.config.end;
+  syncDayTime();renderAll(false);saveState();
+  SharedAlbum.register('daily',{anchor:'#dailyWorkspace .plan-heading',snapshot:()=>state,receive:next=>{if(!Array.isArray(next.items)||!next.config||!next.agenda)return;state=next;$('#planDate').value=state.config.date;syncDayTime();renderAll(false);}});
+})();
+</script>
+<script>globalThis.TRAVEL_ALBUM = {
+  "id": "egypt",
+  "name": "埃及",
+  "version": 5,
+  "sourceCount": 21,
+  "defaultDays": 12,
+  "notes": [
+    {
+      "id": "egypt-1",
+      "title": "春节11天埃及攻略｜在🇪🇬的18张人生照片✨",
+      "author": "Krystal羲",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/67d3e0cd000000000b016000?xsec_token=AByHyFISzI0LdV9ZZnifcz-AHYJcxXiJhPpqUi3CUwfbE=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-1-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-1-avatar.webp",
+      "kind": "路线",
+      "summary": "作者的路线串联开罗、阿斯旺、卢克索与赫尔格达。金字塔单独留了一天，热气球建议留出天气备选。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false,
+          "region": "开罗城区",
+          "duration": 120
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "哈利利市场",
+          "fullDay": false,
+          "region": "开罗城区",
+          "duration": 120
+        },
+        {
+          "city": "阿斯旺",
+          "name": "菲莱神庙",
+          "fullDay": false,
+          "region": "阿斯旺",
+          "duration": 180
+        },
+        {
+          "city": "阿斯旺",
+          "name": "老瀑布酒店下午茶",
+          "fullDay": false,
+          "region": "阿斯旺",
+          "duration": 90
+        },
+        {
+          "city": "卢克索",
+          "name": "卡尔纳克神庙",
+          "fullDay": false,
+          "region": "东岸",
+          "duration": 150
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索热气球",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 180,
+          "early": true
+        },
+        {
+          "city": "卢克索",
+          "name": "哈布城",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 120
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 180
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false,
+          "region": "东岸",
+          "duration": 120
+        },
+        {
+          "city": "赫尔格达",
+          "name": "红海出海与浮潜",
+          "fullDay": true,
+          "region": "赫尔格达",
+          "duration": 420
+        },
+        {
+          "city": "赫尔格达",
+          "name": "海边休息",
+          "fullDay": false,
+          "region": "赫尔格达",
+          "duration": 180
+        }
+      ],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-2",
+      "title": "女生三人埃及自由行亲测可冲",
+      "author": "菠萝",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/697e3305000000001a024b74?xsec_token=ABBaf6kkFEuzsytUlqEVY4qEEMFDxelA9B9oupxW3UdKs=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-2-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-2-avatar.webp",
+      "kind": "路线",
+      "summary": "作者把金字塔和大埃及博物馆分别安排一天，再去卢克索与赫尔格达。交通、票务为作者当次经历，出发前再核对。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "大埃及博物馆",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false,
+          "region": "开罗城区",
+          "duration": 120
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 180
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false,
+          "region": "东岸",
+          "duration": 120
+        },
+        {
+          "city": "赫尔格达",
+          "name": "红海出海与浮潜",
+          "fullDay": true,
+          "region": "赫尔格达",
+          "duration": 420
+        },
+        {
+          "city": "赫尔格达",
+          "name": "海边休息",
+          "fullDay": false,
+          "region": "赫尔格达",
+          "duration": 180
+        }
+      ],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-3",
+      "title": "埃及去过的各景点排名及简评",
+      "author": "jeffsmjs",
+      "url": "https://www.xiaohongshu.com/explore/698b0662000000000d00858f?xsec_token=ABvX8TI4oD86rYmotaX51KAd3-33CzU2eGbs-jXbQ_Zu8=&xsec_source=pc_feed",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-3-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-3-avatar.webp",
+      "kind": "景点",
+      "summary": "这是一篇主观景点评价。先整理与主线重合的地点，其余远途目的地仍可从原帖挑选。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "大埃及博物馆",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false,
+          "region": "开罗城区",
+          "duration": 120
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "哈利利市场",
+          "fullDay": false,
+          "region": "开罗城区",
+          "duration": 120
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 180
+        },
+        {
+          "city": "卢克索",
+          "name": "哈布城",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 120
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索热气球",
+          "fullDay": false,
+          "region": "西岸",
+          "duration": 180,
+          "early": true
+        },
+        {
+          "city": "卢克索",
+          "name": "卡尔纳克神庙",
+          "fullDay": false,
+          "region": "东岸",
+          "duration": 150
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false,
+          "region": "东岸",
+          "duration": 120
+        }
+      ],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-4",
+      "title": "差点错过金字塔 😭 大家一定要做好规划",
+      "author": "akiko rose🖤",
+      "url": "https://www.xiaohongshu.com/explore/6982f4e5000000000a02c99c?xsec_token=ABi3IMIYHGnEd3YuR052vOMqLcrX1wlackNAWgh2B4lMk=&xsec_source=pc_feed",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-4-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-4-avatar.webp",
+      "kind": "景点",
+      "summary": "作者曾因低估博物馆耗时险些错过金字塔入场。两处各留一天更从容；最后入场时间需另行核实。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true,
+          "region": "吉萨",
+          "duration": 420
+        }
+      ],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-5",
+      "title": "埃及GoBus攻略",
+      "author": "想补作业",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/68e5fd980000000003019670?xsec_token=ABfAVhKr5rwEHJVrXD9PG7FkWOrmivFmh69m8j2EzWFPE=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-5-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-5-avatar.webp",
+      "kind": "交通",
+      "summary": "作者记录了卢克索—赫尔格达、赫尔格达—开罗两程 GoBus 的订票、选座和乘车体验。车次与耗时以出行当日为准。",
+      "places": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-6",
+      "title": "这篇攻略，让你把埃及的gobus弄清楚",
+      "author": "溜达溜达的穷游",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/66aa5041000000002701e6b5?xsec_token=ABPccINUVCTMOGXWnl4VOSegLWAOwDKVg-8nU_9vCoJ24=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-6-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-6-avatar.webp",
+      "kind": "交通",
+      "summary": "整理线上与车站购票、选择站点和乘车流程。查票时先确认具体车站，支付方式与班次需再核对。",
+      "places": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-7",
+      "title": "🎒埃及旅行必备物品清单分享",
+      "author": "贞诚-子楷",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/695fd2b5000000002202cba6?xsec_token=ABmNwThYYVK5PW1pxW6mhm8-FE7_HEdfO8dIApIYciOKg=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-7-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-7-avatar.webp",
+      "kind": "行前准备",
+      "summary": "可参考转换插头、充电设备、防晒、舒适鞋履和随身外套等清单，按自己的需求删减。",
+      "places": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-8",
+      "title": "埃及冬季旅行穿衣法则",
+      "author": "后海大鲫鱼",
+      "url": "https://www.xiaohongshu.com/explore/69840911000000000d00b1b5?xsec_token=ABRhh-U9y5kMY9sLX_IzTfAPHNJ9Ak5c69z6TYLb0BQ24=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-8-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-8-avatar.webp",
+      "kind": "行前准备",
+      "summary": "作者冬季旅行时感受到明显昼夜温差，建议随身带外套。实际穿衣仍按出发日期和天气调整。",
+      "places": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-9",
+      "title": "女生埃及自由行攻略明细（含详细费用）",
+      "author": "桃白王咪",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/67b1dada0000000018018886?xsec_token=ABrsVgD6oNVIK-rUz0-rw0GDRJ7zz69zGeCraAQ1bpaUw=&xsec_source=",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-9-cover.webp",
+      "avatar": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-9-avatar.webp",
+      "kind": "路线",
+      "summary": "详细行程主要在原帖第 2、3 张图，另有出行工具与历史资料推荐；这篇暂保留作参考，未据未读图片标记地点。",
+      "places": [],
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "id": "egypt-food-cairo",
+      "title": "🇪🇬埃及开罗旅游吃什么😋看这一篇就够了❗️",
+      "author": "一只国产小汤圆",
+      "url": "https://www.xiaohongshu.com/explore/6a099bc5000000000602367c?xsec_token=ABjEQscg3Tu2klcY-JUzTFk89VxgBHWtXLaRBtPOagT_Q=&xsec_source=pc_feed",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-cairo-cover.webp",
+      "kind": "美食",
+      "summary": "记录了开罗与吉萨的餐厅和菜品。整理出吉萨烤肉、Al Halaka 烤鸡，以及文中提到的卢克索 Loqma。具体餐次由演示行程安排。",
+      "places": [],
+      "meals": [
+        {
+          "city": "开罗·吉萨",
+          "name": "Hafez El Menoufy",
+          "dish": "烤羊排、烤鸡",
+          "area": "Hadayek El Ahram 分店",
+          "slot": "晚餐",
+          "near": "吉萨金字塔群"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Al Halaka",
+          "dish": "烤鸡、牛肉肠、芒果汁",
+          "area": "具体门店待确认",
+          "slot": "晚餐",
+          "region": "开罗城区"
+        },
+        {
+          "city": "卢克索",
+          "name": "Loqma",
+          "dish": "炖肉、烤鸽子包饭",
+          "area": "具体位置待确认",
+          "slot": "晚餐"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Ibn Hamido Seafood",
+          "dish": "海鲜汤、黄油蝴蝶大虾",
+          "area": "具体门店待选",
+          "slot": "午餐",
+          "region": "开罗城区"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "ZOOBA（市区门店）",
+          "dish": "鸡肉饭、牛肉饼",
+          "area": "连锁店 · 门店待选",
+          "slot": "晚餐",
+          "region": "开罗城区"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Sobhy Kaber",
+          "dish": "羊排、蔬菜炖牛肉",
+          "area": "具体位置待确认",
+          "slot": "晚餐"
+        }
+      ]
+    },
+    {
+      "id": "egypt-food-route",
+      "title": "埃及半月吃什么——食物篇",
+      "author": "Jan linsoiel",
+      "url": "https://www.xiaohongshu.com/explore/69f89c2b000000001a036425?xsec_token=ABbPwQoN2jEd4ibt1GTfIY02E5aQ5Vs0wxl5IyhCz7kDE=&xsec_source=pc_feed",
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-route-cover.webp",
+      "kind": "美食",
+      "summary": "作者按城市记录吃过的餐厅。选取与本次路线相符的博物馆 Zooba、卢克索西岸餐厅和赫尔格达也门菜；餐次是可调整的安排。",
+      "places": [],
+      "meals": [
+        {
+          "city": "开罗·吉萨",
+          "name": "Zooba",
+          "dish": "烤鸡米饭",
+          "area": "大埃及博物馆内",
+          "slot": "午餐",
+          "near": "大埃及博物馆"
+        },
+        {
+          "city": "卢克索",
+          "name": "Rustic House",
+          "dish": "牛肉塔吉锅、芭乐汁",
+          "area": "西岸",
+          "slot": "午餐",
+          "near": "帝王谷",
+          "region": "西岸"
+        },
+        {
+          "city": "卢克索",
+          "name": "两个故事中餐厅",
+          "dish": "干锅系列",
+          "area": "西岸 · 需确认往返交通",
+          "slot": "午餐",
+          "region": "西岸"
+        },
+        {
+          "city": "赫尔格达",
+          "name": "The Yemenian Restaurant",
+          "dish": "也门菜",
+          "area": "具体位置待确认",
+          "slot": "晚餐",
+          "slots": [
+            "午餐",
+            "晚餐"
+          ]
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Oldish",
+          "dish": "华夫饼",
+          "area": "具体位置待确认",
+          "slot": "早餐"
+        }
+      ]
+    },
+    {
+      "kind": "美食",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-fourcity",
+      "title": "埃及四城美食分享",
+      "author": "爱发疯的干饭鱼头",
+      "url": "https://www.xiaohongshu.com/explore/699da41d00000000150386c0?xsec_token=ABtsMdQt6XXAuqEM_cxLyiGyA3xuZk-TMePGFeYSrISzs=&xsec_source=pc_search",
+      "summary": "按四座城市记录吃过的餐厅：赫尔格达 City Fish Seafood 与 Asmak，阿斯旺 King Jamaica。餐厅及菜品来自原帖；餐次按本次行程安排。",
+      "meals": [
+        {
+          "city": "赫尔格达",
+          "name": "City Fish Seafood",
+          "dish": "海鲜汤、虾",
+          "slot": "午餐"
+        },
+        {
+          "city": "赫尔格达",
+          "name": "Asmak",
+          "dish": "海鲜、草莓汁",
+          "slot": "晚餐"
+        },
+        {
+          "city": "阿斯旺",
+          "name": "King Jamaica",
+          "dish": "炸鱼、番石榴汁",
+          "slot": "晚餐",
+          "area": "象岛 · 尼罗河边"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-fourcity-cover.webp"
+    },
+    {
+      "kind": "美食",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-twocity",
+      "title": "2026埃及旅游之美食篇~阿斯旺&卢克索",
+      "author": "不去-会死",
+      "url": "https://www.xiaohongshu.com/explore/696d08af000000000e00f9be?xsec_token=ABJO2Op7PHeDr9o0gG--LG3MJnkxJj-pSO2e7EHHVCYg8=&xsec_source=pc_search",
+      "summary": "阿斯旺东岸 Caviar 的烤鱼与海鲜锅；卢克索西岸 Bil hana wa shifa 的烤鸡米饭，以及 El Hussein 的烤鸡饭。",
+      "meals": [
+        {
+          "city": "阿斯旺",
+          "name": "Caviar（阿斯旺）",
+          "dish": "烤鱼、海鲜锅",
+          "slot": "午餐",
+          "area": "东岸"
+        },
+        {
+          "city": "卢克索",
+          "name": "Bil hana wa shifa",
+          "dish": "烤鸡米饭",
+          "slot": "晚餐",
+          "region": "西岸",
+          "area": "西岸"
+        },
+        {
+          "city": "卢克索",
+          "name": "El Hussein Restaurant",
+          "dish": "烤鸡饭、沙拉、鹰嘴豆泥",
+          "slot": "晚餐"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-twocity-cover.webp"
+    },
+    {
+      "kind": "美食",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-many",
+      "title": "在埃及可以反复吃的N家餐厅",
+      "author": "谢一一",
+      "url": "https://www.xiaohongshu.com/explore/696c8826000000001a03356c?xsec_token=ABzIMjV5dW3EZu6XO1rjbaFKdcxj-WsnvSjs-gAvPJB14=&xsec_source=pc_search",
+      "summary": "记录开罗 Akram Gad、Koshary Abou Tarek，以及卢克索 Jewel of the Nile、Loqma 和阿斯旺 King Jamaica。原文未列出 Jewel 的具体菜品，安排时保留到店点餐。",
+      "meals": [
+        {
+          "city": "卢克索",
+          "name": "Jewel of the Nile",
+          "dish": "到店点餐",
+          "slot": "午餐"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Akram Gad Restaurant",
+          "dish": "到店点餐",
+          "slot": "午餐",
+          "region": "开罗城区"
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "Koshary Abou Tarek",
+          "dish": "Koshary 米饭通心粉",
+          "slot": "午餐",
+          "region": "开罗城区"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-many-cover.webp"
+    },
+    {
+      "kind": "美食",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-giza",
+      "title": "埃及｜9 Pyramids 金字塔餐厅攻略",
+      "author": "别浪费人生这张门票",
+      "url": "https://www.xiaohongshu.com/explore/6aad36840000000025036d1e?xsec_token=ABr_NdapP_j8Qht2MGgXhR5hNpPbvjjy4uFV6R3gxWk1c=&xsec_source=pc_search",
+      "summary": "餐厅位于金字塔景区，可乘景区接驳车前往。原帖建议提前预约并以官方回复确认为准；本次安排景观午餐。",
+      "meals": [
+        {
+          "city": "开罗·吉萨",
+          "name": "9 Pyramids Lounge",
+          "dish": "景观午餐",
+          "slot": "午餐",
+          "near": "吉萨金字塔群",
+          "region": "吉萨",
+          "area": "金字塔景区内 · 需预约"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-giza-cover.webp"
+    },
+    {
+      "kind": "美食",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-redsea",
+      "title": "赫尔格达出海和美食",
+      "author": "Tank",
+      "url": "https://www.xiaohongshu.com/explore/6a3fb6c30000000022014730?xsec_token=ABYEMuxWC9Hmo43FG1JctBmkg0280py_bfUKRbT854eu4=&xsec_source=pc_search",
+      "summary": "作者推荐 El Dar Darak 的鸡腿、烤羊排与番茄炖牛肉，并提醒结账核对账单。",
+      "meals": [
+        {
+          "city": "赫尔格达",
+          "name": "El Dar Darak Restaurant",
+          "dish": "鸡腿、烤羊排、番茄炖牛肉",
+          "slot": "晚餐"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-redsea-cover.webp"
+    },
+    {
+      "kind": "路线",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "origin": "补充搜索",
+      "id": "egypt-food-boat",
+      "title": "强烈推荐赫尔格达这个出海项目",
+      "author": "湘南海的sakuragi",
+      "url": "https://www.xiaohongshu.com/explore/691ccd33000000001e007f64?xsec_token=ABzdW5JetyKmiGscinwtJ8OoYv5TWj33f2bLp44JIca84=&xsec_source=pc_feed",
+      "summary": "作者参加 Go Shalabi 的 Blue Hole 3 出海项目，记录了橙岛、船上午餐、浮潜和 Magawish 岛。本次将午餐与出海合并；预订时需确认选择的套餐含餐。",
+      "meals": [
+        {
+          "city": "赫尔格达",
+          "name": "Blue Hole 3 船上午餐",
+          "dish": "随出海项目用餐",
+          "slot": "午餐",
+          "near": "红海出海与浮潜",
+          "area": "预订时确认套餐含午餐"
+        }
+      ],
+      "cover": "https://cdn.jsdelivr.net/gh/zty1307/zuoyidian-xhs-planner@79c090c/assets/egypt-food-boat-cover.webp"
+    }
+  ]
+};
+</script>
+<script>(function(root){
+  'use strict';
+  const normalize=value=>String(value||'').normalize('NFKC').trim().toLowerCase().replace(/[\s·•]/g,'');
+  function collect(notes){
+    const map=new Map();
+    for(const note of notes)for(const place of note.places||[]){
+      if(!place.city?.trim()||!place.name?.trim())continue;
+      const key=normalize(place.city)+'|'+normalize(place.name);
+      if(!map.has(key))map.set(key,{...place,id:key,city:place.city.trim(),name:place.name.trim(),sources:[],fullDay:false});
+      const found=map.get(key);found.fullDay=found.fullDay||Boolean(place.fullDay);if(!found.sources.includes(note.id))found.sources.push(note.id);
+    }
+    return [...map.values()];
+  }
+  // Planning estimates: 7 hours of visits/transfers, plus a lunch break.
+  // Areas and durations are curated annotations, not live navigation or opening hours.
+  function arrange(places,selected,dayCount){
+    const days=Array.from({length:Math.max(1,Math.min(30,Number(dayCount)||1))},()=>[]),meta=days.map(()=>({kind:'free'})),groups=new Map(),excluded=[];
+    for(const p of places.filter(p=>selected.includes(p.id))){if(!groups.has(p.city))groups.set(p.city,[]);groups.get(p.city).push(p);}
+    let cursor=0,previous='';
+    const flush=(batch,city,region)=>{if(!batch.length)return;if(cursor<days.length){days[cursor]=batch.map(p=>p.id);meta[cursor++]={kind:'visit',city,region,minutes:batch.reduce((n,p)=>n+(p.fullDay?420:p.duration||120),0)+Math.max(0,batch.length-1)*30};}else excluded.push(...batch.map(p=>p.id));};
+    for(const [city,group] of groups){
+      if(previous&&cursor<days.length){meta[cursor++]={kind:'transfer',city,from:previous};}
+      const regions=new Map();for(const p of group){const region=p.region||'区域待确认';if(!regions.has(region))regions.set(region,[]);regions.get(region).push(p);}
+      for(const [region,items] of regions){
+        items.sort((a,b)=>Number(Boolean(b.early))-Number(Boolean(a.early)));
+        let batch=[],minutes=0;
+        for(const p of items){const duration=p.fullDay?420:p.duration||120;
+          if(p.fullDay){flush(batch,city,region);batch=[];minutes=0;flush([p],city,region);continue;}
+          if(batch.length&&minutes+30+duration>420){flush(batch,city,region);batch=[];minutes=0;}
+          minutes+=(batch.length?30:0)+duration;batch.push(p);
+        }flush(batch,city,region);
+      }previous=city;
+    }
+    return {days,meta,excluded};
+  }
+  function evidence(place,notes){
+    const relevant=notes.filter(n=>(n.places||[]).some(p=>normalize(p.city)===normalize(place.city)));
+    const ids=[...new Set(place.sources)].filter(id=>relevant.some(n=>n.id===id));
+    return {count:ids.length,total:relevant.length,percent:relevant.length?Math.round(ids.length/relevant.length*100):0,sources:ids};
+  }
+  function collectMeals(notes){
+    const map=new Map();
+    for(const note of notes)for(const meal of note.meals||[]){
+      const id=normalize(meal.city)+'|'+normalize(meal.name);
+      if(!map.has(id))map.set(id,{...meal,id,sources:[]});
+      map.get(id).sources.push(note.id);
+    }
+    return [...map.values()];
+  }
+  function matchMeals(days,places,meals,choices={}){
+    const used=new Set(Object.values(choices).filter(Boolean));
+    return days.map((ids,index)=>{
+      const entries=ids.map(id=>places.find(p=>p.id===id)).filter(Boolean);
+      const cities=new Set(entries.map(p=>normalize(p.city)));
+      if(Object.hasOwn(choices,index))return meals.find(m=>m.id===choices[index]&&cities.has(normalize(m.city)))||null;
+      const candidates=meals.filter(m=>cities.has(normalize(m.city))&&!used.has(m.id)&&(!m.near||entries.some(p=>p.name===m.near)));
+      candidates.sort((a,b)=>Number(Boolean(b.near))-Number(Boolean(a.near)));
+      const meal=candidates[0]||null;if(meal)used.add(meal.id);return meal;
+    });
+  }
+  function matchDayMeals(days,places,meals,choices={}){
+    const used=new Set(Object.values(choices).filter(Boolean));
+    return days.map((ids,index)=>{
+      const entries=ids.map(id=>places.find(p=>p.id===id)).filter(Boolean),cities=new Set(entries.map(p=>normalize(p.city))),result={};
+      for(const slot of ['午餐','晚餐']){
+        const key=index+':'+slot;
+        const valid=m=>cities.has(normalize(m.city))&&(m.slots||[m.slot||'晚餐']).includes(slot);
+        if(Object.hasOwn(choices,key)){result[slot]=meals.find(m=>m.id===choices[key]&&valid(m))||null;continue;}
+        const candidates=meals.filter(m=>valid(m)&&!used.has(m.id)&&(!m.near||entries.some(p=>p.name===m.near))&&(!m.region||entries.some(p=>p.region===m.region)));
+        candidates.sort((a,b)=>Number(Boolean(b.near))-Number(Boolean(a.near)));
+        result[slot]=candidates[0]||null;if(result[slot])used.add(result[slot].id);
+      }return result;
+    });
+  }
+  const api={collect,arrange,collectMeals,matchMeals,matchDayMeals,evidence};root.TravelPlanner=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);
+</script>
+<script>(() => {
+  'use strict';
+  const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const key='zuoyidian-travel-v1',seed=globalThis.TRAVEL_ALBUM;
+  const cleanUrl=v=>{try{const u=new URL(v);return /^https?:$/.test(u.protocol)&&(/(^|\.)xiaohongshu\.com$/.test(u.hostname)||/^(www\.)xhslink\.(com|cn)$/.test(u.hostname))?u.href:'';}catch{return '';}};
+  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
+  let state={version:seed.version,notes:seed.notes.map(({cover,images,avatar,...n})=>n),selected:[],days:[],dayCount:seed.defaultDays||7,start:'',mealChoices:{},dayMeta:[],...saved};
+  const seedEmpty=!saved||(!saved.notes?.length&&!saved.days?.length);
+  if(state.version<seed.version){for(const n of seed.notes)if(!state.notes.some(x=>x.id===n.id)){const {cover,images,avatar,...data}=n;state.notes.push(data);}state.version=seed.version;}
+  for(const note of state.notes)for(const meal of note.meals||[])if(meal.name==='The Yemenian Restaurant'&&meal.dish==='也门菜、肉类拼餐')meal.dish='也门菜';
+  if(state.demoVersion!==6){
+    if(!state.start){const current=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());state.start=ActivityPlanner.addDays(current,(6-new Date(current+'T12:00:00').getDay()+7)%7);}
+    state.demoVersion=6;
+  }
+  if(seedEmpty&&seed.notes.length){state.dayCount=seed.defaultDays||7;const all=TravelPlanner.collect(state.notes);state.selected=all.map(p=>p.id);state.days=TravelPlanner.arrange(all,state.selected,state.dayCount).days;}
+
+  if(state.engineVersion!==7){
+    try{localStorage.setItem('zuoyidian-travel-before-v7',JSON.stringify(state));}catch{}
+    for(const note of state.notes){const original=seed.notes.find(n=>n.id===note.id);if(!original)continue;
+      for(const p of note.places||[]){const match=original.places?.find(x=>x.city===p.city&&x.name===p.name);if(match)for(const field of ['region','duration','early'])if(match[field]!==undefined)p[field]=match[field];}
+      if(original.meals){note.meals=note.meals||[];for(const m of original.meals){const found=note.meals.find(x=>x.city===m.city&&x.name===m.name);if(found)Object.assign(found,m);else note.meals.push({...m});}}
+    }
+    if(state.dayCount===10)state.dayCount=12;
+    const plan=TravelPlanner.arrange(TravelPlanner.collect(state.notes),state.selected,state.dayCount);state.days=plan.days;state.dayMeta=plan.meta;state.mealChoices={};state.engineVersion=7;
+  }
+  let view='notes',query='',editing=null,mode='daily',activeCity='all',kindTouched=false;
+  const media=id=>seed.notes.find(n=>n.id===id)||{};
+  const places=()=>TravelPlanner.collect(state.notes);
+  const meals=()=>TravelPlanner.collectMeals(state.notes);
+  for(const note of state.notes)if(note.categorySource!=='manual'){note.kind=NoteCategories.explain(note.title,true).category;note.categorySource='title-rule';}
+  const category=n=>['景点','路线'].includes(n.kind)?'routes':n.kind==='美食'?'food':n.kind==='交通'?'transport':n.kind==='住宿'?'stay':'references';
+  const dayMeals=()=>TravelPlanner.matchDayMeals(state.days,places(),meals(),state.mealChoices);
+  const save=()=>{try{localStorage.setItem(key,JSON.stringify(state));SharedAlbum.publish('travel',state);}catch{$('#tripStatus').textContent='本机保存失败，请导出备份';}};
+  const assigned=()=>state.days.flat();
+  function switchMode(next){mode=next;history.replaceState(null,'',next==='travel'?'#travel':'#daily');$('#dailyWorkspace').hidden=next!=='daily';$('#travelWorkspace').hidden=next!=='travel';document.querySelectorAll('[data-workspace]').forEach(b=>{b.classList.toggle('active',b.dataset.workspace===next);b.setAttribute('aria-pressed',b.dataset.workspace===next);});$('#addBtn').hidden=next==='travel';$('#searchInput').placeholder=next==='travel'?'搜索旅行收藏与地点':'搜索收藏';if(next==='travel'){document.querySelector('#notePreview video')?.pause();render();}}
+  function render(){
+    const ps=places();state.selected=ps.map(p=>p.id);
+    $('#albumName').textContent=seed.name;$('#albumMeta').textContent=`${state.notes.length} 篇收藏`;;
+    $('#tripDayCount').value=state.dayCount;$('#tripStart').value=state.start;
+    $('#tripViews').innerHTML=[['notes','全部'],['routes','景点路线'],['food','美食'],['transport','交通'],['stay','住宿'],['references','行前准备']].map(([id,name])=>[id,name,id==='notes'?state.notes.length:state.notes.filter(n=>category(n)===id).length]).filter(([id,,count])=>id!=='stay'||count).map(([id,name,count])=>`<button data-trip-view="${id}" class="category-filter ${view===id?'active':''}">${name} <span>${count}篇</span></button>`).join('');
+    const notes=state.notes.filter(n=>(view==='notes'||category(n)===view)&&(!query||[n.title,n.author,...(n.places||[]).map(p=>p.city+p.name)].join(' ').toLowerCase().includes(query)));
+    if(view==='notes')notes.sort((a,b)=>(a.id==='egypt-1'?0:a.meals?.length?1:2)-(b.id==='egypt-1'?0:b.meals?.length?1:2));
+    $('#tripLibrary').className='collection-list';
+    $('#tripLibrary').innerHTML=notes.map(n=>`<article class="save-card"><div class="cover-wrap"><button class="cover-link" data-trip-preview="${esc(n.id)}" aria-label="查看${esc(n.title)}">${media(n.id).cover?`<img class="note-cover" src="${esc(media(n.id).cover)}" alt="${esc(n.title)}" loading="lazy"/>`:`<div class="cover-placeholder"><span>${esc(n.kind)}</span></div>`}</button><span class="duration-badge">${esc(n.kind)}</span></div><div class="card-caption"><h3><button data-trip-preview="${esc(n.id)}">${esc(n.title)}</button></h3><div class="author-row"><span class="author">${media(n.id).avatar?`<img src="${esc(media(n.id).avatar)}" alt=""/>`:''}${esc(n.author||'我的收藏')}</span><button class="text-button" data-trip-edit="${esc(n.id)}">整理</button></div></div></article>`).join('');
+    if(!$('#tripLibrary').innerHTML)$('#tripLibrary').innerHTML=`<div class="trip-empty"><span class="empty-bookmark">▱</span><h3>${state.notes.length?'没有匹配的内容':'把这个专辑变成一次旅行'}</h3><p>${state.notes.length?'换个关键词试试。':'添加攻略，标出想去的地方。整理好的地点会出现在这里。'}</p>${!state.notes.length?'<button class="button button-quiet" data-trip-add>添加攻略</button><small>专辑尚未导入，等待小红书重新登录</small>':''}</div>`;
+    $('#tripSelection').textContent='';
+    renderDays();
+  }
+  function renderDays(){
+    const ps=places(),food=meals(),matched=dayMeals(),scheduled=assigned(),pending=ps.filter(p=>state.selected.includes(p.id)&&!scheduled.includes(p.id));
+    const cityOf=(ids,index)=>ids.map(id=>ps.find(p=>p.id===id)?.city).find(Boolean)||state.dayMeta[index]?.city||'机动';
+    const route=[...new Set(state.days.map(cityOf))];if(activeCity!=='all'&&!route.includes(activeCity))activeCity='all';
+    const usedSources=new Set(ps.filter(p=>scheduled.includes(p.id)).flatMap(p=>p.sources));
+    for(const day of matched)for(const m of Object.values(day))if(m)m.sources.forEach(id=>usedSources.add(id));
+    const mentions=state.notes.reduce((n,note)=>n+(note.places||[]).filter(p=>ps.some(x=>scheduled.includes(x.id)&&x.name===p.name&&x.city===p.city)).length,0);
+    $('#tripSynthesis').innerHTML='<details class="synthesis"><summary>综合 '+usedSources.size+' 篇笔记安排 <span>查看依据 ⌄</span></summary><p>'+mentions+' 次地点提及，合并为 '+new Set(scheduled).size+' 处；同区域集中，整天项目单列，跨城单留交通日。</p><p>游览时长与区内交通为人工估算；班次和营业时间未实时核验。</p></details>';
+    $('#tripRoute').innerHTML=[...['all'],...route].map(city=>'<button data-trip-city="'+esc(city)+'" class="'+(city===activeCity?'active':'')+'" aria-pressed="'+(city===activeCity)+'">'+(city==='all'?'全部 '+state.days.length+' 天':esc(city))+'</button>').join('');
+    $('#tripItinerary').innerHTML=state.days.map((ids,index)=>{
+      if(activeCity!=='all'&&cityOf(ids,index)!==activeCity)return '';
+      const entries=ids.map(id=>ps.find(p=>p.id===id)).filter(Boolean),cities=[...new Set(entries.map(p=>p.city))],meta=state.dayMeta[index]||{},dailyMeals=matched[index]||{};
+      let date='';if(state.start){const d=new Date(state.start+'T12:00:00');d.setDate(d.getDate()+index);date=(d.getMonth()+1)+'月'+d.getDate()+'日';}
+      const mealSources=Object.values(dailyMeals).filter(Boolean).flatMap(m=>m.sources),sourceIds=[...new Set([...entries.flatMap(p=>p.sources),...mealSources])];
+      const alerts=[];if(cities.length>1)alerts.push('当天跨城，需确认交通');if(entries.length>1&&entries.some(p=>p.fullDay))alerts.push('整天游览与其他地点重叠');
+      const plannedMinutes=entries.reduce((n,p)=>n+(p.fullDay?420:p.duration||120),0)+Math.max(0,entries.length-1)*30;
+      if(plannedMinutes>420)alerts.push('预计游览与区内交通超过 7 小时');
+      const regions=[...new Set(entries.map(p=>p.region).filter(Boolean))];if(regions.length>1)alerts.push('当天跨区域，需再确认交通');
+      const visits=entries.map((p,i)=>{const evidence=TravelPlanner.evidence(p,state.notes);return '<div class="journey-row"><span class="journey-label">'+(p.early?'清晨':i===0?'游览':'')+'</span><div><button class="journey-name" data-trip-preview="'+esc(p.sources[0])+'">'+esc(p.name)+'</button>'+(p.fullDay?'<small class="journey-full-day">整天</small>':'')+'<button class="evidence-link" data-evidence="'+esc(p.id)+'">'+evidence.count+' 篇提及</button></div></div>';}).join('');
+      const mealRow=entries.length?['午餐','晚餐'].map(slot=>{const meal=dailyMeals[slot];if(!meal)return '';return '<div class="journey-row meal-row"><span class="journey-label">'+slot+'</span><div>'+(meal?'<button class="journey-name" data-trip-preview="'+esc(meal.sources[0])+'">'+esc(meal.name)+'</button><small class="journey-description">'+esc([meal.dish,meal.area].filter(Boolean).join(' · '))+'</small>':'')+'</div></div>';}).join(''):'';
+      const controls=entries.map((p,i)=>'<label class="journey-edit-row"><span>'+esc(p.name)+'</span><select data-move="'+esc(p.id)+'" aria-label="将'+esc(p.name)+'移到">'+state.days.map((_,d)=>'<option value="'+d+'" '+(d===index?'selected':'')+'>第 '+(d+1)+' 天</option>').join('')+'<option value="-1">暂不安排</option></select><button data-up="'+esc(p.id)+'" aria-label="上移'+esc(p.name)+'" '+(i===0?'disabled':'')+'>↑</button></label>').join('');
+      const mealControl=entries.length?['午餐','晚餐'].map(slot=>{const choices=food.filter(m=>cities.includes(m.city)&&(m.slots||[m.slot||'晚餐']).includes(slot));return choices.length?'<label class="journey-edit-meal"><span>'+slot+'</span><select data-meal-day="'+index+':'+slot+'" aria-label="第'+(index+1)+'天'+slot+'餐厅"><option value="">暂不安排</option>'+choices.map(m=>'<option value="'+esc(m.id)+'" '+(dailyMeals[slot]?.id===m.id?'selected':'')+'>'+esc(m.name)+'</option>').join('')+'</select></label>':'';}).join(''):'';
+      const body=meta.kind==='transfer'&&!entries.length?'<div class="transfer-day"><strong>'+esc(meta.from)+' → '+esc(meta.city)+'</strong><span>交通日 · 车次或航班待确认</span></div>':visits+mealRow+(!entries.length?'<p class="free-day">自由安排</p>':'');
+      const rationale=entries.length?regions.join(' / ')+' · 预计游览与区内交通 '+(plannedMinutes/60).toFixed(1).replace('.0','')+' 小时；另留午餐时间。':'';
+      return '<section class="journey-day"><header><strong>第 '+(index+1)+' 天</strong><time>'+date+' · '+esc(cityOf(ids,index))+'</time></header>'+alerts.map(a=>'<p class="journey-alert">'+esc(a)+'</p>').join('')+'<div class="journey-body">'+body+'</div>'+(sourceIds.length?'<footer><details class="journey-sources"><summary>编排依据 · '+sourceIds.length+' 篇</summary><p class="day-rationale">'+esc(rationale)+'</p>'+sourceIds.map(id=>{const n=state.notes.find(n=>n.id===id);return '<button data-trip-preview="'+esc(id)+'">'+esc(n.title)+'</button>';}).join('')+'</details><details class="journey-adjust"><summary>调整</summary>'+controls+mealControl+'</details></footer>':'')+'</section>';
+    }).join('');
+    if(!state.days.length)$('#tripItinerary').innerHTML='<p class="trip-plan-empty">添加攻略后，安排一下。</p>';
+    $('#tripPending').innerHTML=pending.length?'<details open><summary>'+pending.length+' 处超出当前天数</summary><div class="pending-resolution"><span>保留全部地点，预计需要 '+requiredDays()+' 天</span><button class="text-button" data-fit-trip>调整为 '+requiredDays()+' 天</button></div>'+pending.map(p=>'<div class="pending-place"><span>'+esc(p.name)+'</span><select data-move="'+esc(p.id)+'" aria-label="安排'+esc(p.name)+'"><option value="-1">选择日期</option>'+state.days.map((_,d)=>'<option value="'+d+'">第 '+(d+1)+' 天</option>').join('')+'</select></div>').join('')+'</details>':'';
+    $('#tripAddDay').hidden=!state.days.length;$('#tripExport').disabled=!scheduled.length;
+  }
+  function openEvidence(id){
+    const p=places().find(p=>p.id===id);if(!p)return;const e=TravelPlanner.evidence(p,state.notes);
+    $('#tripNoteBody').innerHTML='<div class="evidence-panel"><p class="trip-note-kind">收藏中的依据</p><h2>'+esc(p.name)+'</h2><div class="evidence-rate"><strong>'+e.percent+'%</strong><span>同城攻略提及率<br/>'+e.count+' / '+e.total+' 篇</span></div><p class="trip-note-summary">统计范围：已整理、包含'+esc(p.city)+'地点的笔记。提及不等于推荐或好评。</p>'+e.sources.map(id=>{const n=state.notes.find(n=>n.id===id);return '<button class="evidence-source" data-trip-preview="'+esc(id)+'"><strong>'+esc(n.title)+'</strong><span>'+esc(n.author)+' ↗</span></button>';}).join('')+'</div>';
+    $('#tripNotePanel').hidden=false;$('#tripLibrary').hidden=true;$('.trip-library-toolbar').hidden=true;
+  }
+  function openNote(id){
+    const n=state.notes.find(n=>n.id===id);if(!n)return;const m=media(id),url=cleanUrl(n.url);
+    $('#tripNoteBody').innerHTML=`${m.cover?`<img src="${esc(m.cover)}" alt="${esc(n.title)}"/>`:''}<div><p class="trip-note-kind">${esc(n.kind)}</p><h2>${esc(n.title)}</h2><p class="trip-note-author">${esc(n.author||'我的收藏')}</p>${n.summary?`<p class="trip-note-summary">${esc(n.summary)}</p>`:''}${n.meals?.length?'<h3>想吃</h3>'+n.meals.map(m=>'<p class="note-place">'+esc(m.city)+' <strong>'+esc(m.name)+'</strong><br/>'+esc(m.dish)+'</p>').join(''):'<h3>想去</h3>'}${(n.places||[]).map(p=>`<p class="note-place">${esc(p.city)} <strong>${esc(p.name)}</strong></p>`).join('')||(n.meals?.length?'':'<p class="free-day">行前参考</p>')}<button class="button button-quiet" data-trip-edit="${esc(id)}">编辑整理</button>${url?`<a class="source-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">小红书原帖 ↗</a>`:''}</div>`;
+    $('#tripNotePanel').hidden=false;$('#tripLibrary').hidden=true;$('.trip-library-toolbar').hidden=true;$('#tripNotePanel').scrollIntoView({block:'start',behavior:'smooth'});
+  }
+  function editNote(id){
+    $('#tripNotePanel').hidden=true;$('#tripLibrary').hidden=false;$('.trip-library-toolbar').hidden=false;editing=id||null;const n=state.notes.find(n=>n.id===id),f=$('#tripNoteForm');f.reset();$('#tripFormError').textContent='';$('#tripEditTitle').textContent=n?'整理攻略':'添加攻略';
+    for(const k of ['title','url','author','kind','summary'])if(n)f.elements[k].value=n[k]||'';
+    kindTouched=n?.categorySource==='manual';suggestTripKind();if(kindTouched)$('#tripCategoryHint').textContent='已手动选择';
+    f.elements.places.value=(n?.places||[]).map(p=>`${p.city} / ${p.name}${p.fullDay?' / 整天':''}`).join('\n');$('#tripEditDialog').showModal();f.elements.title.focus();
+  }
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    if(b.dataset.workspace)return switchMode(b.dataset.workspace);
+    if(b.hasAttribute('data-trip-add'))return editNote();
+    if(b.dataset.tripEdit)return editNote(b.dataset.tripEdit);
+    if(b.dataset.tripPreview)return openNote(b.dataset.tripPreview);
+    if(b.dataset.evidence)return openEvidence(b.dataset.evidence);
+    if(b.dataset.tripView){view=b.dataset.tripView;render();}
+    if(b.hasAttribute('data-fit-trip')){$('#tripDayCount').value=requiredDays();return arrangeTrip();}
+    if(b.dataset.tripCity){activeCity=b.dataset.tripCity;renderDays();}
+    if(b.dataset.up){const day=state.days.find(d=>d.includes(b.dataset.up)),i=day.indexOf(b.dataset.up);if(i>0)[day[i-1],day[i]]=[day[i],day[i-1]];save();renderDays();}
+  });
+  $('#travelWorkspace').addEventListener('change',e=>{if(e.target.hasAttribute('data-meal-day')){state.mealChoices[e.target.dataset.mealDay]=e.target.value;save();renderDays();return;}if(e.target.dataset.move){const id=e.target.dataset.move,d=Number(e.target.value);state.days=state.days.map(day=>day.filter(x=>x!==id));if(d>=0&&state.days[d]){state.days[d].push(id);if(state.dayMeta[d]?.kind==='transfer')state.dayMeta[d]={kind:'visit',city:places().find(p=>p.id===id)?.city};}save();render();}});
+  function arrangeTrip(){
+    if(!state.selected.length){$('#tripStatus').textContent='先添加一篇景点或路线攻略';return;}
+    state.dayCount=Math.max(1,Math.min(30,Math.floor(Number($('#tripDayCount').value)||7)));state.start=$('#tripStart').value;
+    const before=JSON.stringify({days:state.days,mealChoices:state.mealChoices,dayMeta:state.dayMeta});state.mealChoices={};const plan=TravelPlanner.arrange(places(),state.selected,state.dayCount);state.days=plan.days;state.dayMeta=plan.meta;save();render();$('#tripStatus').innerHTML='已更新 <button id="tripUndo">撤销</button>';$('#tripUndo').onclick=()=>{Object.assign(state,JSON.parse(before));save();render();$('#tripDayCount').value=state.days.length;state.dayCount=state.days.length;save();$('#tripStatus').textContent='已撤销重新安排';};
+  }
+  $('#tripArrange').addEventListener('click',arrangeTrip);
+  function requiredDays(){const plan=TravelPlanner.arrange(places(),state.selected,30);return plan.meta.reduce((last,m,i)=>m.kind!=='free'?i+1:last,1);}
+  for(const id of ['tripStart','tripDayCount'])$('#'+id).addEventListener('change',()=>{state.start=$('#tripStart').value;state.dayCount=Math.max(1,Math.min(30,Math.floor(Number($('#tripDayCount').value)||7)));save();renderDays();if(id==='tripDayCount')arrangeTrip();});
+  const tripToday=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  function shiftStart(amount){state.start=ActivityPlanner.addDays(state.start||tripToday(),amount);$('#tripStart').value=state.start;save();renderDays();}
+  $('#tripPrevDate').onclick=()=>shiftStart(-1);$('#tripNextDate').onclick=()=>shiftStart(1);
+  $('#tripAddDay').addEventListener('click',()=>{if(state.days.length>=30)return;state.days.push([]);state.dayMeta.push({kind:'free'});state.dayCount=state.days.length;save();render();});
+  $('#tripNoteForm').addEventListener('submit',e=>{
+    e.preventDefault();const f=e.currentTarget,raw=f.elements.url.value.trim(),url=cleanUrl(raw),title=f.elements.title.value.trim();
+    if(!title||raw&&!url){$('#tripFormError').textContent=!title?'请填写笔记标题':'请输入小红书笔记或分享链接';return;}
+    const lines=f.elements.places.value.split('\n').filter(x=>x.trim()),ps=[];
+    for(const line of lines){const parts=line.split('/').map(p=>p.trim()),[city,name,span]=parts;if(!city||!name||parts.length>3||(span&&span!=='整天')){$('#tripFormError').textContent='每行填写“城市 / 地点”，需独占一天可再加“ / 整天”';return;}const prior=state.notes.find(n=>n.id===editing)?.places?.find(p=>p.city===city&&p.name===name);ps.push({...prior,city,name,fullDay:span==='整天'});}
+    const note={meals:state.notes.find(n=>n.id===editing)?.meals||[],id:editing||'trip-'+crypto.randomUUID(),title,url,author:f.elements.author.value.trim(),kind:f.elements.kind.value,categorySource:kindTouched?'manual':'title-rule',summary:f.elements.summary.value.trim(),places:ps};
+    const index=state.notes.findIndex(n=>n.id===editing);if(index>=0)state.notes[index]=note;else state.notes.push(note);
+    const valid=new Set(places().map(p=>p.id));state.days=state.days.map(d=>d.filter(id=>valid.has(id)));save();$('#tripEditDialog').close();render();
+  });
+  function travelOutput(){
+    const ps=places(),matched=dayMeals(),sourcesFor=ids=>ids.map(id=>state.notes.find(n=>n.id===id)).filter(Boolean).map(n=>({title:n.title,url:n.url,author:n.author,kind:n.kind}));
+    return {title:seed.name+' · 旅行计划',sources:sourcesFor(state.notes.map(n=>n.id)),days:state.days.map((ids,i)=>{const meta=state.dayMeta[i]||{},entries=ids.map(id=>ps.find(p=>p.id===id)).filter(Boolean),items=entries.map(p=>({slot:p.early?'清晨':'游览',title:p.name,detail:p.fullDay?'整天':'',sources:sourcesFor(p.sources)}));for(const [slot,m] of Object.entries(matched[i]||{}))if(m)items.push({slot,title:m.name,detail:[m.dish,m.area].filter(Boolean).join(' · '),sources:sourcesFor(m.sources)});if(meta.kind==='transfer'&&!entries.length)items.push({slot:'交通',title:meta.from+' → '+meta.city,detail:'车次或航班待确认',sources:[]});return {label:'第 '+(i+1)+' 天',date:state.start?ActivityPlanner.addDays(state.start,i):'',city:entries[0]?.city||meta.city||'',items};})};
+  }
+  $('#tripExport').onclick=()=>PlanOutput.exportExcel(travelOutput());
+  $('#shareTrip').onclick=()=>SharedAlbum.open('travel');
+  $('#classifyTrip').onclick=()=>NoteCategories.review(state.notes.map(n=>({id:n.id,title:n.title,category:n.kind,manual:n.categorySource==='manual'})),{travel:true,onChange:n=>{const note=state.notes.find(x=>x.id===n.id);note.kind=n.category;note.categorySource=n.manual?'manual':'title-rule';save();render();}});
+  function suggestTripKind(){if(kindTouched)return;const f=$('#tripNoteForm'),result=NoteCategories.explain(f.elements.title.value,true);f.elements.kind.value=result.category;$('#tripCategoryHint').textContent=result.keyword?'自动归入 '+result.category+' · 识别到「'+result.keyword+'」':'按标题自动分类';}
+  $('#tripNoteForm').elements.title.addEventListener('input',suggestTripKind);
+  $('#tripNoteForm').elements.kind.addEventListener('change',()=>{kindTouched=true;$('#tripCategoryHint').textContent='已手动选择';});
+  $('#searchInput').addEventListener('input',e=>{query=e.target.value.trim().toLowerCase();if(mode==='travel')render();});
+  document.querySelectorAll('[data-trip-close]').forEach(b=>b.onclick=()=>{if(b.closest('dialog'))b.closest('dialog').close();else{$('#tripNotePanel').hidden=true;$('#tripLibrary').hidden=false;$('.trip-library-toolbar').hidden=false;}});
+  render();save();switchMode('daily');
+  SharedAlbum.register('travel',{anchor:'#travelWorkspace .plan-heading',snapshot:()=>state,receive:next=>{if(!Array.isArray(next.notes)||!Array.isArray(next.days))return;state=next;render();save();}});
+})();
+</script>
+</body>
+</html>
