@@ -1,5 +1,9 @@
 # 做一点｜收藏夹落地器
 
+在线作品：[REDcowork 正式版](https://redcowork.xiaohongshu.com/f/g7rcew51y4)
+
+`redcowork.html` 是平台导入入口：内嵌脚本和样式，媒体使用固定 Git 提交的远程地址；本地完整版见 `standalone.html` 和 `assets/`。
+
 当前版本：`v0.2.0`（2026-10-14）。日常七日计划、埃及旅行专辑、来源交叉汇总、共同专辑演示与 Excel 导出。
 
 ![电脑端预览](desktop-preview.png)
