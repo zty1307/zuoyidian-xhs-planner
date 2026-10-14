@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="./style.css" />
     <script defer src="./demo-notes.js"></script>
     <script defer src="./planner.js"></script>
+    <script defer src="./demo-week.js"></script>
+    <script defer src="./categories.js"></script>
+    <script defer src="./plan-output.js"></script>
+    <script defer src="./shared-album.js"></script>
     <script defer src="./app.js"></script>
+    <script defer src="./travel-data.js"></script>
+    <script defer src="./travel-planner.js"></script>
+    <script defer src="./travel.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -25,7 +32,8 @@
       </header>
 
       <main id="top">
-        <section class="workspace" aria-label="收藏与计划工作台">
+        <nav class="workspace-tabs" aria-label="工作台"><button data-workspace="daily" class="active" aria-pressed="true">日常想做</button><button data-workspace="travel" aria-pressed="false">旅行专辑</button></nav>
+        <section id="dailyWorkspace" class="workspace" aria-label="收藏与计划工作台">
           <div class="collection-column">
             <div class="section-heading">
               <div>
@@ -33,26 +41,38 @@
               </div>
               <div class="view-filters" role="group" aria-label="收藏状态"><button class="filter active" data-filter="all" type="button">全部</button><button class="filter" data-filter="selected" type="button">已选 <span id="selectedCount">0</span></button><button class="filter" data-filter="unready" type="button">待准备 <span id="unreadyCount">0</span></button></div>
             </div>
-            <div id="categoryFilters" class="filter-bar" role="group" aria-label="收藏分类"></div>
-            <div id="collectionList" class="collection-list" aria-live="polite"></div>
+            <div id="collectionBrowse"><div class="daily-classify-row"><button id="classifyDaily" class="auto-classify">自动分类 ↗</button></div><div id="categoryFilters" class="filter-bar" role="group" aria-label="收藏分类"></div>
+            <div id="collectionList" class="collection-list" aria-live="polite"></div></div>
+            <section id="notePreview" class="note-preview" aria-label="笔记详情" hidden></section>
           </div>
 
           <aside class="plan-column" aria-labelledby="planTitle">
             <div class="plan-panel">
-              <div class="plan-heading"><h2 id="planTitle">计划</h2><button id="exportBtn" class="export-link" type="button" aria-label="导出文字计划">导出 <span aria-hidden="true">↗</span></button></div>
-              <label class="field date-field"><span>日期</span><input id="planDate" type="date" /></label>
-              <div class="time-range"><input id="startTime" type="time" value="10:00" aria-label="开始时间" /><span>—</span><input id="endTime" type="time" value="13:00" aria-label="结束时间" /></div>
-              <details class="plan-settings"><summary>安排设置</summary><label class="compact-field">最多安排 <select id="maxTasks"><option value="2">2 件</option><option value="3">3 件</option><option value="4" selected>4 件</option><option value="6">6 件</option></select></label>
-              <div class="options-row">
-                <label class="compact-field">间隔 <select id="restBuffer"><option value="0">无</option><option value="5">5 分钟</option><option value="10" selected>10 分钟</option><option value="15">15 分钟</option></select></label>
-                <label id="travelOption" class="compact-field">出门通勤 <select id="travelBuffer"><option value="15">15 分钟</option><option value="25" selected>25 分钟</option><option value="40">40 分钟</option></select></label>
-              </div>
-              <label id="rainOption" class="switch-field rain-option" hidden><input id="rainToggle" type="checkbox" /><span class="switch-track"></span><span>下雨，跳过户外</span></label>
-              </details><button id="planBtn" class="button button-coral plan-button" type="button">安排一下</button>
-
+              <div class="plan-heading"><h2 id="planTitle">计划</h2><div class="plan-actions"><button id="shareDaily" class="export-link">共同专辑</button><button id="exportBtn" class="export-link" aria-label="导出 Excel">导出 Excel ↗</button></div></div>
+              <div class="daily-controls-row"><div class="date-navigation"><button id="prevDate" class="date-arrow" aria-label="前一天">‹</button><input id="planDate" type="date" aria-label="计划日期"/><button id="nextDate" class="date-arrow" aria-label="后一天">›</button></div><div class="time-picker"><select id="startTime" aria-label="开始时间"></select><span>—</span><select id="endTime" aria-label="结束时间"></select></div><button id="planBtn" class="button button-coral">安排一下</button></div>
               <div id="planResult" aria-live="polite"></div>
               <div id="planNotes" class="plan-notes"></div>
             </div>
+          </aside>
+        </section>
+        <section id="travelWorkspace" class="workspace travel-workspace" aria-label="旅行专辑工作台" hidden>
+          <div class="collection-column">
+            <div class="section-heading"><h1 id="albumName">旅行专辑</h1><button class="text-button" data-trip-add>＋ 添加攻略</button></div>
+            <div class="library-meta-row"><p id="albumMeta" class="album-meta"></p><button id="classifyTrip" class="auto-classify">自动分类 ↗</button></div>
+            <div class="trip-library-toolbar"><div id="tripViews" class="filter-bar"></div></div>
+            <div id="tripLibrary"></div><section id="tripNotePanel" class="trip-note-panel" aria-label="攻略详情" hidden><div class="preview-toolbar"><button data-trip-close type="button">← 返回专辑</button></div><div id="tripNoteBody"></div></section>
+
+          </div>
+          <aside class="plan-column">
+            <div class="plan-heading"><h2>旅行计划</h2><div class="plan-actions"><button id="shareTrip" class="export-link">共同专辑</button><button id="tripExport" class="export-link" disabled>导出 Excel ↗</button></div></div>
+            <div class="trip-config-panel"><label class="control-caption" for="tripStart">出发日期</label><div class="date-navigation trip-date-navigation"><button id="tripPrevDate" class="date-arrow" aria-label="出发日期前一天" title="前一天">‹</button><input id="tripStart" type="date" aria-label="旅行出发日期"/><button id="tripNextDate" class="date-arrow" aria-label="出发日期后一天" title="后一天">›</button><span class="date-optional">可暂不填</span></div>
+              <div class="trip-controls"><label class="inline-trip-field"><span>玩几天</span><input id="tripDayCount" type="number" min="1" max="30" step="1" value="10"/><span>天</span></label></div>
+              <div class="trip-arrange-row"><span id="tripSelection"></span><button id="tripArrange" class="button button-coral">安排一下</button></div>
+            </div><p id="tripStatus" class="trip-status" role="status"></p>
+            <div id="tripSynthesis"></div><div id="tripRoute" class="trip-route" aria-label="行程城市"></div>
+            <div id="tripItinerary"></div><div id="tripPending"></div>
+            <button id="tripAddDay" class="add-day" hidden>＋ 加一天</button>
+
           </aside>
         </section>
       </main>
@@ -64,7 +84,7 @@
         <div class="paste-box"><label for="shareText">小红书分享文案</label><textarea id="shareText" rows="2" placeholder="粘贴链接或分享文案"></textarea><button id="parseShareBtn" class="text-button" type="button">提取标题与链接</button></div>
         <div class="dialog-grid">
           <label class="field wide"><span>想做什么 <b>*</b></span><input name="title" maxlength="60" placeholder="例如：跟着教程试一次低盘发" required /></label>
-          <label class="field"><span>类型</span><select name="category"><option>美妆</option><option>发型</option><option>美食</option><option>手作</option><option>运动</option><option>学习</option><option>出门</option><option>其他</option></select></label>
+          <label class="field"><span>分类</span><select name="category" aria-describedby="categoryHint"></select><small id="categoryHint">根据标题建议，可修改</small></label>
           <label class="field"><span>大约需要（分钟）</span><input name="duration" type="number" min="5" max="720" step="5" value="30" required /></label>
           <label class="field wide"><span>在哪里做</span><select id="activityMode" name="mode"><option value="home">在家</option><option value="out">出门</option><option value="any">不限地点</option></select></label>
           <label class="field wide"><span>需要准备（可选）</span><input name="materials" maxlength="120" placeholder="例如：发圈、发夹、镜子" /></label>
@@ -82,6 +102,13 @@
         <div class="dialog-actions"><button id="cancelDialogBtn" class="button button-quiet" type="button">取消</button><button id="dialogSubmitBtn" class="button button-coral" type="submit">存进想做清单 →</button></div>
       </form>
     </dialog>
+    <dialog id="tripEditDialog" class="add-dialog" aria-labelledby="tripEditTitle"><form id="tripNoteForm"><div class="dialog-head"><h2 id="tripEditTitle">整理攻略</h2><button type="button" data-trip-close class="icon-button" aria-label="关闭整理">×</button></div><div class="dialog-grid">
+      <label class="field wide"><span>原帖标题</span><input name="title" required maxlength="160"/></label>
+      <label class="field wide"><span>小红书链接</span><input name="url" type="url"/></label>
+      <label class="field"><span>作者</span><input name="author" maxlength="60"/></label><label class="field"><span>分类</span><select name="kind"><option>景点</option><option>路线</option><option>交通</option><option>住宿</option><option>美食</option><option>行前准备</option></select><small id="tripCategoryHint">按标题自动分类</small></label>
+      <label class="field wide"><span>想去的地点 · 每行一个</span><textarea name="places" rows="4" placeholder="城市 / 地点"></textarea><small>同城同名自动合并；需单独一天的地点可加“ / 整天”。</small></label>
+      <label class="field wide"><span>记住什么 · 可选</span><textarea name="summary" rows="2" maxlength="500" placeholder="例如：需要提前预约"></textarea></label>
+      </div><p id="tripFormError" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" data-trip-close class="button button-quiet">取消</button><button class="button button-coral" type="submit">保存整理</button></div></form></dialog>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </body>
 </html>

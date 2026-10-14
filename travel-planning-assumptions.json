@@ -1,0 +1,63 @@
+{
+  "type": "人工估算，非实时导航",
+  "places": {
+    "吉萨金字塔群": {
+      "region": "吉萨",
+      "duration": 420
+    },
+    "大埃及博物馆": {
+      "region": "吉萨",
+      "duration": 420
+    },
+    "萨拉丁城堡": {
+      "region": "开罗城区",
+      "duration": 120
+    },
+    "哈利利市场": {
+      "region": "开罗城区",
+      "duration": 120
+    },
+    "菲莱神庙": {
+      "region": "阿斯旺",
+      "duration": 180
+    },
+    "老瀑布酒店下午茶": {
+      "region": "阿斯旺",
+      "duration": 90
+    },
+    "卢克索热气球": {
+      "region": "西岸",
+      "duration": 180,
+      "early": true
+    },
+    "帝王谷": {
+      "region": "西岸",
+      "duration": 180
+    },
+    "哈布城": {
+      "region": "西岸",
+      "duration": 120
+    },
+    "卡尔纳克神庙": {
+      "region": "东岸",
+      "duration": 150
+    },
+    "卢克索神庙": {
+      "region": "东岸",
+      "duration": 120
+    },
+    "红海出海与浮潜": {
+      "region": "赫尔格达",
+      "duration": 420
+    },
+    "海边休息": {
+      "region": "赫尔格达",
+      "duration": 180
+    }
+  },
+  "dailyVisitAndTransferMinutes": 420,
+  "lunchBreakMinutes": 60,
+  "sameAreaTransferMinutes": 30,
+  "intercity": "单独保留交通日；方式与时刻待确认",
+  "sourceRate": "提及该地点的笔记数 / 含同城地点的笔记数；非推荐率、好评率或全平台数据"
+}

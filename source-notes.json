@@ -1,6 +1,6 @@
 {
   "verifiedDate": "2026-10-14",
-  "method": "小红书网页搜索结果打开原帖，核对标题与作者",
+  "method": "原帖或小红书公开分类页，核对标题、作者及封面；视频取自原帖播放器已加载的公开媒体资源。",
   "assumptions": "行动标题、实践耗时、准备清单、午饭时间窗口与先做发型的顺序是演示设定，可编辑；并非原帖承诺或自动提取结果。",
   "notes": [
     {
@@ -44,6 +44,46 @@
       "category": "手作",
       "duration": 30,
       "materials": "A4 纸"
+    },
+    {
+      "id": "note-pilates",
+      "sourceTitle": "普拉提动作讲解",
+      "author": "皓东运动控制学",
+      "url": "https://www.xiaohongshu.com/explore/64ba744b0000000017019453?xsec_token=ABG5Dg_neUowlgrVo4nF8HC4B6M6wRQSJPqQ3LYeclGh8=&xsec_source=",
+      "category": "运动",
+      "action": "看一节普拉提动作讲解",
+      "duration": 15,
+      "materials": ""
+    },
+    {
+      "id": "note-outfit",
+      "sourceTitle": "𓂂 ˳ 🎧📨一周ootd合集",
+      "author": "P1nKynKy",
+      "url": "https://www.xiaohongshu.com/explore/64828ea70000000007039c26?xsec_token=ABWfhpEx6J3lWsWRnYc6GIXfA7EX5IduXMgpUm5eWSvMo=&xsec_source=",
+      "category": "穿搭",
+      "action": "搭配一套明天穿的衣服",
+      "duration": 25,
+      "materials": "衣柜里的衣服、全身镜"
+    },
+    {
+      "id": "note-organize",
+      "sourceTitle": "附🧾｜ins风高颜值收纳分享ദ്ദി˶ｰ̀֊ｰ́ )✧",
+      "author": "小譚綺麗",
+      "url": "https://www.xiaohongshu.com/explore/64b526ea000000002b03c5cf?xsec_token=ABR5r2y08Q3XfXKiC3GalJrZW_p0aUynvFhsYybQBLxZ4=&xsec_source=",
+      "category": "家居",
+      "action": "整理桌面常用小物",
+      "duration": 30,
+      "materials": "收纳盒、擦拭布"
+    },
+    {
+      "id": "note-plants",
+      "sourceTitle": "移栽后的绣球都长得很好呀",
+      "author": "夏木有诗",
+      "url": "https://www.xiaohongshu.com/explore/649fc11600000000110128be?xsec_token=ABM1VyxgxiutD2tUbH6ZlbzQInF4yCF_SK6zWw-vnTvA4=&xsec_source=",
+      "category": "园艺",
+      "action": "给家里的盆栽换盆",
+      "duration": 30,
+      "materials": "盆栽、花盆、适合的土"
     }
   ]
 }

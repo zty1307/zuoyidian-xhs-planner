@@ -31,7 +31,7 @@
     if (!Number.isFinite(dayStart) || !Number.isFinite(dayEnd) || dayStart >= dayEnd) return { entries: [], excluded: [] };
     const available = selected.filter((item) => !blockReason(item, config));
     const completed = (id) => Boolean(done[`${config.date}:${id}`]);
-    let frontier = [{ time: dayStart, entries: [], used: [], score: 0, context: null, categories: [] }];
+    let frontier = [{ time: dayStart, entries: [], used: [], score: 0, context: {mode:'home'}, categories: [] }];
     let best = frontier[0];
     const limit = Math.min(Number(config.maxTasks || 4), available.length);
     for (let depth = 0; depth < limit; depth++) {
@@ -65,7 +65,26 @@
     });
     return { entries: best.entries, excluded };
   }
-  const api = Object.freeze({ buildPlan, blockReason, minutes, modeOf });
+  function addDays(value, amount) {
+    const date = new Date(`${value}T12:00:00`); if(Number.isNaN(date.getTime()))return '';
+    date.setDate(date.getDate()+amount);
+    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+  }
+  function buildAgenda(items,selectedIds,config,done={},count=7){
+    const days=[],scheduled=new Set(),carry=new Set();let excluded=[];
+    // Prior completed prerequisites carry forward; planning never writes completion state.
+    for(let offset=0;offset<count;offset++){
+      const date=addDays(config.date,offset),effective={...done};
+      for(const [key,value] of Object.entries(done))if(value&&key.slice(0,10)<date)effective[`${date}:${key.slice(11)}`]=true;
+      for(const id of carry)effective[`${date}:${id}`]=true;
+      const eligible=selectedIds.filter(id=>!scheduled.has(id)&&(!config.preferredDates?.[id]||config.preferredDates[id]<=date));
+      const plan=buildPlan(items,eligible,{...config,...config.dailyWindows?.[date],date},effective);
+      days.push({date,entries:plan.entries});excluded=plan.excluded.map(({item,reason})=>({id:item.id,reason}));
+      for(const entry of plan.entries){scheduled.add(entry.id);carry.add(entry.id);}
+    }
+    return {startDate:config.date,days,excluded};
+  }
+  const api = Object.freeze({ buildPlan, buildAgenda, addDays, blockReason, minutes, modeOf });
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.ActivityPlanner = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

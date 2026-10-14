@@ -1,8 +1,46 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { buildPlan } = require('./planner.js');
+const { buildPlan, buildAgenda, addDays } = require('./planner.js');
 const config = { date: '2026-10-17', start: '10:00', end: '13:00', maxTasks: 4, rest: 10, travel: 25, rain: false };
 const task = (id, extra = {}) => ({ id, title: id, category: '手作', mode: 'home', duration: 30, prepared: true, ...extra });
+
+test('多日安排溢出到下一天，每个事项只出现一次', () => {
+  const items = ['A', 'B', 'C', 'D', 'E'].map(id => task(id));
+  const result = buildAgenda(items, items.map(item => item.id), { ...config, maxTasks: 2 });
+  assert.deepEqual(result.days.map(day => day.entries.length), [2, 2, 1, 0, 0, 0, 0]);
+  assert.equal(new Set(result.days.flatMap(day => day.entries.map(entry => entry.id))).size, 5);
+  assert.deepEqual(result.excluded, []);
+});
+
+test('周末限定事项顺延到周六，已排前置事项可跨日衔接但不会改写完成状态', () => {
+  const items = [task('后续', { afterId: '准备' }), task('准备'), task('周末', { weekendsOnly: true })];
+  const done = {};
+  const result = buildAgenda(items, items.map(item => item.id), { ...config, date: '2026-10-15', maxTasks: 1 }, done);
+  assert.deepEqual(result.days.slice(0, 3).map(day => day.entries.map(entry => entry.id)), [['准备'], ['后续'], ['周末']]);
+  assert.deepEqual(done, {});
+});
+
+test('过去已完成的前置事项可继续使用，未来完成记录不能提前使用', () => {
+  const items = [task('准备'), task('后续', { afterId: '准备' })];
+  assert.equal(buildAgenda(items, ['后续'], config, { '2026-10-16:准备': true }, 1).days[0].entries.length, 1);
+  assert.equal(buildAgenda(items, ['后续'], config, { '2026-10-18:准备': true }, 1).days[0].entries.length, 0);
+});
+
+test('日期跨月跨年和首项出门的通勤缓冲正确', () => {
+  assert.equal(addDays('2026-12-31', 1), '2027-01-01');
+  assert.equal(addDays('2026-03-01', -1), '2026-02-28');
+  const plan = buildPlan([task('咖啡', { mode: 'out' })], ['咖啡'], config);
+  assert.equal(plan.entries[0].transfer, 25);
+  assert.equal(plan.entries[0].start, 625);
+});
+
+test('示例分配日期与逐日空闲时段均被保留', () => {
+  const items=[task('在家'),task('出门',{mode:'out',duration:75})];
+  const agenda=buildAgenda(items,['在家','出门'],{...config,preferredDates:{出门:'2026-10-18'},dailyWindows:{'2026-10-18':{start:'14:00',end:'16:00'}}});
+  assert.deepEqual(agenda.days[0].entries.map(e=>e.id),['在家']);
+  assert.equal(agenda.days[1].entries[0].id,'出门');
+  assert.equal(agenda.days[1].entries[0].start,865);
+});
 
 test('在家事项没有地址或营业时间也能安排，间隔留白不计为通勤', () => {
   const plan = buildPlan([task('妆容'), task('发型')], ['妆容', '发型'], config);

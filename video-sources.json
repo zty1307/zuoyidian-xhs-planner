@@ -1,0 +1,26 @@
+{
+  "verified": "2026-10-14",
+  "method": "原帖播放器资源；本地转为 H.264/AAC MP4，保留完整时长和原有水印。",
+  "notes": [
+    {
+      "id": "note-hair",
+      "url": "https://sns-video-v6.xhscdn.com/stream/1/110/109/01ea8d763778240301037001a038da4123_109.mp4?sign=f6bfa7faa2b6727362be3becc64cf583&t=6ad405ea"
+    },
+    {
+      "id": "note-craft",
+      "url": "https://sns-video-v6.xhscdn.com/stream/1/110/521/01eabcdcd39484b101037001a0f1c14c3b_521.mp4?sign=e860fbb9e63b7fe6fb4e0a7b5a4501f0&t=6ad40605"
+    },
+    {
+      "id": "note-makeup",
+      "url": "https://sns-video-v6.xhscdn.com/stream/1/110/3051/01eaa3c8b97b5a6201037001a091fa0357_3051.m4s?sign=ce2fb966fa413bbeb9ed374cd03edff4&t=6ad4061f"
+    },
+    {
+      "id": "note-pilates",
+      "url": "https://sns-video-v6.xhscdn.com/stream/110/259/01e4ba744ae82abb0103700389785747ce_259.mp4?sign=14e125e3b930114471b11a8a244d3173&t=6ad40687"
+    },
+    {
+      "id": "note-makeup-audio",
+      "url": "https://sns-video-v6.xhscdn.com/stream/1/110/103/01eaa3c8b97b5a6201037001a08fc8763a_103.m4a?sign=1c81507478ed213dfd576fe3c763e5a3&t=6ad40922"
+    }
+  ]
+}

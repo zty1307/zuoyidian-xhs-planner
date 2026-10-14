@@ -1,0 +1,282 @@
+{
+  "album": "埃及",
+  "reviewedAt": "2026-10-14",
+  "note": "专辑显示21篇，本地选取9篇；地点为人工整理的主线路线子集，非自动同步。",
+  "notes": [
+    {
+      "id": "egypt-1",
+      "title": "春节11天埃及攻略｜在🇪🇬的18张人生照片✨",
+      "author": "Krystal羲",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/67d3e0cd000000000b016000?xsec_token=AByHyFISzI0LdV9ZZnifcz-AHYJcxXiJhPpqUi3CUwfbE=&xsec_source=",
+      "cover": "assets/egypt-1-cover.webp",
+      "avatar": "assets/egypt-1-avatar.webp",
+      "kind": "路线",
+      "summary": "作者的路线串联开罗、阿斯旺、卢克索与赫尔格达。金字塔单独留了一天，热气球建议留出天气备选。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "哈利利市场",
+          "fullDay": false
+        },
+        {
+          "city": "阿斯旺",
+          "name": "菲莱神庙",
+          "fullDay": false
+        },
+        {
+          "city": "阿斯旺",
+          "name": "老瀑布酒店下午茶",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卡尔纳克神庙",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索热气球",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "哈布城",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false
+        },
+        {
+          "city": "赫尔格达",
+          "name": "红海出海与浮潜",
+          "fullDay": true
+        },
+        {
+          "city": "赫尔格达",
+          "name": "海边休息",
+          "fullDay": false
+        }
+      ],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/c99e87c2045fdda824a04c3bd1efe801/notes_pre_post/1040g3k031f0jdshj66004a6fmqi51k318tjas10!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31lovftpf5i004a6fmqi51k316q4u5hg?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-2",
+      "title": "女生三人埃及自由行亲测可冲",
+      "author": "菠萝",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/697e3305000000001a024b74?xsec_token=ABBaf6kkFEuzsytUlqEVY4qEEMFDxelA9B9oupxW3UdKs=&xsec_source=",
+      "cover": "assets/egypt-2-cover.webp",
+      "avatar": "assets/egypt-2-avatar.webp",
+      "kind": "路线",
+      "summary": "作者把金字塔和大埃及博物馆分别安排一天，再去卢克索与赫尔格达。交通、票务为作者当次经历，出发前再核对。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "大埃及博物馆",
+          "fullDay": true
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false
+        },
+        {
+          "city": "赫尔格达",
+          "name": "红海出海与浮潜",
+          "fullDay": true
+        },
+        {
+          "city": "赫尔格达",
+          "name": "海边休息",
+          "fullDay": false
+        }
+      ],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/5b6c35f1969c298f84b05227f0b7f2d9/notes_pre_post/1040g3k831s0tpubrkubg5ok8tujlajgvusfug38!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo311kukp2hn2605ok8tujlajgv5pksp8g?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-3",
+      "title": "埃及去过的各景点排名及简评",
+      "author": "jeffsmjs",
+      "url": "https://www.xiaohongshu.com/explore/698b0662000000000d00858f?xsec_token=ABvX8TI4oD86rYmotaX51KAd3-33CzU2eGbs-jXbQ_Zu8=&xsec_source=pc_feed",
+      "cover": "assets/egypt-3-cover.webp",
+      "avatar": "assets/egypt-3-avatar.webp",
+      "kind": "景点",
+      "summary": "这是一篇主观景点评价。先整理与主线重合的地点，其余远途目的地仍可从原帖挑选。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "大埃及博物馆",
+          "fullDay": true
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "萨拉丁城堡",
+          "fullDay": false
+        },
+        {
+          "city": "开罗·吉萨",
+          "name": "哈利利市场",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "帝王谷",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "哈布城",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索热气球",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卡尔纳克神庙",
+          "fullDay": false
+        },
+        {
+          "city": "卢克索",
+          "name": "卢克索神庙",
+          "fullDay": false
+        }
+      ],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/ab25e749e241aa3a67fc92c7ace2bc59/notes_pre_post/1040g3k031sde7gdom20g49sgpvd558tovkhna2o!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31kubea77iu0049sgpvd558tofmk3q2o?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-4",
+      "title": "差点错过金字塔 😭 大家一定要做好规划",
+      "author": "akiko rose🖤",
+      "url": "https://www.xiaohongshu.com/explore/6982f4e5000000000a02c99c?xsec_token=ABi3IMIYHGnEd3YuR052vOMqLcrX1wlackNAWgh2B4lMk=&xsec_source=pc_feed",
+      "cover": "assets/egypt-4-cover.webp",
+      "avatar": "assets/egypt-4-avatar.webp",
+      "kind": "景点",
+      "summary": "作者曾因低估博物馆耗时险些错过金字塔入场。两处各留一天更从容；最后入场时间需另行核实。",
+      "places": [
+        {
+          "city": "开罗·吉萨",
+          "name": "吉萨金字塔群",
+          "fullDay": true
+        }
+      ],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/27ff925ae7b029a8743c0973fdf5a845/1040g00831s5hpdbqla0049vsjucei91hvppdg70!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo3263cuq70580049vsjucei91h5ba996g?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-5",
+      "title": "埃及GoBus攻略",
+      "author": "想补作业",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/68e5fd980000000003019670?xsec_token=ABfAVhKr5rwEHJVrXD9PG7FkWOrmivFmh69m8j2EzWFPE=&xsec_source=",
+      "cover": "assets/egypt-5-cover.webp",
+      "avatar": "assets/egypt-5-avatar.webp",
+      "kind": "交通",
+      "summary": "作者记录了卢克索—赫尔格达、赫尔格达—开罗两程 GoBus 的订票、选座和乘车体验。车次与耗时以出行当日为准。",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/08dc64696a85c411c2808721154b4d51/1040g2sg31nc8oduq5m804a7o0l29h34oalc0d2g!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo30vbg5ecbl4004a7o0l29h34odllhueg?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-6",
+      "title": "这篇攻略，让你把埃及的gobus弄清楚",
+      "author": "溜达溜达的穷游",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/66aa5041000000002701e6b5?xsec_token=ABPccINUVCTMOGXWnl4VOSegLWAOwDKVg-8nU_9vCoJ24=&xsec_source=",
+      "cover": "assets/egypt-6-cover.webp",
+      "avatar": "assets/egypt-6-avatar.webp",
+      "kind": "交通",
+      "summary": "整理线上与车站购票、选择站点和乘车流程。查票时先确认具体车站，支付方式与班次需再核对。",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/5759b2e8fa79dbb09c0c4e770a00632b/1040g008315tgqu6d0k105oufph29t4484ir85j8!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/66f2caccb441f5fb9eccb3ef.jpg?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-7",
+      "title": "🎒埃及旅行必备物品清单分享",
+      "author": "贞诚-子楷",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/695fd2b5000000002202cba6?xsec_token=ABmNwThYYVK5PW1pxW6mhm8-FE7_HEdfO8dIApIYciOKg=&xsec_source=",
+      "cover": "assets/egypt-7-cover.webp",
+      "avatar": "assets/egypt-7-avatar.webp",
+      "kind": "行前准备",
+      "summary": "可参考转换插头、充电设备、防晒、舒适鞋履和随身外套等清单，按自己的需求删减。",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/5c85a8f25453907e82a9328d2ce45b98/notes_pre_post/1040g3k031r38cmb3ng005pqmvaqn3159gnl1qcg!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/6756fc96d405772c7b031926.jpg?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-8",
+      "title": "埃及冬季旅行穿衣法则",
+      "author": "后海大鲫鱼",
+      "url": "https://www.xiaohongshu.com/explore/69840911000000000d00b1b5?xsec_token=ABRhh-U9y5kMY9sLX_IzTfAPHNJ9Ak5c69z6TYLb0BQ24=&xsec_source=",
+      "cover": "assets/egypt-8-cover.webp",
+      "avatar": "assets/egypt-8-avatar.webp",
+      "kind": "行前准备",
+      "summary": "作者冬季旅行时感受到明显昼夜温差，建议随身带外套。实际穿衣仍按出发日期和天气调整。",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/44753fafe2a7f03f8a11e929bfc0a8d6/notes_pre_post/1040g3k831s6jr13um2bg5o6i0po0bgbi1gf7l4g!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo31dne3dad0u705o6i0po0bgbiur78vd8?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    },
+    {
+      "id": "egypt-9",
+      "title": "女生埃及自由行攻略明细（含详细费用）",
+      "author": "桃白王咪",
+      "url": "https://www.xiaohongshu.com/board/698899530000000025031c4e/67b1dada0000000018018886?xsec_token=ABrsVgD6oNVIK-rUz0-rw0GDRJ7zz69zGeCraAQ1bpaUw=&xsec_source=",
+      "cover": "assets/egypt-9-cover.webp",
+      "avatar": "assets/egypt-9-avatar.webp",
+      "kind": "路线",
+      "summary": "详细行程主要在原帖第 2、3 张图，另有出行工具与历史资料推荐；这篇暂保留作参考，未据未读图片标记地点。",
+      "places": [],
+      "reviewedAt": "2026-10-14",
+      "sourceCover": "https://sns-webpic-qc.xhscdn.com/202610142009/8b42f2230650c57055063bd44b803e51/1040g2sg31dvc6lic0k705od1p4240lg77egarqo!nc_n_webp_mw_1",
+      "sourceAvatar": "https://sns-avatar-qc.xhscdn.com/avatar/1040g2jo312roppmm4o005od1p4240lg7cnin280?imageView2/2/w/60/format/webp|imageMogr2/strip"
+    }
+  ]
+}
