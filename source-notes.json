@@ -1,0 +1,49 @@
+{
+  "verifiedDate": "2026-10-14",
+  "method": "小红书网页搜索结果打开原帖，核对标题与作者",
+  "assumptions": "行动标题、实践耗时、准备清单、午饭时间窗口与先做发型的顺序是演示设定，可编辑；并非原帖承诺或自动提取结果。",
+  "notes": [
+    {
+      "id": "makeup",
+      "sourceTitle": "7min学会！新手日常万能淡妆！全妆跟练教程！",
+      "author": "laaalyn",
+      "url": "https://www.xiaohongshu.com/explore/6aa3c8ba000000002902d04b?xsec_token=ABsOtL69wZ2O_6pKkOVw6ACPThif4VuxUmXf5OF3l4VVQ=&xsec_source=pc_search",
+      "action": "跟练一次日常淡妆",
+      "category": "美妆",
+      "duration": 45,
+      "materials": "常用彩妆、化妆工具、镜子"
+    },
+    {
+      "id": "hair",
+      "sourceTitle": "30秒学会优雅端庄低盘发 超显温柔 简单好学",
+      "author": "柳诗锐",
+      "url": "https://www.xiaohongshu.com/explore/6a8d76380000000025039776?xsec_token=ABMxJr-YMazx_c3o2rk3S1cFF66kI471Se5yvwlLEPSdk=&xsec_source=pc_search",
+      "action": "试一次低盘发",
+      "category": "发型",
+      "duration": 20,
+      "materials": "发圈、发夹、镜子"
+    },
+    {
+      "id": "food",
+      "sourceTitle": "番茄浓汤面（附教程）",
+      "author": "橙子cc",
+      "url": "https://www.xiaohongshu.com/explore/6a68309900000000010021c9?xsec_token=ABtPf62e4PV7GTUYVYXkOegeWeAB3FZQtLWgDKALhgVYA=&xsec_source=pc_search",
+      "action": "做一碗番茄浓汤面",
+      "category": "美食",
+      "duration": 45,
+      "materials": "番茄、鸡蛋、面条、调味料",
+      "open": "12:00",
+      "close": "14:00"
+    },
+    {
+      "id": "craft",
+      "sourceTitle": "教你用A4纸，折个超大容量的长方形收纳盒",
+      "author": "到车请故意",
+      "url": "https://www.xiaohongshu.com/explore/6abcdce9000000000b004ef1?xsec_token=AB3DoZ6JpGkRK1prwwmgG_cyhwyn0axjU2PSWSgh9RPFE=&xsec_source=pc_search",
+      "action": "折一个桌面收纳盒",
+      "category": "手作",
+      "duration": 30,
+      "materials": "A4 纸"
+    }
+  ]
+}

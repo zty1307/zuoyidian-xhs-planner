@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="把小红书里想尝试的事，安排进空闲时间。" />
+    <title>做一点 · 收藏夹落地器</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./demo-notes.js"></script>
+    <script defer src="./planner.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="做一点首页">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 4h10a1 1 0 0 1 1 1v15l-6-4-6 4V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9 9 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>做一点</span>
+        </a>
+        <label class="search-box"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><input id="searchInput" type="search" placeholder="搜索收藏" aria-label="搜索收藏" /></label>
+        <div class="header-actions">
+          <button id="addBtn" class="button button-dark" type="button"><span aria-hidden="true">＋</span> 添加收藏</button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="workspace" aria-label="收藏与计划工作台">
+          <div class="collection-column">
+            <div class="section-heading">
+              <div>
+                <h1>收藏 <span id="collectionCount" class="count-pill">0</span></h1>
+              </div>
+              <div class="view-filters" role="group" aria-label="收藏状态"><button class="filter active" data-filter="all" type="button">全部</button><button class="filter" data-filter="selected" type="button">已选 <span id="selectedCount">0</span></button><button class="filter" data-filter="unready" type="button">待准备 <span id="unreadyCount">0</span></button></div>
+            </div>
+            <div id="categoryFilters" class="filter-bar" role="group" aria-label="收藏分类"></div>
+            <div id="collectionList" class="collection-list" aria-live="polite"></div>
+          </div>
+
+          <aside class="plan-column" aria-labelledby="planTitle">
+            <div class="plan-panel">
+              <div class="plan-heading"><h2 id="planTitle">计划</h2><button id="exportBtn" class="export-link" type="button" aria-label="导出文字计划">导出 <span aria-hidden="true">↗</span></button></div>
+              <label class="field date-field"><span>日期</span><input id="planDate" type="date" /></label>
+              <div class="time-range"><input id="startTime" type="time" value="10:00" aria-label="开始时间" /><span>—</span><input id="endTime" type="time" value="13:00" aria-label="结束时间" /></div>
+              <details class="plan-settings"><summary>安排设置</summary><label class="compact-field">最多安排 <select id="maxTasks"><option value="2">2 件</option><option value="3">3 件</option><option value="4" selected>4 件</option><option value="6">6 件</option></select></label>
+              <div class="options-row">
+                <label class="compact-field">间隔 <select id="restBuffer"><option value="0">无</option><option value="5">5 分钟</option><option value="10" selected>10 分钟</option><option value="15">15 分钟</option></select></label>
+                <label id="travelOption" class="compact-field">出门通勤 <select id="travelBuffer"><option value="15">15 分钟</option><option value="25" selected>25 分钟</option><option value="40">40 分钟</option></select></label>
+              </div>
+              <label id="rainOption" class="switch-field rain-option" hidden><input id="rainToggle" type="checkbox" /><span class="switch-track"></span><span>下雨，跳过户外</span></label>
+              </details><button id="planBtn" class="button button-coral plan-button" type="button">安排一下</button>
+
+              <div id="planResult" aria-live="polite"></div>
+              <div id="planNotes" class="plan-notes"></div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="addDialog" class="add-dialog" aria-labelledby="dialogTitle">
+      <form id="addForm" novalidate>
+        <div class="dialog-head"><h2 id="dialogTitle">添加收藏</h2><button id="closeDialogBtn" class="icon-button" type="button" aria-label="关闭">×</button></div>
+        <div class="paste-box"><label for="shareText">小红书分享文案</label><textarea id="shareText" rows="2" placeholder="粘贴链接或分享文案"></textarea><button id="parseShareBtn" class="text-button" type="button">提取标题与链接</button></div>
+        <div class="dialog-grid">
+          <label class="field wide"><span>想做什么 <b>*</b></span><input name="title" maxlength="60" placeholder="例如：跟着教程试一次低盘发" required /></label>
+          <label class="field"><span>类型</span><select name="category"><option>美妆</option><option>发型</option><option>美食</option><option>手作</option><option>运动</option><option>学习</option><option>出门</option><option>其他</option></select></label>
+          <label class="field"><span>大约需要（分钟）</span><input name="duration" type="number" min="5" max="720" step="5" value="30" required /></label>
+          <label class="field wide"><span>在哪里做</span><select id="activityMode" name="mode"><option value="home">在家</option><option value="out">出门</option><option value="any">不限地点</option></select></label>
+          <label class="field wide"><span>需要准备（可选）</span><input name="materials" maxlength="120" placeholder="例如：发圈、发夹、镜子" /></label>
+          <label class="inline-check wide"><input name="prepared" type="checkbox" checked /> 已经准备好，可以开始</label>
+          <label class="field wide"><span>小红书笔记链接</span><input name="url" type="url" placeholder="https://xhslink.com/..." /></label>
+          <input name="sourceTitle" type="hidden" /><input name="author" type="hidden" />
+        </div>
+        <div id="locationFields" class="location-fields" hidden>
+          <div class="dialog-grid"><label class="field"><span>区域（可选）</span><input name="area" maxlength="20" placeholder="例如：静安" /></label><label class="field"><span>具体地点（可选）</span><input name="address" maxlength="100" placeholder="出门前确认" /></label></div>
+          <div class="dialog-checks"><label><input name="outdoor" type="checkbox" /> 户外活动</label><label><input name="reservation" type="checkbox" /> 需要预约</label></div>
+        </div>
+        <details id="advancedFields" class="advanced-fields"><summary>时间与先后顺序（可选）</summary><div class="dialog-grid"><label class="field"><span>最早开始</span><input name="open" type="time" /></label><label class="field"><span>最晚结束</span><input name="close" type="time" /></label><label class="field wide"><span>先做完这件事</span><select name="afterId"><option value="">没有先后要求</option></select></label></div><label class="inline-check"><input name="weekendsOnly" type="checkbox" /> 只能周末做</label></details>
+        <label class="inline-check priority-check"><input name="priority" type="checkbox" /> 这次特别想做</label>
+        <p id="formError" class="form-error" role="alert"></p>
+        <div class="dialog-actions"><button id="cancelDialogBtn" class="button button-quiet" type="button">取消</button><button id="dialogSubmitBtn" class="button button-coral" type="submit">存进想做清单 →</button></div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
